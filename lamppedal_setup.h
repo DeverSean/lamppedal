@@ -1,3 +1,11 @@
+/*****************************************************************************
+lamppedal_setup.h
+*****************************************************************************/
 
-extern void clock_setup(void);
-extern void exti_setup(void);
+#ifndef LAMPPEDALSETUP_H_INCLUDED
+#define LAMPPEDALSETUP_H_INCLUDED
+
+void clock_setup(void);
+void exti_setup(void);
+
+#endif /*LAMPPEDALSETUP_H_INCLUDED*/
