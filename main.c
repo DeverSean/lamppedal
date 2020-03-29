@@ -1,51 +1,51 @@
-/*
- * This file is part of the libopencm3 project.
- *
- * Copyright (C) 2009 Uwe Hermann <uwe@hermann-uwe.de>,
- * Copyright (C) 2010 Piotr Esden-Tempski <piotr@esden.net>
- *
- * This library is free software: you can redistribute it and/or modify
- * it under the terms of the GNU Lesser General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU Lesser General Public License for more details.
- *
- * You should have received a copy of the GNU Lesser General Public License
- * along with this library.  If not, see <http://www.gnu.org/licenses/>.
- */
+/*****************************************************************************
+* main.c
+*
+* Entrance into the lamppedal application.
+*****************************************************************************/
 
-
-/* Includes*/
+/*****************************************************************************
+* Includes
+*****************************************************************************/
 #include <libopencm3/stm32/rcc.h>
 #include <libopencm3/stm32/gpio.h>
 #include <libopencm3/cm3/nvic.h>
 #include <libopencm3/stm32/exti.h>
 #include <libopencm3/stm32/timer.h>
 #include <libopencm3/stm32/adc.h>
+#include <libopencm3/stm32/rcc.h>
 
 #include "lamppedal_setup.h"
 
-/* Defines */
+/*****************************************************************************
+* Defines
+*****************************************************************************/
 #define FALLING 0
 #define RISING 1
 
-int myTicks = 0;
-
-/* Function prototypes */
+/*****************************************************************************
+* Function Prototypes
+*****************************************************************************/
 static uint16_t read_adc(uint8_t channel);
 
+/*****************************************************************************
+* Data
+*****************************************************************************/
+int myTicks = 0;
 
-/* Set STM32 to 72 MHz. 
-static void clock_setup(void)
-{
-  rcc_clock_setup_in_hse_8mhz_out_72mhz();
-}
-*/
+/*****************************************************************************
+* Code 
+*****************************************************************************/
 
+/*----------------------------------------------------------------------------
+@function: gpio_setup
+
+@brief:    A function for configuring GPIO
+
+@params:   none
+
+@returns:  none
+----------------------------------------------------------------------------*/
 static void gpio_setup(void)
 {
   /* Enable GPIOC clock. */
@@ -56,6 +56,15 @@ static void gpio_setup(void)
 		GPIO_CNF_OUTPUT_PUSHPULL, GPIO5);
 }
 
+/*-----------------------------------------------------------------------------
+@function: tim_setup
+
+@brief:    a function for configuring timers (TODO: What is the timer used for?)
+
+@params:   none
+
+@returns:  none
+-----------------------------------------------------------------------------*/
 static void tim_setup(void)
 {
   /* Enable TIM2 clock. */
@@ -94,8 +103,15 @@ static void tim_setup(void)
   timer_enable_irq(TIM2, TIM_DIER_CC1IE);
 }
 
+/*-----------------------------------------------------------------------------
+@function: adc_setup
 
+@brief:    a function for configuring the adc.
 
+@params:   none
+
+@returns:  none
+-----------------------------------------------------------------------------*/
 static void adc_setup(void){
   /* Set GPIOA/GPIO1 to ADC input */
 
@@ -123,12 +139,19 @@ static void adc_setup(void){
 
 }
 
+/*-----------------------------------------------------------------------------
+@function: exti0_isr 
 
+@brief:    the interrupt service reoutine for exti0 (TODO: what is exti0?) 
 
+@params:   none
+
+@returns:  none
+-----------------------------------------------------------------------------*/
 void exti0_isr(void)
 {
   
-  uint16_t zero_cross_error = 8;
+  uint16_t zero_cross_error = 8; //Could use a const or #define
   
   exti_reset_request(EXTI0);
 
@@ -152,6 +175,15 @@ void exti0_isr(void)
   timer_set_oc_value(TIM2, TIM_OC1, new_time);
 }
 
+/*-----------------------------------------------------------------------------
+@funtion: tim2_isr
+
+@brief:   the interrupt service routine for timer 2
+
+@params:  none
+
+@returns: none
+-----------------------------------------------------------------------------*/
 void tim2_isr(void)
 {
   if (timer_get_flag(TIM2, TIM_SR_CC1IF))
@@ -170,20 +202,34 @@ void tim2_isr(void)
   }
 }
 
-/***************************************************************                  
- * Read ADC Channel                                                           
- ***************************************************************/
-static uint16_t
-read_adc(uint8_t channel) {
+/*-----------------------------------------------------------------------------
+@function: read ADC channel
 
+@brief:    read a sample value from the ADC peripheral
+
+@params:   uint8_t channel - the adc channel to be read
+
+@returns:  uint16_t - the value returned from adc_read_regular
+-----------------------------------------------------------------------------*/
+static uint16_t read_adc(uint8_t channel) 
+{
   adc_set_sample_time(ADC1,channel,ADC_SMPR_SMP_239DOT5CYC);
   adc_set_regular_sequence(ADC1,1,&channel);
   adc_start_conversion_direct(ADC1);
   while ( !adc_eoc(ADC1) ){}
   //taskYIELD();
-  return adc_read_regular(ADC1);
+  return adc_read_regular(ADC1);//what if this returns an error? 
 }
 
+/*-----------------------------------------------------------------------------
+@function: main
+
+@brief:    The entry point into the lamppedal application
+
+@params:   none
+
+@returns:  int - the return value of the application (should never return)
+-----------------------------------------------------------------------------*/
 int main(void)
 {
   clock_setup();
@@ -194,6 +240,6 @@ int main(void)
   gpio_set(GPIOB,GPIO5);
   while (1)
     __asm("nop");
-
+  
   return 0;
 }
