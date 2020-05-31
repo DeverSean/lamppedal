@@ -7,6 +7,9 @@
 /*****************************************************************************
 * Includes
 *****************************************************************************/
+#include <stdint.h>
+#include <stdio.h>
+
 #include <libopencm3/stm32/rcc.h>
 #include <libopencm3/stm32/gpio.h>
 #include <libopencm3/cm3/nvic.h>
@@ -16,7 +19,8 @@
 #include <libopencm3/stm32/rcc.h>
 
 #include "lamppedal_setup.h"
-
+#include "lamppedal_adc.h"
+#include "lamppedal_uart.h"
 /*****************************************************************************
 * Defines
 *****************************************************************************/
@@ -26,7 +30,6 @@
 /*****************************************************************************
 * Function Prototypes
 *****************************************************************************/
-static uint16_t read_adc(uint8_t channel);
 
 /*****************************************************************************
 * Data
@@ -51,7 +54,7 @@ static void gpio_setup(void)
   /* Enable GPIOC clock. */
   rcc_periph_clock_enable(RCC_GPIOB);
 
-  /* Set GPIO12 (in GPIO port C) to 'output push-pull'. */
+  /* Set GPIO12 (in GPIO port B) to 'output push-pull'. */
   gpio_set_mode(GPIOB, GPIO_MODE_OUTPUT_50_MHZ,
 		GPIO_CNF_OUTPUT_PUSHPULL, GPIO5);
 }
@@ -101,42 +104,6 @@ static void tim_setup(void)
 
   /* Enable Channel 1 compare interrupt to recalculate compare values */
   timer_enable_irq(TIM2, TIM_DIER_CC1IE);
-}
-
-/*-----------------------------------------------------------------------------
-@function: adc_setup
-
-@brief:    a function for configuring the adc.
-
-@params:   none
-
-@returns:  none
------------------------------------------------------------------------------*/
-static void adc_setup(void){
-  /* Set GPIOA/GPIO1 to ADC input */
-
-  gpio_set_mode(GPIOA,
-                GPIO_MODE_INPUT,
-                GPIO_CNF_INPUT_ANALOG,
-                GPIO1);  
-
-  rcc_peripheral_enable_clock(&RCC_APB2ENR,RCC_APB2ENR_ADC1EN);
-  adc_power_off(ADC1);
-  rcc_peripheral_reset(&RCC_APB2RSTR,RCC_APB2RSTR_ADC1RST);
-  rcc_peripheral_clear_reset(&RCC_APB2RSTR,RCC_APB2RSTR_ADC1RST);
-  rcc_set_adcpre(RCC_CFGR_ADCPRE_PCLK2_DIV6);     // Set. 12MHz, Max. 14MHz
-  adc_set_dual_mode(ADC_CR1_DUALMOD_IND);         // Independent mode
-  adc_disable_scan_mode(ADC1);
-  adc_set_right_aligned(ADC1);
-  adc_set_single_conversion_mode(ADC1);
-  adc_set_sample_time(ADC1,ADC_CHANNEL_TEMP,ADC_SMPR_SMP_239DOT5CYC);
-  adc_set_sample_time(ADC1,ADC_CHANNEL_VREF,ADC_SMPR_SMP_239DOT5CYC);
-  adc_enable_temperature_sensor();
-  adc_power_on(ADC1);
-  adc_reset_calibration(ADC1);
-  adc_calibrate_async(ADC1);
-  while ( adc_is_calibrating(ADC1) );
-
 }
 
 /*-----------------------------------------------------------------------------
@@ -203,25 +170,6 @@ void tim2_isr(void)
 }
 
 /*-----------------------------------------------------------------------------
-@function: read ADC channel
-
-@brief:    read a sample value from the ADC peripheral
-
-@params:   uint8_t channel - the adc channel to be read
-
-@returns:  uint16_t - the value returned from adc_read_regular
------------------------------------------------------------------------------*/
-static uint16_t read_adc(uint8_t channel) 
-{
-  adc_set_sample_time(ADC1,channel,ADC_SMPR_SMP_239DOT5CYC);
-  adc_set_regular_sequence(ADC1,1,&channel);
-  adc_start_conversion_direct(ADC1);
-  while ( !adc_eoc(ADC1) ){}
-  //taskYIELD();
-  return adc_read_regular(ADC1);//what if this returns an error? 
-}
-
-/*-----------------------------------------------------------------------------
 @function: main
 
 @brief:    The entry point into the lamppedal application
@@ -234,12 +182,39 @@ int main(void)
 {
   clock_setup();
   gpio_setup();
-  tim_setup();
-  exti_setup();
-  adc_setup();
+  // tim_setup();
+  // exti_setup();
   gpio_set(GPIOB,GPIO5);
-  while (1)
-    __asm("nop");
-  
+
+  adc_setup();
+  uart_task_init(NULL);//Don't save handle to task for now
+
+
+
   return 0;
+}
+
+/*-----------------------------------------------------------------------------
+@function: main
+
+@brief:    The entry point into the lamppedal application
+
+@params:   none
+
+@returns:  int - the return value of the application (should never return)
+-----------------------------------------------------------------------------*/
+static void data_logger_task(void)
+{
+  uint8_t  err = 0;
+  uint16_t uwAdcVal;
+  char     aChar[48];
+
+  while(1)
+  {
+    vTaskDelay(pdMS_TO_TICKS(10));
+
+    uwAdcVal = read_adc(3);
+    sprintf(aChar, %0d, uwAdcVal);
+    err = uart_puts(aChar);
+  }
 }
