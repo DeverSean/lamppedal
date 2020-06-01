@@ -12,6 +12,8 @@
 #include <libopencm3/stm32/adc.h>
 #include <libopencm3/stm32/rcc.h>
 #include <libopencm3/stm32/gpio.h>
+
+#include "lamppedal_adc.h"
 /*****************************************************************************
 * Private Data / Defined Constants
 *****************************************************************************/
@@ -34,7 +36,7 @@
 
 @returns:  None
 ----------------------------------------------------------------------------*/
-void adc_setup()
+void adc_setup(void)
 {
 
   /* Set GPIOA/GPIO1 to ADC input */

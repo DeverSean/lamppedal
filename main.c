@@ -18,19 +18,26 @@
 #include <libopencm3/stm32/adc.h>
 #include <libopencm3/stm32/rcc.h>
 
+#include <FreeRTOS.h>
+#include <task.h>
+#include <queue.h>
+
 #include "lamppedal_setup.h"
 #include "lamppedal_adc.h"
 #include "lamppedal_uart.h"
 /*****************************************************************************
-* Defines
+* Defines / Private Data
 *****************************************************************************/
+static QueueHandle_t hUartTxq;
+
 #define FALLING 0
 #define RISING 1
 
 /*****************************************************************************
 * Function Prototypes
 *****************************************************************************/
-
+static void data_logger_task(void *arg __attribute((unused)));
+void tim_setup(void);
 /*****************************************************************************
 * Data
 *****************************************************************************/
@@ -53,10 +60,20 @@ static void gpio_setup(void)
 {
   /* Enable GPIOC clock. */
   rcc_periph_clock_enable(RCC_GPIOB);
+  rcc_periph_clock_enable(RCC_GPIOC);
 
   /* Set GPIO12 (in GPIO port B) to 'output push-pull'. */
-  gpio_set_mode(GPIOB, GPIO_MODE_OUTPUT_50_MHZ,
-		GPIO_CNF_OUTPUT_PUSHPULL, GPIO5);
+  gpio_set_mode(GPIOB,
+                GPIO_MODE_OUTPUT_50_MHZ,
+		            GPIO_CNF_OUTPUT_PUSHPULL,
+                GPIO5);
+  
+  /* Configure GPIO C 13 (GRN LED)*/
+  gpio_set_mode(GPIOC,
+                GPIO_MODE_OUTPUT_2_MHZ,
+                GPIO_CNF_OUTPUT_PUSHPULL,
+                GPIO13);
+  gpio_clear(GPIOC, GPIO13);
 }
 
 /*-----------------------------------------------------------------------------
@@ -68,7 +85,7 @@ static void gpio_setup(void)
 
 @returns:  none
 -----------------------------------------------------------------------------*/
-static void tim_setup(void)
+void tim_setup(void)
 {
   /* Enable TIM2 clock. */
   rcc_periph_clock_enable(RCC_TIM2);
@@ -184,13 +201,17 @@ int main(void)
   gpio_setup();
   // tim_setup();
   // exti_setup();
-  gpio_set(GPIOB,GPIO5);
+  //gpio_set(GPIOB,GPIO5);
 
   adc_setup();
-  uart_task_init(NULL);//Don't save handle to task for now
-
-
-
+  uart_task_init(NULL, hUartTxq);//Don't save handle to task for now
+  xTaskCreate(data_logger_task, "data_logger_task", 100, NULL, configMAX_PRIORITIES-1, NULL); 
+  
+  vTaskStartScheduler();
+  while(1)
+  {
+    // Do Nothing - should never get here
+  }
   return 0;
 }
 
@@ -201,20 +222,18 @@ int main(void)
 
 @params:   none
 
-@returns:  int - the return value of the application (should never return)
+@returns:  none 
 -----------------------------------------------------------------------------*/
-static void data_logger_task(void)
+static void data_logger_task(void *arg __attribute((unused)))
 {
-  uint8_t  err = 0;
-  uint16_t uwAdcVal;
   char     aChar[48];
 
   while(1)
   {
-    vTaskDelay(pdMS_TO_TICKS(10));
+    vTaskDelay(pdMS_TO_TICKS(100));
 
-    uwAdcVal = read_adc(3);
-    sprintf(aChar, %0d, uwAdcVal);
-    err = uart_puts(aChar);
+    sprintf(aChar, "%u", read_adc(3));
+    uart_puts(aChar, hUartTxq);
+    gpio_toggle(GPIOC, GPIO13);
   }
 }

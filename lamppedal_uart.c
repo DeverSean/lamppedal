@@ -10,23 +10,22 @@
 #include <queue.h>
 
 #include <libopencm3/stm32/rcc.h>
-#include <libopencm3/stm342/usart.h>
+#include <libopencm3/stm32/usart.h>
 #include <libopencm3/stm32/gpio.h>
 
 #include "lamppedal_uart.h"
 /*****************************************************************************
 * Private Data / Defined Constants
 *****************************************************************************/
-static QueueHandle_t uart_txq;
-
-#define DATA_BITS 8
-#define STOP_BITS 1
+#define QUEUE_SIZE 256
+#define DATA_BITS  8
+#define STOP_BITS  1
 
 /*****************************************************************************
 * Private Prototypes
 *****************************************************************************/
 static void uart_setup(uint8_t bBusNum, uint32_t uBaud);
-static void usart_task(void);
+static void uart_task(void *arg __attribute((unused)));
 
 /*****************************************************************************
 * Code
@@ -38,16 +37,19 @@ static void usart_task(void);
 @brief:    A function for creating a uart
 
 @params:   - pxTask, a handle to the created task (upon exit)
+           - hUartTxq, a handle to the uart message queue 
 
 @returns:  - err, error indication for task creation
 ----------------------------------------------------------------------------*/
-int8_t uart_task_init(TaskHandle_t *pxTask)
+int8_t uart_task_init(TaskHandle_t *pxTask, QueueHandle_t hUartTxq)
 {
   int8_t err = 0;
+  //TODO fix unused arg warning
+  uart_setup(1, 38400);
+  
+  hUartTxq = xQueueCreate(QUEUE_SIZE, sizeof(uint8_t));
 
-  usart_setup(1, 38400);
-
-  err = xTaskCreate(uart_task, "UART", 100. NULL, configMAX_PRIORITIES-1, pxTask);
+  err = xTaskCreate(uart_task, "UART", 100, (void *)hUartTxq, configMAX_PRIORITIES-1, pxTask);
 
   return err;
 }
@@ -67,7 +69,6 @@ static void uart_setup(uint8_t bBusNum, uint32_t uBaud)
   if (bBusNum == 1)
   {
     rcc_periph_clock_enable(RCC_GPIOA);  //usart tx pin clock
-    rcc_periph_clock_enable(RCC_GPIOC);  //led glock
     rcc_periph_clock_enable(RCC_USART1); //usart peripheral clock
 
     // Set up TX pin on PA9
@@ -91,11 +92,6 @@ static void uart_setup(uint8_t bBusNum, uint32_t uBaud)
     assert(0);
   }
 
-  /* Configure GPIO C 13 (GRN LED)*/
-  gpio_set_mode(GPIOC,
-                GPIO_MODE_OUTPUT_2_MHZ,
-                GPIO_CNF_OUTPUT_PUSHPULL,
-                GPIO13);
 }
 
 /*----------------------------------------------------------------------------
@@ -107,13 +103,15 @@ static void uart_setup(uint8_t bBusNum, uint32_t uBaud)
 
 @returns:  None
 ----------------------------------------------------------------------------*/
-static void usart_task(void)
+static void uart_task(void *pArg)
 {
   uint8_t uChar;
-
+  
   while (1)
   {
-    if (xQueueReceive(uart_txq, &uChar, 500) == pdPASS)
+    vTaskDelay(pdMS_TO_TICKS(100));
+    
+    if (xQueueReceive((QueueHandle_t)pArg, &uChar, 500) == pdPASS)
     {
       //Wait for usart to be ready
       while (usart_get_flag(USART1, USART_SR_TXE) == 0)
@@ -121,8 +119,7 @@ static void usart_task(void)
         taskYIELD();
       }
 
-      usart_send(USART1, ch);
-      gpio_toggle(GPIOC, GPIO13);
+      usart_send(USART1, uChar);
     }
   }
 }
@@ -137,13 +134,13 @@ static void usart_task(void)
 
 @returns:  None
 ----------------------------------------------------------------------------*/
-uint8_t uart_puts(const char *pStr)
+uint8_t uart_puts(const char *pStr, QueueHandle_t hUartTxq)
 {
   uint8_t err = 0;
 
-  for (; *s; ++s)
+  for (; *pStr; ++pStr)
   {
-    err = xQueueSend(uart_txq, s, 0);
+    err = xQueueSend(hUartTxq, pStr, 0);
   }
 
   return err;

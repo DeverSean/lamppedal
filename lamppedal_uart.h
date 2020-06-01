@@ -13,6 +13,6 @@
 /*****************************************************************************
 * Public Prototypes
 *****************************************************************************/
-int8_t uart_task_init(TaskHandle_t *pxTask);
-uint8_t uart_puts(const char *pStr);
+int8_t uart_task_init(TaskHandle_t *pxTask, QueueHandle_t hUartTxq);
+uint8_t uart_puts(const char *pStr, QueueHandle_t hUartTxq);
 #endif //LAMPPEDAL_UART_H_INCLUDED
