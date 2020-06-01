@@ -1,0 +1,14 @@
+# Debug command file (GDB commands)
+
+# Provide symbols for readability
+file main.elf
+
+# Attach to target
+target extended-remote :4242
+
+# Relevant breakpoints
+break main
+break uart_task_init
+
+# Run it
+run
