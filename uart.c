@@ -6,12 +6,15 @@
 #include <stdint.h>
 #include <assert.h>
 
-
 #include <FreeRTOS.h>
 #include <task.h>
 #include <queue.h>
 
+#include "uart.h"
+
 #include <libopencm3/stm32/usart.h>
+#include <libopencm3/stm32/rcc.h>
+#include <libopencm3/stm32/gpio.h>
 /*********************************************************************
  * Configure and initialize USART1:
  *********************************************************************/
@@ -27,7 +30,7 @@ void uart_setup(QueueHandle_t *phTxQueue)
 		GPIO_CNF_OUTPUT_ALTFN_PUSHPULL,
 		GPIO_USART1_TX);
 
-	usart_set_baudrate(USART1,38400);
+	usart_set_baudrate(USART1,230400);
 	usart_set_databits(USART1,8);
 	usart_set_stopbits(USART1,USART_STOPBITS_1);
 	usart_set_mode(USART1,USART_MODE_TX);
@@ -49,11 +52,11 @@ void uart_task(void *pArg)
   char ch;
   
   assert(pArg);
-
-  for (;;)
+  QueueHandle_t hUartTxQueue = *(QueueHandle_t *)pArg;
+  while(1)
   {
     // Receive char to be TX
-    if (xQueueReceive((QueueHandle_t)*pArg, &ch, 500) == pdPASS)
+    if (xQueueReceive(hUartTxQueue, &ch, 200) == pdPASS)
     {
       while (!usart_get_flag(USART1, USART_SR_TXE))
         taskYIELD(); // Yield until ready
