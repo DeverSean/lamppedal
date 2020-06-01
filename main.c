@@ -4,118 +4,67 @@
 * Entrance into the lamppedal application.
 *****************************************************************************/
 
-/*****************************************************************************
-* Includes
-*****************************************************************************/
-#include <stdint.h>
-#include <stdio.h>
-
-#include <libopencm3/stm32/rcc.h>
-#include <libopencm3/stm32/gpio.h>
-#include <libopencm3/cm3/nvic.h>
-#include <libopencm3/stm32/exti.h>
-#include <libopencm3/stm32/timer.h>
-#include <libopencm3/stm32/adc.h>
-#include <libopencm3/stm32/rcc.h>
-
+/* Task based UART demo, using queued communication.
+ *
+ *	TX:	A9  ====> RX of TTL serial
+ *	RX:	A10 <==== TX of TTL serial (not used)
+ *	CTS:	A11 (not used)
+ *	RTS:	A12 (not used)
+ *	Config:	8N1
+ *	Baud:	38400
+ * Caution:
+ *	Not all GPIO pins are 5V tolerant, so be careful to
+ *	get the wiring correct.
+ */
 #include <FreeRTOS.h>
 #include <task.h>
 #include <queue.h>
 
-#include "lamppedal_setup.h"
-#include "lamppedal_adc.h"
-#include "lamppedal_uart.h"
+#include <libopencm3/stm32/rcc.h>
+#include <libopencm3/stm32/gpio.h>
 
-/*****************************************************************************
-* Defines / Private Data
-*****************************************************************************/
-static QueueHandle_t m_hMessageQueue;
+#include "uart.h"
 
-#define FALLING 0
-#define RISING 1
+static QueueHandle_t hUartTxq; // TX queue for UART
 
-/*****************************************************************************
-* Function Prototypes
-*****************************************************************************/
-static void data_logger_task(void *pArg __attribute__((unused)));
-
-/*****************************************************************************
-* Data
-*****************************************************************************/
-int myTicks = 0;
-
-/*****************************************************************************
-* Code 
-*****************************************************************************/
-
-/*----------------------------------------------------------------------------
-@function: gpio_setup
-
-@brief:    A function for configuring GPIO
-
-@params:   none
-
-@returns:  none
-----------------------------------------------------------------------------*/
-static void gpio_setup(void)
+/*********************************************************************
+ * Demo Task:
+ *	Simply queues up two line messages to be TX, one second
+ *	apart.
+ *********************************************************************/
+static void demo_task(void *args __attribute__((unused)))
 {
-  /* Enable GPIOC clock. */
-  rcc_periph_clock_enable(RCC_GPIOB);
-
-  /* Set GPIO12 (in GPIO port B) to 'output push-pull'. */
-  gpio_set_mode(GPIOB, GPIO_MODE_OUTPUT_50_MHZ,
-		GPIO_CNF_OUTPUT_PUSHPULL, GPIO5);
-}
-
-/*-----------------------------------------------------------------------------
-@function: main
-
-@brief:    The entry point into the lamppedal application
-
-@params:   none
-
-@returns:  int - the return value of the application (should never return)
------------------------------------------------------------------------------*/
-int main(void)
-{
-  clock_setup();
-  gpio_setup();
-  // tim_setup();
-  // exti_setup();
-  gpio_set(GPIOB,GPIO5);
-
-  //adc_setup();
-  uart_task_init(NULL, *m_hMessageQueue); //Don't save handle to task for now
-  assert(xTaskCreate(data_logger_task, "data_logger", 100, NULL, configMAX_PRIORITIES-1, NULL) == 0);
-
-  vTaskStartScheduler();
-
-  while(1){}
-  
-  return 0;
-}
-
-/*-----------------------------------------------------------------------------
-@function: main
-
-@brief:    The entry point into the lamppedal application
-
-@params:   none
-
-@returns:  int - the return value of the application (should never return)
------------------------------------------------------------------------------*/
-static void data_logger_task(void *pArg __attribute__((unused)))
-{
-  uint8_t  err = 0;
-  //uint16_t uwAdcVal;
-  char    *aChar = "Test String\n";
-
   while(1)
   {
-    vTaskDelay(pdMS_TO_TICKS(10));
-
-    //uwAdcVal = read_adc(3);
-    //sprintf(aChar, %0d, uwAdcVal);
-    err = uart_puts(aChar);
+    uart_puts("Now this is a message..\n\r", hUartTxq);
+    uart_puts("  sent via FreeRTOS queues.\n\n\r", hUartTxq);
+    vTaskDelay(pdMS_TO_TICKS(1000));
   }
+}
+
+/*********************************************************************
+ * Main program & scheduler:
+ *********************************************************************/
+int main(void)
+{
+
+  rcc_clock_setup_in_hse_8mhz_out_72mhz(); // CPU clock is 72 MHz
+
+  // GPIO PC13:
+  rcc_periph_clock_enable(RCC_GPIOC);
+  gpio_set_mode(
+      GPIOC,
+      GPIO_MODE_OUTPUT_2_MHZ,
+      GPIO_CNF_OUTPUT_PUSHPULL,
+      GPIO13);
+
+  uart_setup(&hUartTxq);
+
+  xTaskCreate(uart_task, "UART", 100, &hUartTxq, configMAX_PRIORITIES - 1, NULL);
+  xTaskCreate(demo_task, "DEMO", 100, NULL, configMAX_PRIORITIES - 1, NULL);
+
+  vTaskStartScheduler();
+  while(1){}
+
+  return 0;
 }
