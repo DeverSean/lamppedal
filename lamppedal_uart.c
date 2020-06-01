@@ -17,10 +17,9 @@
 /*****************************************************************************
 * Private Data / Defined Constants
 *****************************************************************************/
-static QueueHandle_t uart_txq;
-
-#define DATA_BITS 8
-#define STOP_BITS 1
+#define QUEUE_SIZE 256
+#define DATA_BITS  8
+#define STOP_BITS  1
 
 /*****************************************************************************
 * Private Prototypes
@@ -41,13 +40,16 @@ static void usart_task(void);
 
 @returns:  - err, error indication for task creation
 ----------------------------------------------------------------------------*/
-int8_t uart_task_init(TaskHandle_t *pxTask)
+int8_t uart_task_init(TaskHandle_t *pxTask, QueueHandle_t *hTxQueue)
 {
   int8_t err = 0;
 
-  usart_setup(1, 38400);
+  uart_setup(1, 38400);
 
   err = xTaskCreate(uart_task, "UART", 100. NULL, configMAX_PRIORITIES-1, pxTask);
+  assert(!err);
+
+  *hTxQueue = xQueueCreate(QUEUE_SIZE, sizeof(uint8_t));
 
   return err;
 }
@@ -107,13 +109,15 @@ static void uart_setup(uint8_t bBusNum, uint32_t uBaud)
 
 @returns:  None
 ----------------------------------------------------------------------------*/
-static void usart_task(void)
+static void usart_task(void *pArg)
 {
   uint8_t uChar;
 
+  assert(pArg);
+
   while (1)
   {
-    if (xQueueReceive(uart_txq, &uChar, 500) == pdPASS)
+    if (xQueueReceive((QueueHandle_t)pArg, &uChar, 500) == pdPASS)
     {
       //Wait for usart to be ready
       while (usart_get_flag(USART1, USART_SR_TXE) == 0)
@@ -137,13 +141,16 @@ static void usart_task(void)
 
 @returns:  None
 ----------------------------------------------------------------------------*/
-uint8_t uart_puts(const char *pStr)
+uint8_t uart_puts(const char *pStr, QueueHandle_t hTxQueue)
 {
   uint8_t err = 0;
 
+  assert(pStr);
+  assert(hTxQueue);
+
   for (; *s; ++s)
   {
-    err = xQueueSend(uart_txq, s, 0);
+    err = xQueueSend(hTxQueue, s, 0);
   }
 
   return err;
