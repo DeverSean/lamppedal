@@ -1,0 +1,2101 @@
+[0.000] initConfigParams():  Configuration flags start
+[0.000] initConfigParams():   external-init                  false
+[0.000] initConfigParams():   pend-halt-timeout              (null)
+[0.000] initConfigParams():   halt                           false
+[0.000] initConfigParams():   config-file                    ""
+[0.000] initConfigParams():   persistent                     false
+[0.000] initConfigParams():  +log-file                       "C:\Users\seanp\STM32CubeIDE\workspace_1.7.0\Lamp Pedal 02_24\Debug\st-link_gdbserver_log.txt"
+[0.000] initConfigParams():  +log-level                      31
+[0.000] initConfigParams():  +port-number                    61234
+[0.000] initConfigParams():  +verbose                        true
+[0.000] initConfigParams():   refresh-delay                  15
+[0.000] initConfigParams():  +verify                         true
+[0.000] initConfigParams():  +swd                            true
+[0.000] initConfigParams():   swo-port                       61234
+[0.000] initConfigParams():   cpu-clock                      8000000
+[0.000] initConfigParams():   swo-clock-div                  128
+[0.000] initConfigParams():  +initialize-reset               true
+[0.000] initConfigParams():   debuggers                      false
+[0.000] initConfigParams():  +serial-number                  "57FF6F064986494933381387"
+[0.000] initConfigParams():  +apid                           0
+[0.000] initConfigParams():   attach                         false
+[0.000] initConfigParams():   shared                         false
+[0.000] initConfigParams():   erase-all                      false
+[0.000] initConfigParams():   memory-map                     ""
+[0.000] initConfigParams():   ext-memory-loaders             false
+[0.000] initConfigParams():   extload                        ""
+[0.000] initConfigParams():  +stm32cubeprogrammer-path       "C:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_2.0.0.202105311346\tools\bin"
+[0.000] initConfigParams():   temp-path                      ""
+[0.000] initConfigParams():   preserve-temps                 false
+[0.000] initConfigParams():   frequency                      -1
+[0.000] initConfigParams():   licenses                       false
+[0.000] initConfigParams():   ignore-rest                    false
+[0.000] initConfigParams():   version                        false
+[0.000] initConfigParams():   help                           false
+[0.000] initConfigParams():  Configuration flags end
+[0.000] init():  STMicroelectronics ST-LINK GDB server. Version 5.9.1
+Copyright (c) 2021, STMicroelectronics. All rights reserved.
+[0.008] Device_Initialise():  COM frequency = 4000 kHz
+[0.008] Device_Initialise():  Target connection mode: Under reset
+[0.014] readFromTarget():  Reading ROM table for AP 0 @0xe00fffd0
+[0.017] reset_hw_wtchpt_module():  Hardware watchpoint supported by the target 
+[0.019] Device_Initialise():  ST-LINK Firmware version : V2J38S7
+[0.019] Device_Initialise():  Device ID: 0x410
+[0.020] Device_Initialise():  PC: 0x800047c
+[0.020] Device_GetStatus():  ST-LINK device status: HALT_MODE
+[0.020] Device_Initialise():  ST-LINK detects target voltage = 3.25 V
+[0.020] Device_Initialise():  ST-LINK device status: HALT_MODE
+[0.020] initServerContext():  ST-LINK device initialization OK
+[0.022] WaitConnection():  Waiting for connection on port 61234...
+[0.022] WaitConnection():  Waiting for connection on port 61235...
+[4.270] WaitConnection():  Accepted connection on port 61234...
+[4.270] read():  <644> Rx: +$qSupported:multiprocess+;swbreak+;hwbreak+;qRelocInsn+;fork-events+;vfork-events+;exec-events+;vContSupported+;QThreadEvents+;no-resumed+#df
+[4.286] write():  <644> Tx: +
+[4.286] write():  <644> Tx: $PacketSize=c00;qXfer:memory-map:read+;qXfer:features:read+;QStartNoAckMode+;QNonStop+;qXfer:threads:read+;hwbreak+;swbreak+#f2
+[4.286] read():  <644> Rx: +$vMustReplyEmpty#3a
+[4.302] write():  <644> Tx: +
+[4.302] write():  <644> Tx: $#00
+[4.302] read():  <644> Rx: +$QStartNoAckMode#b0
+[4.318] write():  <644> Tx: +
+[4.318] write():  <644> Tx: $OK#9a
+[4.318] read():  <644> Rx: +
+[4.318] read():  <644> Rx: $Hg0#df
+[4.318] write():  <644> Tx: $#00
+[4.318] read():  <644> Rx: $qXfer:features:read:target.xml:0,bfb#75
+[4.318] write():  <644> Tx: $l<?xml version="1.0"?><!-- Copyright (C) 2009, 2010, 2011 Free Software Foundation, Inc.     Copying and distribution of this file, with or without modification,     are permitted in any medium without royalty provided the copyright     notice and this notice are preserved.  --><!DOCTYPE target SYSTEM "gdb-target.dtd"><target><feature name="org.gnu.gdb.arm.m-profile">  <reg name="r0" bitsize="32"/>  <reg name="r1" bitsize="32"/>  <reg name="r2" bitsize="32"/>  <reg name="r3" bitsize="32"/>  <reg name="r4" bitsize="32"/>  <reg name="r5" bitsize="32"/>  <reg name="r6" bitsize="32"/>  <reg name="r7" bitsize="32"/>  <reg name="r8" bitsize="32"/>  <reg name="r9" bitsize="32"/>  <reg name="r10" bitsize="32"/>  <reg name="r11" bitsize="32"/>  <reg name="r12" bitsize="32"/>  <reg name="sp" bitsize="32" type="data_ptr"/>  <reg name="lr" bitsize="32"/>  <reg name="pc" bitsize="32" type="code_ptr"/>  <reg name="xpsr" bitsize="32" regnum="25"/></feature><feature name="org.gnu.gdb.arm.m-system">  <reg name="primask" bitsize="32" regnum="93"/>  <reg name="basepri" bitsize="32" regnum="94"/>  <reg name="faultmask" bitsize="32" regnum="95"/>  <reg name="control" bitsize="32" regnum="96"/>  <reg name="msp" bitsize="32" type="data_ptr" regnum="97"/>  <reg name="psp" bitsize="32" type="data_ptr" regnum="98"/>  </feature></target>#c2
+[4.319] read():  <644> Rx: $QNonStop:1#8d
+[4.319] write():  <644> Tx: $OK#9a
+[4.319] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[4.319] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[4.319] read():  <644> Rx: $qAttached#8f
+[4.319] write():  <644> Tx: $1#31
+[4.319] read():  <644> Rx: $qTStatus#49
+[4.319] write():  <644> Tx: $#00
+[4.319] read():  <644> Rx: $?#3f
+[4.320] write():  <644> Tx: $T05thread:1;core:0;#25
+[4.320] read():  <644> Rx: $vStopped#55
+[4.320] write():  <644> Tx: $OK#9a
+[4.320] read():  <644> Rx: $Hg1#e0
+[4.320] write():  <644> Tx: $#00
+[4.320] read():  <644> Rx: $g#67
+[4.325] write():  <644> Tx: $00000000fffffffffdffffff002801405c0000200000000000000000d84f0020000000000000000000000000000000000000000000500020ffffffff7c04000800000001000000000000000000000000000000000050002000000000#a4
+[4.333] read():  <644> Rx: $qXfer:memory-map:read::0,bfb#14
+[4.333] write():  <644> Tx: $l<?xml version="1.0"?>\x0a<!DOCTYPE memory-map\x0a          PUBLIC "+//IDN gnu.org//DTD GDB Memory Map V1.0//EN"\x0a                 "http://sourceware.org/gdb/gdb-memory-map.dtd">\x0a<memory-map>\x0a<memory type="ram" start="0x0" length="0x8000000"/>\x0a<memory type="flash" start="0x8000000" length="0x20000">\x0a<property name="blocksize">0x400</property>\x0a</memory>\x0a<memory type="ram" start="0x8020000" length="0xf7fdffff"/>\x0a</memory-map>#a3
+[4.333] read():  <644> Rx: $m800047c,4#63
+[4.333] handlePacket():  Reading 0x4 bytes of memory from addr 0x800047c 
+[4.334] write():  <644> Tx: $fff7f7ff#d2
+[4.335] read():  <644> Rx: $qSymbol::#5b
+[4.335] write():  <644> Tx: $#00
+[4.336] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[4.336] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[4.336] read():  <644> Rx: $qRcmd,57726974654450203078322030784630#a4
+[4.336] write():  <644> Tx: $4f2e4b2e0a#ef
+[4.350] read():  <644> Rx: $qRcmd,52656164415020307832#29
+[4.350] write():  <644> Tx: $4f2e4b2e3a307865303066663030330a#8a
+[4.365] read():  <644> Rx: $me00fffd0,20#86
+[4.365] handlePacket():  Reading 0x20 bytes of memory from addr 0xe00fffd0 
+[4.366] write():  <644> Tx: $0000000000000000000000000000000010000000040000000a00000000000000#36
+[4.396] read():  <644> Rx: $vFlashErase:08000000,00002000#c4
+[4.396] handleFlashPacket():  FlashErase skipped (Will be performed at flash done)
+[4.396] write():  <644> Tx: $OK#9a
+[4.397] read():  <644> Rx: $vFlashWrite:8000000:\x00P\x00 \xff\x04\x00\x08Q\x04\x00\x08W\x04\x00\x08]\x04\x00\x08c\x04\x00\x08i\x04\x00\x08\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00o\x04\x00\x08{\x04\x00\x08\x00\x00\x00\x00\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\xff\x04\x00\x08\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00_\xff\x08\xff#20
+[4.397] handleFlashPacket():  Flash write: Address= 0x8000000, Length=268
+[4.397] write():  <644> Tx: $OK#9a
+[4.400] read():  <644> Rx: $vFlashWrite:800010c:\x10\xff\x05L}\x03x3\xff\x04K\x13\xff\x04H\xff\xff\x00\xff\x01}\x03}\x03p\x10\xff\x0c\x00\x00 \x00\x00\x00\x008\x1e\x00\x08\x08\xff\x03K\x1b\xff\x03I\x03H\xff\xff\x00\xff\x08\xff\x00\x00\x00\x00\x10\x00\x00 8\x1e\x00\x08\xff\xff\xff\xff\x00\xff\x00\xff\xff\xff\x00\xff\x1b\xff\x00\xff\xff\xff\x00\xffg\xff\x0aH\x00\xff\x02\xffO\xff\xff1\x07H\x00\xff\xff\xff\x06H\x00\xff\xff\xff\x03F\xff\xff\xff\xff\x18F\x00\xff\xff\xff\x03F\xff\xff\xff\xff\x00\xff(\x00\x00 \xff\xff\xff\xff\x00\xff\x07\xff(\x03("\x00!\x18F\x01\xffB\xff\x07\xff\x14\x03\x00"\x1a`Z`\xff`\xff`\x1aa;\x1d\x00"\x1a`Z`\xff`\xff`\x02}\x03\xffb\x01}\x03\xffc\x10}\x03\xffc\x00}\x03{d\x07\xff(\x03\x18F\x01\xff\xff\xff\x03F\x00+\x01\xff\x00\xff\xff\xff\x0f}\x03{a\x00}\x03\xffa\x00}\x03\xffa\x00}\x03;b\x00}\x03{b\x07\xff\x14\x03\x00!\x18F\x01\xff\x08\xff\x03F\x00+\x01\xff\x00\xff\xff\xff\x02}\x03{`\x00}\x03\xff`;\x1d\x18F\x01\xffu\xff\x03F\x00+\x01\xff\x00\xff\xff\xff\x00\xffP7\xffF\xff\xff\xff\xff\xff\xff\x00\xff;\x1d\x00"\x1a`Z`\xff`\x18K\x19J\x1a`\x17K\x00"\xff`\x15K\x00"\x1as\x14K\x00"\x1au\x12KO\xff`"\xffa\x10K\x00"Z`\x0fK\x01"\x1aa\x0dH\x00\xff\xff\xff\x03F\x00+\x01\xff\x00\xffw\xff\x03}\x03{`\x01}\x03\xff`\x00}\x03\xff`;\x1d\x19F\x05H\x00\xff-\xff\x03F\x00+\x01\xff\x00\xffg\xff\x00\xff\x107\xffF\xff\xff(\x00\x00 \x00(\x01@\xff\xff\xff\xff\x00\xff\x07\xff\x08\x03\x00"\x1a`Z`\xff`\xff`\x1eK\xffi\x1dJC\xff \x03\xffa\x1bK\xffi\x03\xff \x03{`{h\x18K\xffi\x17JC\xff\x04\x03\xffa\x15K\xffi\x03\xff\x04\x03;`;h\x00"O\xff\x00q\x12H\x00\xff\xff\xff\x05}\x03\xff`\x00}\x03\xff`\x00}\x03;a\x07\xff\x08\x03\x19F\x0cH\x00\xffd\xffO\xff\x00s\xff`\x01}\x03\xff`\x00}\x03;a\x02}\x03{a\x07\xff\x08\x03\x19F\x04H\x00\xffU\xff\x00\xff\x187\xffF\xff\xff\x00\xff\x00\x10\x02@\x00\x08\x01@\xff\xff\xff\xff\x00\xffx`B\xff\xff\x03\xff`{h\xffh\x02\xff\x03\xff\x1b\x13\xff`\xffh\x18F\x147\xffF\xff\xffpG\xff\xff\x00\xffr\xff\x00\xff\xff\xff\xff\xff\xff\xff\x00\xff\x15K\xffi\x14JC\xff\x01\x03\xffa\x12K\xffi\x03\xff\x01\x03\xff`\xffh\x0fK\xffi\x0eJC\xff\xffS\xffa\x0cK\xffi\x03\xff\xffS{`{h\x0aK[h\xff`\xffh}\x03\xff\xffc\xff`\xffhC\xff\x00s\xff`\x04J\xffhS`\x00\xff\x147\xffF\xff\xffpG\x00\x10\x02@\x00\x00\x01@\xff\xff\xff\xff\x00\xffx`\x07\xff\x10\x03\x00"\x1a`Z`\xff`\xff`{h\x1bh\x14J\xffB!\xff\x13K\xffi\x12JC\xff\xffc\xffa\x10K\xffi\x03\xff\xffc\xff`\xffh\x0dK\xffi\x0cJC\xff\x04\x03\xffa\x0aK\xffi\x03\xff\x04\x03\xff`\xffhx}\x03;a\x03}\x03{a\x07\xff\x10\x03\x19F\x05H\x00\xff\xff\xff\x00\xff 7\xffF\xff\xff\x00(\x01@\x00\x10\x02@\x00\x08\x01@\xff\xff\x00\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\x00\xff\x00\xff\xffF\xff\xffpG\xff\xff\x00\xff\x00\xff\xffF\xff\xffpG\xff\xff\x00\xff\x00\xff\xffF\xff\xffpG\xff\xff\x00\xff\x00\xffu\xff\x00\xff\xff\xff\xff\xff\x00\xff\x00\xff\xffF\xff\xffpG\x00\x00\xff\xff\xff\xff\x0bH\x0cI\x0cJ\x00}\x03\x02\xff\xffX\xffP\x043\xff\x18\xffB\xff\xff\x09J\x09L\x00}\x03\x01\xff\x13`\x042\xffB\xff\xff\x01\xff\xff\xff\xff\xff7\xffpG\x00\x00\x00 \x0c\x00\x00 \xff\x1e\x00\x08\x0c\x00\x00 \\\x00\x00 \xff\xff\x00\x00\xff\xff\x00\xff\x08K\x1bh\x07JC\xff\x10\x03\x13`\x03 \x00\xff3\xff\x0f \x00\xff\x08\xff\xff\xff.\xff\x00}\x03\x18F\xff\xff\x00\xff\x00 \x02@\xff\xff\xff\xff\x00\xffx`\x12K\x1ah\x12K\x1bx\x19FO\xffzs\xff\xff\xff\xff\xff\xff\xff\xff\x18F\x00\xff=\xff\x03F\x00+\x01\xff\x01}\x03\x0e\xff{h\x0f+\x0a\xff\x00"yhO\xff\xff0\x00\xff\x13\xff\x06J{h\x13`\x00}\x03\x00\xff\x01}\x03\x18F\x087\xffF\xff\xff\x00\x00\x00 \x08\x00\x00 \x04\x00\x00 \xff\xff\x00\xff\x05K\x1bx\x1aF\x05K\x1bh\x13D\x03J\x13`\x00\xff\xffF\xff\xffpG\x08\x00\x00 X\x00\x00 \xff\xff\x00\xff\x02K\x1bh\x18F\xffF\xff\xffpGX\x00\x00 \xff\xff\xff\xff\x00\xffx`\x00}\x03\xffu\x00}\x03;a\x00}\x03\xff`\x00}\x03\xff`{h\x00+\x01\xff\x01}\x03\xff\xff{h\xffh\x00+{h\xffj\x00+\x09\xff{h\x00"\xffb{h\x00"\xff\xff}\x04 xh\xff\xff\xff\xffxh\x00\xff\xff\xff\x03F\xffu{h\xffj\x03\xff\x10\x03\x00+@\xff\xff\xff\xff}]\x00+@\xff\xff\xff{h\xffj}\x03\xff\xffS}\x03\xff\x02\x03C\xff\x02\x02{h\xffb{hZh{h\xffi\x1aC{h\x1b{[\x00\x13C\xffh\x13C\xff`{h\xffh\xff\xff\xff\x7f\x03\xff{h\xffh\x01+\x02\xffO\xff\xffs\x00\xff\x00}\x03:i\x13C;a{h\x1b}]\x01+\x19\xff{h\x1b{\x00+\x09\xff{h\xffi\x01;Z\x03;i\x13CC\xff\x00c;a\x0b\xff{h\xffjC\xff \x02{h\xffb{h\xffjC\xff\x01\x02{h\xffb{h\x1bh[h}\x03\xffiA{h\x1bh:i\x0aCZ`{h\x1bh\xffh(K\x13@zh\x12h\xffh\x0bC\xff`{h\xffh\xff\xff\xff\x7f\x03\xff{h\xffh\x01+\x04\xff{h\x1bi\x01;\x1b\x05\xff`{h\x1bh\xffj}\x03\xffp\x01{h\x1bh\xffh\x0aC\xffb{h\x1bh\xffh\x18K\x13@\xffh\xffB\x0b\xff{h\x00"\xffb{h\xffj}\x03\xff\x03\x03C\xff\x01\x02{h\xffb\x18\xff{h\xffj}\x03\xff\x12\x03C\xff\x10\x02{h\xffb{h\xffjC\xff\x01\x02{h\xffb\x01}\x03\xffu\x07\xff{h\xffjC\xff\x10\x02{h\xffb\x01}\x03\xffu\xff}]\x18F\x187\xffF\xff\xff\xff\xff\xff\xff\xff\x0e\x1f\xff\xff\xff\xff\xff\x00\xffx`\x00}\x03\xffs{h\xff\xff}\x040\x01+\x01\xff\x02}\x03\xff\xff{h\x01"\xff\xff}\x04 xh\x00\xff\xff\xff\x03F\xffs\xff{\x00+@\xff\xff\xff{h\xffj}\x03\xff@s}\x03\xff\x01\x03C\xff\xffr{h\xffb{h\x1bhAJ\xffB\x05\xffAK[h\x03\xffp}\x03\x00+\x15\xff{h\xffj}\x03\xff\xff\x12{h\xffb{h\x1bh[h\x03\xff\xffc\x00+&\xff{h\xffj}\x03\xff@SC\xff\xffR{h\xffb\x1d\xff{h\xffjC\xff\xff\x12{h\xffb{h\x1bh/J\xffB\x04\xff{h\x1bh+J\xffB\x0d\xff+K[h\x03\xff\xffc\x00+\x07\xff{h\xffj}\x03\xff@SC\xff\xffR{h\xffb{h\xffj\x03\xff\xffS\x00+\x06\xff{h\xffj}\x03\xff\x06\x02{h\xffb\x02\xff{h\x00"\xffb{h\x00"\xff\xff}\x04 {h\x1bho\xff\x02\x02\x1a`{h\x1bh\xffh\x03\xff`}\x03\xff\xff`/\x13\xff{h\x1bh\x11J\xffB\x05\xff\x11K[h\x03\xffp}\x03\x00+\x08\xff{h\x1bh\xffh{h\x1bhB\xff\xff\x02\xff`\x0c\xff{h\x1bh\xffh{h\x1bhB\xff\xff\x12\xff`\x03\xff{h\x00"\xff\xff}\x04 \xff{\x18F\x107\xffF\xff\xff\x00(\x01@\x00}\x04\x01@\xff\xff\xff\xff\x00\xffx`9`\x00}\x03{a\x00}\x03\xff`\x00}\x03;a\xff\xffc\xffxa{h\x1bh\xffh\x03\xff\xffs\x00+\x0b\xff{h\xffjC\xff \x02{h\xffb{h\x00"\xff\xff}\x04 \x01}\x03\xff\xff{h\x1bh[h\x03\xff\xffs\x00+1\xff{h\x1bh\xffj\x03\xffp\x03\x00+}\x0a\xff!\xff;h\xff\xff\xff?\x1d\xff;h\x00+\x07\xff\xff\xff7\xff\x02F{i\xff\x1a:h\xffB\x12\xff{h\x1bh\x1bh\x03\xff\x02\x03\x00+\x0b\xff{h\xffjC\xff\x04\x02{h\xffb{h\x00"\xff\xff}\x04 \x03}\x03\xff\xff{h\x1bh\x1bh\x03\xff\x02\x03\x00+\xff\xffp\xffOK\x1ch\x02 \x01\xffw\xff\x03F\xff\xff\xff\xff{h\x1bh\x19iKK\x0b@\x00+\x18\xff{h\x1bh\xffhHK\x0b@\x00+\x11\xff{h\x1bh\x19iFK\x0b@\x00+\x08\xff{h\x1bh\xffhCK\x0b@\x00+\x01\xff\x14}\x03 \xff)}\x03\x1e\xff{h\x1bh\x19i=K\x0b@\x00+\x06\xff{h\x1bh\xffh:K\x0b@\x00+\x0d\xff{h\x1bh\x19i8K\x0b@\x00+\x08\xff{h\x1bh\xffh4K\x0b@\x00+\x01\xffT}\x03\x00\xff\xff}\x03\x02\xff\x03\xff;a!\xff;h\xff\xff\xff?\x1a\xff;h\x00+\x07\xff\xff\xff\xff\xff\x02F{i\xff\x1a:h\xffB\x0f\xff\xffh:i\xffB\x0b\xff{h\xffjC\xff\x04\x02{h\xffb{h\x00"\xff\xff}\x04 \x03}\x030\xff\xffh\x013\xff`\xffh:i\xffB\xff\xff{h\x1bho\xff\x12\x02\x1a`{h\xffjC\xff\x00r{h\xffb{h\x1bh\xffh\x03\xff`}\x03\xff\xff`/\x15\xff{h\x1b{\x00+\x11\xff{h\xffj}\x03\xff\xffr{h\xffb{h\xffj\x03\xff\xffS\x00+\x05\xff{h\xffjC\xff\x01\x02{h\xffb\x00}\x03\x18F\x1c7\xffF\xff\xff\x00\xff\x00\x00\x00 }\x04I\xff}\x04}\x04I\xff\x00\xff}\x04I\x12\xff}\x04I\x00I\xff}\x04\x00\xff\xff\xff\xff\x00\xffx`{h\x1bh\xffl\x18F\x0c7\xffF\xff\xffpG\xff\xff\xff\xff\x00\xffx`9`\x00}\x03\xffs\x00}\x03\xff`{h\xff\xff}\x040\x01+\x01\xff\x02}\x03\xff\xff{h\x01"\xff\xff}\x04 ;h[h\x06+\x1c\xff{h\x1bhYk;hZh\x13F\xff\x00\x13D\x05;\x1f"\x02\xff\x03\xff\xffC\x19@;h\x18h;hZh\x13F\xff\x00\x13D\x05;\x00\xff\x03\xff{h\x1bh\x0aCZc<\xff;h[h\x0c+\x1c\xff{h\x1bh\x19k;hZh\x13F\xff\x00\x13D}\x03;\x1f"\x02\xff\x03\xff\xffC\x19@;h\x18h;hZh\x13F\xff\x00\x13D}\x03;\x00\xff\x03\xff{h\x1bh\x0aC\x1ac\x1b\xff{h\x1bh\xffj;hZh\x13F\xff\x00\x13DA;\x1f"\x02\xff\x03\xff\xffC\x19@;h\x18h;hZh\x13F\xff\x00\x13DA;\x00\xff\x03\xff{h\x1bh\x0aC\xffb;h\x1bh\x09+\x1c\xff{h\x1bh\xffh;h\x1ah\x13F[\x00\x13D\x1e;\x07"\x02\xff\x03\xff\xffC\x19@;h\xffh;h\x1ah\x13F[\x00\x13D\x1e;\x00\xff\x03\xff{h\x1bh\x0aC\xff`\x19\xff{h\x1bh\x19i;h\x1ah\x13F[\x00\x13D\x07"\x02\xff\x03\xff\xffC\x19@;h\xffh;h\x1ah\x13F[\x00\x13D\x00\xff\x03\xff{h\x1bh\x0aC\x1aa;h\x1bh\x10+\x03\xff;h\x1bh\x11+2\xff{h\x1bh\x1dJ\xffB%\xff{h\x1bh\xffh\x03\xff\x00\x03\x00+&\xff{h\x1bh\xffh{h\x1bhB\xff\x00\x02\xff`;h\x1bh\x10+\x1a\xff\x13K\x1bh\x13J\xff\xff\x03}\x03#f4
+[4.401] handleFlashPacket():  Flash write: Address= 0x800010c, Length=2948
+[4.401] write():  <644> Tx: $OK#9a
+[4.404] read():  <644> Rx: $vFlashWrite:8000c90:\xff\x0c\x13F\xff\x00\x13D[\x00\xff`\x02\xff\xffh\x01;\xff`\xffh\x00+\xff\xff\x07\xff{h\xffjC\xff \x02{h\xffb\x01}\x03\xffs{h\x00"\xff\xff}\x04 \xff{\x18F\x147\xffF\xff\xffpG\x00}\x04\x01@\x00\x00\x00 \xff\xff\x1bC\xff\xff\xff\xff\x00\xffx`\x00}\x03\xff`\x00}\x03\xff`{h\x1bh\xffh\x03\xff\x01\x03\x01+@\xff{h\x1bh\xffh{h\x1bhB\xff\x01\x02\xff`\x1fK\x1bh\x1fJ\xff\xff\x03}\x03\xff\x0c\xff`\x02\xff\xffh\x01;\xff`\xffh\x00+\xff\xff\xff\xff?\xff\xff`\x1f\xff\xff\xff;\xff\x02F\xffh\xff\x1a\x02+\x18\xff{h\x1bh\xffh\x03\xff\x01\x03\x01+\x11\xff{h\xffjC\xff\x10\x02{h\xffb{h\xffjC\xff\x01\x02{h\xffb{h\x00"\xff\xff}\x04 \x01}\x03\x07\xff{h\x1bh\xffh\x03\xff\x01\x03\x01+\xff\xff\x00}\x03\x18F\x107\xffF\xff\xff\x00\xff\x00\x00\x00 \xff\xff\x1bC\xff\xff\xff\xff\x00\xffx`\x00}\x03\xff`{h\x1bh\xffh\x03\xff\x01\x03\x01+.\xff{h\x1bh\xffh{h\x1bh"\xff\x01\x02\xff`\xff\xff\xff\xff\xff`\x1b\xff\xff\xff\xff\xff\x02F\xffh\xff\x1a\x02+\x14\xff{h\x1bh\xffh\x03\xff\x01\x03\x01+\x0d\xff{h\xffjC\xff\x10\x02{h\xffb{h\xffjC\xff\x01\x02{h\xffb\x01}\x03\x07\xff{h\x1bh\xffh\x03\xff\x01\x03\x01+\xff\xff\x00}\x03\x18F\x107\xffF\xff\xff\x00\x00\xff\xff\xff\xff\x00\xffx`{h\x03\xff\x07\x03\xff`\x0cK\xffh\xff`\xffhO\xff\xff\x03\x13@\xff`\xffh\x1a\x02\xffh\x13CC\xff\xffcC\xff\x003\xff`\x04J\xffh\xff`\x00\xff\x147\xffF\xff\xffpG\x00\xff\x00\xff\x00\xff\xff\xff\x00\xff\x04K\xffh\x1b\x0a\x03\xff\x07\x03\x18F\xffF\xff\xffpG\x00\xff\x00\xff\x00\xff\xff\xff\xff\xff\x00\xff\x03F9`\xffq\xff\xff\x070\x00+\x0a\xff;h\xff\xff\x0cI\xff\xff\x070\x12\x01\xff\xff\x0bD\xff\xff\x00}\x03\x0a\xff;h\xff\xff\x08I\xffy\x03\xff\x0f\x03\x04;\x12\x01\xff\xff\x0bD\x1av\x00\xff\x0c7\xffF\xff\xffpG\x00\xff\x00\xff\x00\xff\x00\xff\x00\xff\xff\xff\xff\xff\x00\xff\xff`\xff`z`\xffh\x03\xff\x07\x03\xffa\xffi\xff\xff\x07\x03\x04+(\xff\x04}\x03\xffa\xffi\x043\x06+\x02\xff\xffi\x03;\x00\xff\x00}\x03{aO\xff\xff2\xffi\x02\xff\x03\xff\xffC\xffh\x1a@{i\xff@O\xff\xff1{i\x01\xff\x03\xff\xffC{h\x0b@\x13C\x18F}\x047\xffF\xff\xffpG\xff\xff\xff\xff\x00\xffx`{h\x01;\xff\xff\xff\x7f\x01\xff\x01}\x03\x0f\xff\x0aJ{h\x01;S`\x0f!O\xff\xff0\xff\xff\xff\xff\x05K\x00"\xff`\x04K\x07"\x1a`\x00}\x03\x18F\x087\xffF\xff\xff\x00\xff\x10\xff\x00\xff\xff\xff\xff\xff\x00\xffx`xh\xff\xffI\xff\x00\xff\x087\xffF\xff\xff\xff\xff\xff\xff\x00\xff\x03F\xff`z`\xffs\x00}\x03{a\xff\xff^\xffxazh\xffhxi\xff\xff\xff\xff\x02F\xff\xff\x0f0\x11F\x18F\xff\xff_\xff\x00\xff\x187\xffF\xff\xff\xff\xff\xff\xff\x00\xffx`xh\xff\xff\xff\xff\x03F\x18F\x087\xffF\xff\xff\x00\x00\xff\xff\xff\xff\x00\xffx`9`\x00}\x03{b\x00}\x03;bi\xff\x01"{j\x02\xff\x03\xff\xffa;h\x1bh\xffi\x13@\xffa\xffi\xffi\xffB@\xffX\xff;h[h\xffJ\xffB^\xff\xffJ\xffBu\xff\xffJ\xffBX\xff\xffJ\xffBo\xff\xffJ\xffBR\xff\xffJ\xffBi\xff\xffJ\xffBL\xff\xffJ\xffBc\xff\xffJ\xffBF\xff\xffJ\xffB]\xff\x12+}\x0a\xff\x12+Y\xff\x01\xffR\xff}\x03\xff\xff\x10\x00\x08\xff\x10\x00\x08\xff\x10\x00\x08\x05\x11\x00\x08\x0b\x11\x00\x08\x0b\x11\x00\x08\x0b\x11\x00\x08\x0b\x11\x00\x08\x0b\x11\x00\x08\x0b\x11\x00\x08\x0b\x11\x00\x08\x0b\x11\x00\x08\x0b\x11\x00\x08\x0b\x11\x00\x08\x0b\x11\x00\x08\x0b\x11\x00\x08\x0b\x11\x00\x08\xff\x10\x00\x08\xff\x10\x00\x08yJ\xffB\x13\xff,\xff;h\xffh;b)\xff;h\xffh\x043;b}\x04\xff;h\xffh\x083;b\x1f\xff;h\xffh\x0c3;b\x1a\xff;h\xffh\x00+\x02\xff\x04}\x03;b\x13\xff;h\xffh\x01+\x05\xff\x08}\x03;b{h\xffi\x1aa\x09\xff\x08}\x03;b{h\xffiZa\x03\xff\x00}\x03;b\x00\xff\x00\xff\xffi\xff+\x01\xff{h\x01\xff{h\x043{a\xffi\xff+\x02\xff{j\xff\x00\x02\xff{j\x08;\xff\x00;a{i\x1ah\x0f!;i\x01\xff\x03\xff\xffC\x1a@9j;i\x01\xff\x03\xff\x1aC{i\x1a`;h[h\x03\xff\xffS\x00+\x00\xff\xff\xffMK\xffiLJC\xff\x01\x03\xffaJK\xffi\x03\xff\x01\x03\xff`\xffhHJ{j\xff\x08\x023R\xff}\x030\xff`{j\x03\xff\x03\x03\xff\x00\x0f"\x02\xff\x03\xff\xffC\xffh\x13@\xff`{h@J\xffB\x13\xff{h?J\xffB\x0d\xff{h>J\xffB\x07\xff{h=J\xffB\x01\xff\x03}\x03\x06\xff\x04}\x03\x04\xff\x02}\x03\x02\xff\x01}\x03\x00\xff\x00}\x03zj\x02\xff\x03\x02\xff\x00\xff@\xffh\x13C\xff`/I{j\xff\x08\x023\xffhA\xff}\x03 ;h[h\x03\xff\xff\x13\x00+\x06\xff-K\xffh,I\xffi\x13C\xff`\x06\xff}\x0aK\xffh\xffi\xffC(I\x13@\xff`;h[h\x03\xff\x00\x13\x00+\x06\xff}\x03K\xffh"I\xffi\x13C\xff`\x06\xff K\xffh\xffi\xffC\x1eI\x13@\xff`;h[h\x03\xff\x003\x00+\x06\xff\x19KZh\x18I\xffi\x13CK`\x06\xff\x16KZh\xffi\xffC\x14I\x13@K`;h[h\x03\xff\xff3\x00+!\xff\x0fK\x1ah\x0eI\xffi\x13C\x0b`!\xff\x00\xff\x00\x002\x10\x00\x001\x10\x00\x00"\x10\x00\x00!\x10\x00\x00\x12\x10\x00\x00\x11\x10\x00\x10\x02@\x00\x00\x01@\x00\x08\x01@\x00\x0c\x01@\x00\x10\x01@\x00\x14\x01@\x00\x04\x01@\x0bK\x1ah\xffi\xffC\x09I\x13@\x0b`{j\x013{b;h\x1ah{j"\xff\x03\xff\x00+\x7f\xff\xff\xff\x00\xff\x00\xff,7\xffF\xff\xffpG\x00\x04\x01@\xff\xff\xff\xff\x00\xffx`\x0bF{\xff\x13F{p{x\x00+\x03\xffz\xff{h\x1aa\x03\xff{\xff\x1a\x04{h\x1aa\x00\xff\x0c7\xffF\xff\xffpG\xff\xff\xff\xff\x00\xffx`{h\x00+\x01\xff\x01}\x03l\xff{h\x1bh\x03\xff\x01\x03\x00+\x00\xff\xff\xff\xffK[h\x03\xff\x0c\x03\x04+\x0c\xff\xffK[h\x03\xff\x0c\x03\x08+\x12\xff\xffK[h\x03\xff\xff3\xff\xff\xff?\x0b\xff\xffK\x1bh\x03\xff\x003\x00+l\xff{h[h\x00+h\xff\x01}\x03F\xff{h[h\xff\xff\xff?\x06\xff\xffK\x1bh\x7fJC\xff\xff3\x13`.\xff{h[h\x00+\x0c\xff{K\x1bhzJ}\x03\xff\xff3\x13`xK\x1bhwJ}\x03\xff\xff}\x03\x13`\x1d\xff{h[h\xff\xff\xff/\x0c\xffrK\x1bhqJC\xff\xff}\x03\x13`oK\x1bhnJC\xff\xff3\x13`\x0b\xffkK\x1bhjJ}\x03\xff\xff3\x13`hK\x1bhgJ}\x03\xff\xff}\x03\x13`{h[h\x00+\x13\xff\xff\xff\xff\xff8a\x08\xff\xff\xff\xff\xff\x02F;i\xff\x1ad+\x01\xff\x03}\x03\xff\xff]K\x1bh\x03\xff\x003\x00+\xff\xff\x14\xff\xff\xff\xff\xff8a\x08\xff\xff\xff\xff\xff\x02F;i\xff\x1ad+\x01\xff\x03}\x03\xff\xffSK\x1bh\x03\xff\x003\x00+\xff\xff\x00\xff\x00\xff{h\x1bh\x03\xff\x02\x03\x00+c\xffLK[h\x03\xff\x0c\x03\x00+\x0b\xffIK[h\x03\xff\x0c\x03\x08+\x1c\xffFK[h\x03\xff\xff3\x00+\x16\xffCK\x1bh\x03\xff\x02\x03\x00+\x05\xff{h\x1bi\x01+\x01\xff\x01}\x03\xff\xff=K\x1bh}\x03\xff\xff\x02{h[i\xff\x009I\x13C\x0b`:\xff{h\x1bi\x00+ \xff6K\x01"\x1a`\xff\xff{\xff8a\x08\xff\xff\xffw\xff\x02F;i\xff\x1a\x02+\x01\xff\x03}\x03\xff\xff-K\x1bh\x03\xff\x02\x03\x00+\xff\xff}\x0aK\x1bh}\x03\xff\xff\x02{h[i\xff\x00'I\x13C\x0b`\x15\xff&K\x00"\x1a`\xff\xffZ\xff8a\x08\xff\xff\xffV\xff\x02F;i\xff\x1a\x02+\x01\xff\x03}\x03z\xff\x1dK\x1bh\x03\xff\x02\x03\x00+\xff\xff{h\x1bh\x03\xff\x08\x03\x00+:\xff{h\xffi\x00+\x19\xff\x17K\x01"\x1a`\xff\xff:\xff8a\x08\xff\xff\xff6\xff\x02F;i\xff\x1a\x02+\x01\xff\x03}\x03Z\xff\x0dK[j\x03\xff\x02\x03\x00+\xff\xff\x01 \x00\xff\xff\xff\x1c\xff\x0aK\x00"\x1a`\xff\xff \xff8a\x0f\xff\xff\xff\x1c\xff\x02F;i\xff\x1a\x02+\x08\xff\x03}\x03@\xff\x00\xff\x00\x10\x02@\x00\x00BB\xff\x04BB\xffK[j\x03\xff\x02\x03\x00+\xff\xff{h\x1bh\x03\xff\x04\x03\x00+\x00\xff\xff\xff\x00}\x03\xffu\xffK\xffi\x03\xff\xffS\x00+\x0d\xff\xffK\xffi\xffJC\xff\xffS\xffa\xffK\xffi\x03\xff\xffS\xff`\xffh\x01}\x03\xffu\xffK\x1bh\x03\xff\xffs\x00+\x18\xff\xffK\x1bh\xffJC\xff\xffs\x13`\xff\xff\xff\xff8a\x08\xff\xff\xff\xff\xff\x02F;i\xff\x1ad+\x01\xff\x03}\x03\xff\xff\xffK\x1bh\x03\xff\xffs\x00+\xff\xff{h\xffh\x01+\x06\xff{K\x1bjzJC\xff\x01\x03\x13b-\xff{h\xffh\x00+\x0c\xffvK\x1bjuJ}\x03\xff\x01\x03\x13bsK\x1bjrJ}\x03\xff\x04\x03\x13b\x1c\xff{h\xffh\x05+\x0c\xffmK\x1bjlJC\xff\x04\x03\x13bjK\x1bjiJC\xff\x01\x03\x13b\x0b\xffgK\x1bjfJ}\x03\xff\x01\x03\x13bdK\x1bjcJ}\x03\xff\x04\x03\x13b{h\xffh\x00+\x15\xff\xff\xff\xff\xff8a\x0a\xff\xff\xff\xff\xff\x02F;i\xff\x1aA\xff\xff2\xffB\x01\xff\x03}\x03\xff\xffWK\x1bj\x03\xff\x02\x03\x00+\xff\xff\x14\xff\xff\xffw\xff8a\x0a\xff\xff\xffs\xff\x02F;i\xff\x1aA\xff\xff2\xffB\x01\xff\x03}\x03\xff\xffLK\x1bj\x03\xff\x02\x03\x00+\xff\xff\xff}]\x01+\x05\xffHK\xffiGJ}\x03\xff\xffS\xffa{h\xffi\x00+\x00\xff\xff\xffBK[h\x03\xff\x0c\x03\x08+a\xff{h\xffi\x02+F\xff?K\x00"\x1a`\xff\xffG\xff8a\x08\xff\xff\xffC\xff\x02F;i\xff\x1a\x02+\x01\xff\x03}\x03g\xff5K\x1bh\x03\xff\x00s\x00+\xff\xff{h\x1bj\xff\xff\xff?\x08\xff0K[h}\x03\xff\x002{h\xffh-I\x13CK`+K[h}\x03\xfft\x12{h\x19j{h[j\x0bC'I\x13CK`'K\x01"\x1a`\xff\xff\x17\xff8a\x08\xff\xff\xff\x13\xff\x02F;i\xff\x1a\x02+\x01\xff\x03}\x037\xff\x1dK\x1bh\x03\xff\x00s\x00+\xff\xff/\xff\x1cK\x00"\x1a`\xff\xff\x00\xff8a\x08\xff\xff\xff\xff\xff\x02F;i\xff\x1a\x02+\x01\xff\x03}\x03 \xff\x12K\x1bh\x03\xff\x00s\x00+\xff\xff\x18\xff{h\xffi\x01+\x01\xff\x01}\x03\x13\xff\x0bK[h\xff`\xffh\x03\xff\xff2{h\x1bj\xffB\x06\xff\xffh\x03\xffp\x12{h[j\xffB\x01\xff\x01}\x03\x00\xff\x00}\x03\x18F\x187\xffF\xff\xff\x00\x10\x02@\x00p\x00@`\x00BB\xff\xff\xff\xff\x00\xffx`9`{h#91
+[4.405] handleFlashPacket():  Flash write: Address= 0x8000c90, Length=2960
+[4.405] write():  <644> Tx: $OK#9a
+[4.407] read():  <644> Rx: $vFlashWrite:8001820:\x00+\x01\xff\x01}\x03\xff\xffjK\x1bh\x03\xff\x07\x03:h\xffB\x10\xffgK\x1bh}\x03\xff\x07\x02eI;h\x13C\x0b`cK\x1bh\x03\xff\x07\x03:h\xffB\x01\xff\x01}\x03\xff\xff{h\x1bh\x03\xff\x02\x03\x00+ \xff{h\x1bh\x03\xff\x04\x03\x00+\x05\xffYK[hXJC\xff\xffcS`{h\x1bh\x03\xff\x08\x03\x00+\x05\xffSK[hRJC\xff`SS`PK[h}\x03\xff\xff\x02{h\xffhMI\x13CK`{h\x1bh\x03\xff\x01\x03\x00+@\xff{h[h\x01+\x07\xffGK\x1bh\x03\xff\x003\x00+\x15\xff\x01}\x03\x7f\xff{h[h\x02+\x07\xffAK\x1bh\x03\xff\x00s\x00+\x09\xff\x01}\x03s\xff=K\x1bh\x03\xff\x02\x03\x00+\x01\xff\x01}\x03k\xff9K[h}\x03\xff\x03\x02{h[h6I\x13CK`\xff\xffP\xff\xff`\x0a\xff\xff\xffL\xff\x02F\xffh\xff\x1aA\xff\xff2\xffB\x01\xff\x03}\x03S\xff-K[h\x03\xff\x0c\x02{h[h\xff\x00\xffB\xff\xff'K\x1bh\x03\xff\x07\x03:h\xffB\x10\xff}\x04K\x1bh}\x03\xff\x07\x02"I;h\x13C\x0b` K\x1bh\x03\xff\x07\x03:h\xffB\x01\xff\x01}\x032\xff{h\x1bh\x03\xff\x04\x03\x00+\x08\xff\x19K[h}\x03\xff\xffb{h\xffh\x16I\x13CK`{h\x1bh\x03\xff\x08\x03\x00+\x09\xff\x12K[h}\x03\xff`R{h\x1bi\xff\x00\x0eI\x13CK`\x00\xff!\xff\x02F\x0bK[h\x1b\x09\x03\xff\x0f\x03\x0aI\xff\\"\xff\x03\xff\x09J\x13`\x09K\x1bh\x18F\xff\xff\xff\xff\x00}\x03\x18F\x107\xffF\xff\xff\x00\xff\x00 \x02@\x00\x10\x02@P\x1e\x00\x08\x00\x00\x00 \x04\x00\x00 \xff\xff\xff\xff\x00\xff\x00}\x03\xff`\x00}\x03\xff`\x00}\x03{a\x00}\x03{`\x00}\x03;a\x1eK[h\xff`\xffh\x03\xff\x0c\x03\x04+\x02\xff\x08+\x03\xff'\xff\x19K;a'\xff\xffh\xff\x0c\x03\xff\x0f\x03\x17J\xff\\{`\xffh\x03\xff\xff3\x00+\x10\xff\x11K[h[\x0c\x03\xff\x01\x03\x11J\xff\\\xff`{h\x0dJ\x02\xff\x03\xff\xffh\xff\xff\xff\xff{a\x04\xff{h\x0cJ\x02\xff\x03\xff{a{i;a\x02\xff\x05K;a\x00\xff;i\x18F\x1c7\xffF\xff\xffpG\x00\xff\x00\x10\x02@\x00\x12z\x00h\x1e\x00\x08x\x1e\x00\x08\x00\x09=\x00\xff\xff\x00\xff\x02K\x1bh\x18F\xffF\xff\xffpG\x00\x00\x00 \xff\xff\x00\xff\xff\xff\xff\xff\x02F\x05K[h\xff\x0a\x03\xff\x07\x03\x03I\xff\\"\xff\x03\xff\x18F\xff\xff\x00\x10\x02@`\x1e\x00\x08\xff\xff\xff\xff\x00\xffx`\x0aK\x1bh\x0aJ\xff\xff\x03}\x03[\x0azh\x02\xff\x03\xff\xff`\x00\xff\xffhZ\x1e\xff`\x00+\xff\xff\x00\xff\x00\xff\x147\xffF\xff\xffpG\x00\x00\x00 \xffMb\x10\xff\xff\xff\xff\x00\xffx`\x00}\x03;a\x00}\x03\xff`{h\x1bh\x03\xff\x01\x03\x00+}]\xff\x00}\x03\xffuOK\xffi\x03\xff\xffS\x00+\x0d\xffLK\xffiKJC\xff\xffS\xffaIK\xffi\x03\xff\xffS\xff`\xffh\x01}\x03\xffuFK\x1bh\x03\xff\xffs\x00+\x18\xffCK\x1bhBJC\xff\xffs\x13`\xff\xff\x1e\xff8a\x08\xff\xff\xff\x1a\xff\x02F;i\xff\x1ad+\x01\xff\x03}\x03m\xff:K\x1bh\x03\xff\xffs\x00+\xff\xff6K\x1bj\x03\xff@s\xff`\xffh\x00+.\xff{h[h\x03\xff@s\xffh\xffB'\xff.K\x1bj}\x03\xff@s\xff`.K\x01"\x1a`,K\x00"\x1a`)J\xffh\x13b\xffh\x03\xff\x01\x03\x00+\x14\xff\xff\xff\xff\xff8a\x0a\xff\xff\xff\xff\xff\x02F;i\xff\x1aA\xff\xff2\xffB\x01\xff\x03}\x036\xff\x1dK\x1bj\x03\xff\x02\x03\x00+\xff\xff\x1aK\x1bj}\x03\xff@r{h[h\x17I\x13C\x0bb\xff}]\x01+\x05\xff\x14K\xffi\x13J}\x03\xff\xffS\xffa{h\x1bh\x03\xff\x02\x03\x00+\x08\xff\x0eK[h}\x03\xff@B{h\xffh\x0bI\x13CK`{h\x1bh\x03\xff\x10\x03\x00+\x08\xff\x07K[h}\x03\xff\xff\x02{h\xffh\x04I\x13CK`\x00}\x03\x18F\x187\xffF\xff\xff\x00\xff\x00\x10\x02@\x00p\x00@@\x04BB\xff\xff\xff\xff\x00\xffx`\x00}\x03{a\x00}\x03\xffa\x00}\x03;a\x00}\x03\xff`\x00}\x03\xffa{h\x10+\x0a\xff{h\x10+\x00\xff\xff\xff{h\x01+E\xff{h\x02+u\xff\xff\xffFK[h\xff`EK\x1bh\x03\xff\xffs\x00+{\xff\xffh\xff\x0c\x03\xff\x0f\x03AJ\xff\\;a\xffh\x03\xff\xff3\x00+\x15\xff<K[h[\x0c\x03\xff\x01\x03;J\xff\\{a\xffh\x03\xff\xff3\x00+\x0d\xff8J{i\xff\xff\xff\xff;i\x02\xff\x03\xff\xffa\x04\xff;i4J\x02\xff\x03\xff\xffa.K[h\x03\xff\xff\x03\xff\xff\xff\x0f\x02\xff\xffi\xffaJ\xff\xffi[\x00-J\xff\xff\x03}\x03[\x08\xffaB\xff%K\x1bj\xff`\xffh\x03\xff@s\xff\xff\xff\x7f\x08\xff\xffh\x03\xff\x02\x03\x00+\x03\xffO\xff\x00C\xffa\x1f\xff\xffh\x03\xff@s\xff\xff\x00\x7f\x09\xff\x19K[j\x03\xff\x02\x03\x00+\x03\xffI\xff@C\xffa\x0f\xff\xffh\x03\xff@s\xff\xff@\x7f\x1c\xff\x11K\x1bh\x03\xff\x003\x00+\x16\xffO\xff}\x04C\xffa\x12\xff\x11\xff\xff\xff\xff\xff\x02F\x0aK[h\xff\x0b\x03\xff\x03\x03\x013[\x00\xff\xff\xff\xff\xffa\x04\xff\x00\xff\x02\xff\x00\xff\x00\xff\x00\xff\xffi\x18F 7\xffF\xff\xff\x00\xff\x00\x10\x02@|\x1e\x00\x08\xff\x1e\x00\x08\x00\x12z\x00\x00\x09=\x00\xff\xff\xff\xffp\xff\x00&\x0cM\x0dLd\x1b\xff\x10\xffB\x09\xff\x00\xff"\xff\x00&\x0aM\x0aLd\x1b\xff\x10\xffB\x05\xffp\xffU\xff\x04;\xffG\x016\xff\xffU\xff\x04;\xffG\x016\xff\xff\xff\x1e\x00\x08\xff\x1e\x00\x08\xff\x1e\x00\x08\xff\x1e\x00\x08\x03F\x02D\xffB\x00\xffpG\x03\xff\x01\x1b\xff\xff\xff\xff\x00\xff\xff\xff\x08\xff\xffFpG\xff\xff\x00\xff\xff\xff\x08\xff\xffFpG#17
+[4.407] handleFlashPacket():  Flash write: Address= 0x8001820, Length=1584
+[4.407] write():  <644> Tx: $OK#9a
+[4.407] read():  <644> Rx: $vFlashWrite:8001e50:\x00\x00\x00\x00\x00\x00\x00\x00\x01\x02\x03\x04\x06\x07\x08\x09\x00\x00\x00\x00\x01\x02\x03\x04\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x10\x01\x02\x00\x00\x02\x03\x04\x05\x06\x07\x08\x09\x0a\x0b\x0c\x0d\x0e\x0f\x10\x10\x01\x02\x00\x00#dc
+[4.407] handleFlashPacket():  Flash write: Address= 0x8001e50, Length=64
+[4.407] write():  <644> Tx: $OK#9a
+[4.407] read():  <644> Rx: $vFlashWrite:8001e90:1\x01\x00\x08#b4
+[4.407] handleFlashPacket():  Flash write: Address= 0x8001e90, Length=4
+[4.407] write():  <644> Tx: $OK#9a
+[4.408] read():  <644> Rx: $vFlashWrite:8001e94:\x0d\x01\x00\x08#94
+[4.408] handleFlashPacket():  Flash write: Address= 0x8001e94, Length=4
+[4.408] write():  <644> Tx: $OK#9a
+[4.408] read():  <644> Rx: $vFlashWrite:8001e98:\x00}\x04\xff\x00\x10\x00\x00\x00\x01\x00\x00\x00#08
+[4.408] handleFlashPacket():  Flash write: Address= 0x8001e98, Length=12
+[4.408] write():  <644> Tx: $OK#9a
+[4.408] read():  <644> Rx: $vFlashDone#ea
+[4.408] handleFlashPacket():  Writing to C:\Users\seanp\AppData\Local\Temp\ST-LINK_GDB_server_a26048.srec
+[4.413] spawnCubeProgrammer():   ------ Switching to STM32CubeProgrammer ----- 
+[4.413] file_utils_spawn():  Spawning "C:\ST\STM32CubeIDE_1.7.0\STM32CubeIDE\plugins\com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_2.0.0.202105311346\tools\bin\STM32_Programmer_CLI.exe --connect port=SWD sn=57FF6F064986494933381387 mode=UR reset=hwRst --download C:\Users\seanp\AppData\Local\Temp\ST-LINK_GDB_server_a26048.srec --verify --log C:\Users\seanp\AppData\Local\Temp\STM32CubeProgrammer_a26048.log"
+[5.122] file_utils_spawn():  Return code 0
+[5.124] spawnCubeProgrammer():  15:04:25:733       -------------------------------------------------------------------
+[5.124] spawnCubeProgrammer():  15:04:25:733                        STM32CubeProgrammer v2.8.0                  
+[5.124] spawnCubeProgrammer():  15:04:25:733       -------------------------------------------------------------------
+[5.124] spawnCubeProgrammer():  
+[5.124] spawnCubeProgrammer():  15:04:25:733 
+[5.124] spawnCubeProgrammer():  
+[5.124] spawnCubeProgrammer():  15:04:25:733 Log output file:   C:\Users\seanp\AppData\Local\Temp\STM32CubeProgrammer_a26048.log
+[5.124] spawnCubeProgrammer():  15:04:25:733 Command line:  --connect port=SWD sn=57ff6f064986494933381387 mode=ur reset=hwrst --download "C:\Users\seanp\AppData\Local\Temp\ST-LINK_GDB_server_a26048.srec" --verify --log "C:\Users\seanp\AppData\Local\Temp\STM32CubeProgrammer_a26048.log"
+[5.124] spawnCubeProgrammer():  15:04:25:733 
+[5.124] spawnCubeProgrammer():  15:04:25:749 STLinkUSBDriver.dll loaded
+[5.124] spawnCubeProgrammer():  15:04:25:749 STLinkUSBDriver.dll loaded
+[5.124] spawnCubeProgrammer():  15:04:25:749 ST-LINK SN  : 57FF6F064986494933381387
+[5.124] spawnCubeProgrammer():  15:04:25:749 ST-LINK FW  : V2J38S7
+[5.124] spawnCubeProgrammer():  15:04:25:750 Board       : --
+[5.124] spawnCubeProgrammer():  15:04:25:750 Voltage     : 3.25V
+[5.124] spawnCubeProgrammer():  15:04:25:757 SWD freq    : 4000 KHz
+[5.124] spawnCubeProgrammer():  15:04:25:757 Connect mode: Under Reset
+[5.124] spawnCubeProgrammer():  15:04:25:757 Reset mode  : Hardware reset
+[5.124] spawnCubeProgrammer():  15:04:25:759 Device ID   : 0x410
+[5.124] spawnCubeProgrammer():  15:04:25:761 Revision ID : Rev X
+[5.124] spawnCubeProgrammer():  15:04:25:768 flash loader C:/ST/STM32CubeIDE_1.7.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.cubeprogrammer.win32_2.0.0.202105311346/tools/bin/FlashLoader/0x410.stldr is loaded
+[5.124] spawnCubeProgrammer():  15:04:25:769 Device name : STM32F101/F102/F103 Medium-density
+[5.124] spawnCubeProgrammer():  15:04:25:769 Reading data...
+[5.124] spawnCubeProgrammer():  15:04:25:770 r ap 0 @0x1FFFF7E0 0x00000004 bytes Data 0xFFFF0040
+[5.124] spawnCubeProgrammer():  15:04:25:770 Flash size  : 64 KBytes
+[5.124] spawnCubeProgrammer():  15:04:25:770 Device type : MCU
+[5.124] spawnCubeProgrammer():  15:04:25:770 Device CPU  : Cortex-M3
+[5.124] spawnCubeProgrammer():  15:04:25:770 BL Version  : 0x__
+[5.124] spawnCubeProgrammer():  15:04:25:770 
+[5.124] spawnCubeProgrammer():  15:04:25:771 
+[5.124] spawnCubeProgrammer():  
+[5.124] spawnCubeProgrammer():  15:04:25:771 Memory Programming ...
+[5.124] spawnCubeProgrammer():  15:04:25:772 Opening and parsing file: ST-LINK_GDB_server_a26048.srec
+[5.124] spawnCubeProgrammer():  15:04:25:772   File          : ST-LINK_GDB_server_a26048.srec
+[5.124] spawnCubeProgrammer():  15:04:25:772   Size          : 7844 Bytes
+[5.124] spawnCubeProgrammer():  15:04:25:772   Address       : 0x08000000 
+[5.124] spawnCubeProgrammer():  15:04:25:772 
+[5.124] spawnCubeProgrammer():  
+[5.124] spawnCubeProgrammer():  15:04:25:772 Erasing Segment <0> Address <0x08000000> Size <7844>Bytes
+[5.124] spawnCubeProgrammer():  15:04:25:772 Erasing memory corresponding to segment 0:
+[5.124] spawnCubeProgrammer():  15:04:25:774 Memory erase...
+[5.124] spawnCubeProgrammer():  15:04:25:776 halt ap 0 
+[5.124] spawnCubeProgrammer():  15:04:25:776 w ap 0 reg 15 PC   (0x20000000)  
+[5.124] spawnCubeProgrammer():  15:04:25:777 w ap 0 reg 17 MSP  (0x20000500)  
+[5.124] spawnCubeProgrammer():  15:04:25:777 w ap 0 reg 16 xPSR (0x01000000)  
+[5.124] spawnCubeProgrammer():  15:04:25:781 w ap 0 @0x20000960 0x00000200 bytes Data 0x00000000
+[5.124] spawnCubeProgrammer():  15:04:25:781 w ap 0 @0x20000000 0x00000004 bytes Data 0x0000BE00
+[5.124] spawnCubeProgrammer():  15:04:25:791 w ap 0 @0x20000004 0x0000053E bytes Data 0xF000B580
+[5.124] spawnCubeProgrammer():  15:04:25:791 Erasing internal memory sectors [0 7]
+[5.124] spawnCubeProgrammer():  15:04:25:791 Init flashloader...
+[5.124] spawnCubeProgrammer():  15:04:25:791 halt ap 0 
+[5.124] spawnCubeProgrammer():  15:04:25:792 w ap 0 reg 0 R0   0x00000001
+[5.125] spawnCubeProgrammer():  15:04:25:793 w ap 0 reg 1 R1   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:793 w ap 0 reg 2 R2   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:793 w ap 0 reg 3 R3   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:794 w ap 0 reg 4 R4   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:794 w ap 0 reg 5 R5   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:795 w ap 0 reg 6 R6   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:795 w ap 0 reg 7 R7   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:796 w ap 0 reg 8 R8   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:796 w ap 0 reg 9 R9   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:797 w ap 0 reg 10 R10  0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:797 w ap 0 reg 11 R11  0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:798 w ap 0 reg 12 R12  0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:798 w ap 0 reg 13 SP   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:799 w ap 0 reg 14 LR   0x20000001
+[5.125] spawnCubeProgrammer():  15:04:25:799 w ap 0 reg 15 PC   0x20000005
+[5.125] spawnCubeProgrammer():  15:04:25:799 w ap 0 reg 16 xPSR 0x01000000
+[5.125] spawnCubeProgrammer():  15:04:25:800 w ap 0 reg 17 MSP  0x2000093E
+[5.125] spawnCubeProgrammer():  15:04:25:800 w ap 0 reg 18 PSP  0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:800 run ap 0 
+[5.125] spawnCubeProgrammer():  15:04:25:801 halt ap 0 
+[5.125] spawnCubeProgrammer():  15:04:25:801 r ap 0 reg 0 R0   0x00000001
+[5.125] spawnCubeProgrammer():  15:04:25:801 Loader sector erase...
+[5.125] spawnCubeProgrammer():  15:04:25:802 w ap 0 reg 0 R0   0x08000000
+[5.125] spawnCubeProgrammer():  15:04:25:803 w ap 0 reg 1 R1   0x08001C00
+[5.125] spawnCubeProgrammer():  15:04:25:803 w ap 0 reg 2 R2   0x00000002
+[5.125] spawnCubeProgrammer():  15:04:25:803 w ap 0 reg 3 R3   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:804 w ap 0 reg 4 R4   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:804 w ap 0 reg 5 R5   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:805 w ap 0 reg 6 R6   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:805 w ap 0 reg 7 R7   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:806 w ap 0 reg 8 R8   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:806 w ap 0 reg 9 R9   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:806 w ap 0 reg 10 R10  0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:807 w ap 0 reg 11 R11  0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:807 w ap 0 reg 12 R12  0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:808 w ap 0 reg 13 SP   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:808 w ap 0 reg 14 LR   0x20000001
+[5.125] spawnCubeProgrammer():  15:04:25:809 w ap 0 reg 15 PC   0x200001AF
+[5.125] spawnCubeProgrammer():  15:04:25:809 w ap 0 reg 16 xPSR 0x01000000
+[5.125] spawnCubeProgrammer():  15:04:25:810 w ap 0 reg 17 MSP  0x2000093E
+[5.125] spawnCubeProgrammer():  15:04:25:810 w ap 0 reg 18 PSP  0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:810 run ap 0 
+[5.125] spawnCubeProgrammer():  15:04:25:987 halt ap 0 
+[5.125] spawnCubeProgrammer():  15:04:25:988 r ap 0 reg 0 R0   0x00000001
+[5.125] spawnCubeProgrammer():  15:04:25:988 erase: 0216ms
+[5.125] spawnCubeProgrammer():  15:04:25:988 Download in Progress:
+[5.125] spawnCubeProgrammer():  15:04:25:988   Size          : 7844 Bytes
+[5.125] spawnCubeProgrammer():  15:04:25:988   Address       : 0x08000000 
+[5.125] spawnCubeProgrammer():  15:04:25:988 
+[5.125] spawnCubeProgrammer():  
+[5.125] spawnCubeProgrammer():  15:04:25:988 Buffer program...
+[5.125] spawnCubeProgrammer():  15:04:25:990 halt ap 0 
+[5.125] spawnCubeProgrammer():  15:04:25:990 w ap 0 reg 15 PC   (0x20000000)  
+[5.125] spawnCubeProgrammer():  15:04:25:990 w ap 0 reg 17 MSP  (0x20000500)  
+[5.125] spawnCubeProgrammer():  15:04:25:991 w ap 0 reg 16 xPSR (0x01000000)  
+[5.125] spawnCubeProgrammer():  15:04:25:995 w ap 0 @0x20000960 0x00000200 bytes Data 0x00000000
+[5.125] spawnCubeProgrammer():  15:04:25:995 w ap 0 @0x20000000 0x00000004 bytes Data 0x0000BE00
+[5.125] spawnCubeProgrammer():  15:04:26:005 w ap 0 @0x20000004 0x0000053E bytes Data 0xF000B580
+[5.125] spawnCubeProgrammer():  15:04:26:005 Loader write range...
+[5.125] spawnCubeProgrammer():  15:04:26:032 w ap 0 @0x20000960 0x00000F54 bytes Data 0x20005000
+[5.125] spawnCubeProgrammer():  15:04:26:032 W B1 in RAM @0x20000960 size 0x00000F54 : 0027ms
+[5.125] spawnCubeProgrammer():  15:04:26:032 Init flashloader...
+[5.125] spawnCubeProgrammer():  15:04:26:032 halt ap 0 
+[5.125] spawnCubeProgrammer():  15:04:26:033 w ap 0 reg 0 R0   0x00000001
+[5.125] spawnCubeProgrammer():  15:04:26:033 w ap 0 reg 1 R1   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:034 w ap 0 reg 2 R2   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:034 w ap 0 reg 3 R3   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:035 w ap 0 reg 4 R4   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:035 w ap 0 reg 5 R5   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:036 w ap 0 reg 6 R6   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:037 w ap 0 reg 7 R7   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:037 w ap 0 reg 8 R8   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:038 w ap 0 reg 9 R9   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:038 w ap 0 reg 10 R10  0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:039 w ap 0 reg 11 R11  0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:039 w ap 0 reg 12 R12  0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:040 w ap 0 reg 13 SP   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:040 w ap 0 reg 14 LR   0x20000001
+[5.125] spawnCubeProgrammer():  15:04:26:041 w ap 0 reg 15 PC   0x20000005
+[5.125] spawnCubeProgrammer():  15:04:26:041 w ap 0 reg 16 xPSR 0x01000000
+[5.125] spawnCubeProgrammer():  15:04:26:042 w ap 0 reg 17 MSP  0x2000093E
+[5.125] spawnCubeProgrammer():  15:04:26:042 w ap 0 reg 18 PSP  0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:042 run ap 0 
+[5.125] spawnCubeProgrammer():  15:04:26:043 halt ap 0 
+[5.125] spawnCubeProgrammer():  15:04:26:043 r ap 0 reg 0 R0   0x00000001
+[5.125] spawnCubeProgrammer():  15:04:26:044 w ap 0 reg 0 R0   0x08000000
+[5.125] spawnCubeProgrammer():  15:04:26:045 w ap 0 reg 1 R1   0x00000F54
+[5.125] spawnCubeProgrammer():  15:04:26:045 w ap 0 reg 2 R2   0x20000960
+[5.125] spawnCubeProgrammer():  15:04:26:045 w ap 0 reg 3 R3   0x00000002
+[5.125] spawnCubeProgrammer():  15:04:26:046 w ap 0 reg 4 R4   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:046 w ap 0 reg 5 R5   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:047 w ap 0 reg 6 R6   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:047 w ap 0 reg 7 R7   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:048 w ap 0 reg 8 R8   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:048 w ap 0 reg 9 R9   0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:048 w ap 0 reg 10 R10  0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:049 w ap 0 reg 11 R11  0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:049 w ap 0 reg 12 R12  0x00000000
+[5.125] spawnCubeProgrammer():  15:04:26:050 w ap 0 reg 13 SP   0x00000000
+[5.126] spawnCubeProgrammer():  15:04:26:050 w ap 0 reg 14 LR   0x20000001
+[5.126] spawnCubeProgrammer():  15:04:26:051 w ap 0 reg 15 PC   0x2000002F
+[5.126] spawnCubeProgrammer():  15:04:26:051 w ap 0 reg 16 xPSR 0x01000000
+[5.126] spawnCubeProgrammer():  15:04:26:051 w ap 0 reg 17 MSP  0x2000093E
+[5.126] spawnCubeProgrammer():  15:04:26:052 w ap 0 reg 18 PSP  0x00000000
+[5.126] spawnCubeProgrammer():  15:04:26:052 run ap 0 
+[5.126] spawnCubeProgrammer():  15:04:26:079 w ap 0 @0x200018B4 0x00000F50 bytes Data 0xFF90F7FF
+[5.126] spawnCubeProgrammer():  15:04:26:079 W B2 in RAM @0x20002B60 size 0x00000F50: 0047ms
+[5.126] spawnCubeProgrammer():  15:04:26:188 r ap 0 reg 0 R0   0x00000001
+[5.126] spawnCubeProgrammer():  15:04:26:188 Wait W B1 in Flash @0x08000000 size 0x00000F54: 0109ms
+[5.126] spawnCubeProgrammer():  15:04:26:189 w ap 0 reg 0 R0   0x08000F54
+[5.126] spawnCubeProgrammer():  15:04:26:189 w ap 0 reg 1 R1   0x00000F50
+[5.126] spawnCubeProgrammer():  15:04:26:190 w ap 0 reg 2 R2   0x200018B4
+[5.126] spawnCubeProgrammer():  15:04:26:190 w ap 0 reg 3 R3   0x00000002
+[5.126] spawnCubeProgrammer():  15:04:26:191 w ap 0 reg 4 R4   0x00000000
+[5.126] spawnCubeProgrammer():  15:04:26:191 w ap 0 reg 5 R5   0x00000000
+[5.126] spawnCubeProgrammer():  15:04:26:192 w ap 0 reg 6 R6   0x00000000
+[5.126] spawnCubeProgrammer():  15:04:26:192 w ap 0 reg 7 R7   0x00000000
+[5.126] spawnCubeProgrammer():  15:04:26:193 w ap 0 reg 8 R8   0x00000000
+[5.126] spawnCubeProgrammer():  15:04:26:193 w ap 0 reg 9 R9   0x00000000
+[5.126] spawnCubeProgrammer():  15:04:26:193 w ap 0 reg 10 R10  0x00000000
+[5.126] spawnCubeProgrammer():  15:04:26:194 w ap 0 reg 11 R11  0x00000000
+[5.126] spawnCubeProgrammer():  15:04:26:194 w ap 0 reg 12 R12  0x00000000
+[5.126] spawnCubeProgrammer():  15:04:26:195 w ap 0 reg 13 SP   0x00000000
+[5.126] spawnCubeProgrammer():  15:04:26:195 w ap 0 reg 14 LR   0x20000001
+[5.126] spawnCubeProgrammer():  15:04:26:196 w ap 0 reg 15 PC   0x2000002F
+[5.126] spawnCubeProgrammer():  15:04:26:196 w ap 0 reg 16 xPSR 0x01000000
+[5.126] spawnCubeProgrammer():  15:04:26:197 w ap 0 reg 17 MSP  0x2000093E
+[5.126] spawnCubeProgrammer():  15:04:26:197 w ap 0 reg 18 PSP  0x00000000
+[5.126] spawnCubeProgrammer():  15:04:26:197 run ap 0 
+[5.126] spawnCubeProgrammer():  15:04:26:334 r ap 0 reg 0 R0   0x00000001
+[5.126] spawnCubeProgrammer():  15:04:26:334 Write elapsed time: 0329ms
+[5.126] spawnCubeProgrammer():  15:04:26:334 Segment[0] downloaded successfully
+[5.126] spawnCubeProgrammer():  15:04:26:334 
+[5.126] spawnCubeProgrammer():  
+[5.126] spawnCubeProgrammer():  15:04:26:334 File download complete
+[5.126] spawnCubeProgrammer():  15:04:26:334 Time elapsed during download operation: 00:00:00.562
+[5.126] spawnCubeProgrammer():  15:04:26:334 
+[5.126] spawnCubeProgrammer():  
+[5.126] spawnCubeProgrammer():  15:04:26:334 
+[5.126] spawnCubeProgrammer():  Verifying ...
+[5.126] spawnCubeProgrammer():  15:04:26:334 
+[5.126] spawnCubeProgrammer():  
+[5.126] spawnCubeProgrammer():  15:04:26:334 Read progress:
+[5.126] spawnCubeProgrammer():  15:04:26:334 Reading data...
+[5.126] spawnCubeProgrammer():  15:04:26:341 r ap 0 @0x08000000 0x00000400 bytes Data 0x20005000
+[5.126] spawnCubeProgrammer():  15:04:26:341 Reading data...
+[5.126] spawnCubeProgrammer():  15:04:26:348 r ap 0 @0x08000400 0x00000400 bytes Data 0x61936380
+[5.126] spawnCubeProgrammer():  15:04:26:348 Reading data...
+[5.126] spawnCubeProgrammer():  15:04:26:355 r ap 0 @0x08000800 0x00000400 bytes Data 0x687B629A
+[5.126] spawnCubeProgrammer():  15:04:26:355 Reading data...
+[5.126] spawnCubeProgrammer():  15:04:26:362 r ap 0 @0x08000C00 0x00000400 bytes Data 0x3B1E4413
+[5.126] spawnCubeProgrammer():  15:04:26:362 Reading data...
+[5.126] spawnCubeProgrammer():  15:04:26:369 r ap 0 @0x08001000 0x00000400 bytes Data 0x61BB4013
+[5.126] spawnCubeProgrammer():  15:04:26:369 Reading data...
+[5.126] spawnCubeProgrammer():  15:04:26:376 r ap 0 @0x08001400 0x00000400 bytes Data 0x2B641AD3
+[5.126] spawnCubeProgrammer():  15:04:26:376 Reading data...
+[5.126] spawnCubeProgrammer():  15:04:26:384 r ap 0 @0x08001800 0x00000400 bytes Data 0x37184618
+[5.126] spawnCubeProgrammer():  15:04:26:384 Reading data...
+[5.126] spawnCubeProgrammer():  15:04:26:388 r ap 0 @0x08001C00 0x000002A4 bytes Data 0x7240F423
+[5.126] spawnCubeProgrammer():  15:04:26:389 
+[5.126] spawnCubeProgrammer():  
+[5.126] spawnCubeProgrammer():  15:04:26:389 Download verified successfully 
+[5.126] spawnCubeProgrammer():  15:04:26:389 
+[5.126] spawnCubeProgrammer():  
+[5.126] spawnCubeProgrammer():  15:04:26:393 Disconnected
+[5.126] spawnCubeProgrammer():   ------ Switching context ----- 
+[5.130] Device_Initialise():  COM frequency = 4000 kHz
+[5.130] Device_Initialise():  Target connection mode: Under reset
+[5.136] readFromTarget():  Reading ROM table for AP 0 @0xe00fffd0
+[5.138] reset_hw_wtchpt_module():  Hardware watchpoint supported by the target 
+[5.142] Device_Initialise():  ST-LINK Firmware version : V2J38S7
+[5.142] Device_Initialise():  Device ID: 0x410
+[5.142] Device_Initialise():  PC: 0x80004ac
+[5.143] Device_Initialise():  ST-LINK detects target voltage = 3.25 V
+[5.143] Device_Initialise():  ST-LINK device status: HALT_MODE
+[5.143] initServerContext():  ST-LINK device initialization OK
+[5.143] write():  <644> Tx: $OK#9a
+[5.143] read():  <644> Rx: $Pf=ac040008#e3
+[5.144] write():  <644> Tx: $OK#9a
+[5.144] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[5.144] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[5.145] read():  <644> Rx: $m80004ac,4#8d
+[5.145] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004ac 
+[5.145] write():  <644> Tx: $fff7f7ff#d2
+[5.145] read():  <644> Rx: $m80004ac,2#8b
+[5.145] handlePacket():  Reading 0x2 bytes of memory from addr 0x80004ac 
+[5.145] write():  <644> Tx: $fff7#69
+[5.145] read():  <644> Rx: $m80004ae,2#8d
+[5.145] handlePacket():  Reading 0x2 bytes of memory from addr 0x80004ae 
+[5.146] write():  <644> Tx: $f7ff#69
+[5.146] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[5.146] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[5.146] read():  <644> Rx: $T1#85
+[5.146] write():  <644> Tx: $OK#9a
+[5.146] read():  <644> Rx: $T1#85
+[5.146] write():  <644> Tx: $OK#9a
+[5.184] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[5.184] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[5.199] read():  <644> Rx: $m8000140,40#5a
+[5.199] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000140 
+[5.200] write():  <644> Tx: $0000000010000020381e000880b582b000af00f0d1f900f01bf800f0a7f800f067f80a4800f002fb4ff0ff31074800f0abfb064800f0aefc0346fb80fb881846#9c
+[5.200] read():  <644> Rx: $m8000162,2#2c
+[5.200] handlePacket():  Reading 0x2 bytes of memory from addr 0x8000162 
+[5.201] write():  <644> Tx: $0a48#fd
+[5.215] read():  <644> Rx: $me000ed14,4#f0
+[5.215] handlePacket():  Reading 0x4 bytes of memory from addr 0xe000ed14 
+[5.215] write():  <644> Tx: $00000000#80
+[5.216] read():  <644> Rx: $Xe000ed14,0:#11
+[5.216] write():  <644> Tx: $OK#9a
+[5.216] read():  <644> Rx: $Xe000ed14,4:\x10\x00\x00\x00#25
+[5.216] write():  <644> Tx: $OK#9a
+[5.216] read():  <644> Rx: $g#67
+[5.221] write():  <644> Tx: $01000000a21e00080c2002400030004000000000000000000000000018090020000000000000000000000000000000000000000000500020ffffffffac04000800000001000000000000000000000000000000000050002000000000#77
+[5.221] read():  <644> Rx: $m80004ac,4#8d
+[5.221] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004ac 
+[5.221] write():  <644> Tx: $fff7f7ff#d2
+[5.222] read():  <644> Rx: $m80004ac,2#8b
+[5.222] handlePacket():  Reading 0x2 bytes of memory from addr 0x80004ac 
+[5.222] write():  <644> Tx: $fff7#69
+[5.222] read():  <644> Rx: $m80004ae,2#8d
+[5.222] handlePacket():  Reading 0x2 bytes of memory from addr 0x80004ae 
+[5.223] write():  <644> Tx: $f7ff#69
+[5.223] read():  <644> Rx: $me000edfc,4#54
+[5.223] handlePacket():  Reading 0x4 bytes of memory from addr 0xe000edfc 
+[5.224] write():  <644> Tx: $00000001#81
+[5.224] read():  <644> Rx: $Xe000edfc,4:\xff\x07\x00\x01#71
+[5.224] write():  <644> Tx: $OK#9a
+[5.224] read():  <644> Rx: $g#67
+[5.228] write():  <644> Tx: $01000000a21e00080c2002400030004000000000000000000000000018090020000000000000000000000000000000000000000000500020ffffffffac04000800000001000000000000000000000000000000000050002000000000#77
+[5.228] read():  <644> Rx: $m80004ac,4#8d
+[5.228] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004ac 
+[5.229] write():  <644> Tx: $fff7f7ff#d2
+[5.229] read():  <644> Rx: $m80004ac,2#8b
+[5.229] handlePacket():  Reading 0x2 bytes of memory from addr 0x80004ac 
+[5.229] write():  <644> Tx: $fff7#69
+[5.230] read():  <644> Rx: $m80004ae,2#8d
+[5.230] handlePacket():  Reading 0x2 bytes of memory from addr 0x80004ae 
+[5.230] write():  <644> Tx: $f7ff#69
+[5.230] read():  <644> Rx: $m8000140,40#5a
+[5.230] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000140 
+[5.231] write():  <644> Tx: $0000000010000020381e000880b582b000af00f0d1f900f01bf800f0a7f800f067f80a4800f002fb4ff0ff31074800f0abfb064800f0aefc0346fb80fb881846#9c
+[5.231] read():  <644> Rx: $m8000152,2#2b
+[5.231] handlePacket():  Reading 0x2 bytes of memory from addr 0x8000152 
+[5.232] write():  <644> Tx: $00f0#f6
+[5.246] read():  <644> Rx: $me0042004,4#8c
+[5.246] handlePacket():  Reading 0x4 bytes of memory from addr 0xe0042004 
+[5.247] write():  <644> Tx: $07000000#87
+[5.247] read():  <644> Rx: $Xe0042004,4:\x07\x00\x00\x00#b8
+[5.247] write():  <644> Tx: $OK#9a
+[5.247] read():  <644> Rx: $g#67
+[5.252] write():  <644> Tx: $01000000a21e00080c2002400030004000000000000000000000000018090020000000000000000000000000000000000000000000500020ffffffffac04000800000001000000000000000000000000000000000050002000000000#77
+[5.252] read():  <644> Rx: $m80004ac,4#8d
+[5.252] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004ac 
+[5.252] write():  <644> Tx: $fff7f7ff#d2
+[5.252] read():  <644> Rx: $m80004ac,2#8b
+[5.252] handlePacket():  Reading 0x2 bytes of memory from addr 0x80004ac 
+[5.253] write():  <644> Tx: $fff7#69
+[5.253] read():  <644> Rx: $m80004ae,2#8d
+[5.253] handlePacket():  Reading 0x2 bytes of memory from addr 0x80004ae 
+[5.253] write():  <644> Tx: $f7ff#69
+[5.278] read():  <644> Rx: $Z1,8000152,2#75
+[5.279] write():  <644> Tx: $OK#9a
+[5.279] read():  <644> Rx: $Z1,8000162,2#76
+[5.279] write():  <644> Tx: $OK#9a
+[5.279] read():  <644> Rx: $vCont;c#a8
+[5.294] handle_vCont_c():  handle_vCont_c, continue thread
+[5.294] write():  <644> Tx: $OK#9a
+[5.310] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[5.326] Device_GetHaltReason():  NVIC_DFSR_REG = 0x0000000A 
+[5.327] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[5.327] read():  <644> Rx: $vStopped#55
+[5.327] write():  <644> Tx: $OK#9a
+[5.328] read():  <644> Rx: $g#67
+[5.332] write():  <644> Tx: $000000200c0000205c000020310100085c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f0020df040008520100080000006100000000000000000000000000000000f04f002000000000#1b
+[5.332] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[5.332] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[5.332] read():  <644> Rx: $z1,8000152,2#95
+[5.332] write():  <644> Tx: $OK#9a
+[5.333] read():  <644> Rx: $z1,8000162,2#96
+[5.333] write():  <644> Tx: $OK#9a
+[5.333] read():  <644> Rx: $m8000152,4#2d
+[5.333] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000152 
+[5.334] write():  <644> Tx: $00f0d1f9#2a
+[5.483] read():  <644> Rx: $m20004fc0,40#ec
+[5.483] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[5.484] write():  <644> Tx: $00280140c84f0020ffffffff28000020d84f0020000000000000000000000000901e00080000000031010008151e00085c0000200000000018090020df040008#16
+[5.484] read():  <644> Rx: $m80004de,4#92
+[5.484] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[5.485] write():  <644> Tx: $70470000#92
+[5.485] read():  <644> Rx: $m8000480,40#61
+[5.485] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[5.486] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[5.499] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[5.499] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[5.499] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[5.499] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[5.831] read():  <644> Rx: $m20004fc0,40#ec
+[5.831] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[5.832] write():  <644> Tx: $00280140c84f0020ffffffff28000020d84f0020000000000000000000000000901e00080000000031010008151e00085c0000200000000018090020df040008#16
+[5.833] read():  <644> Rx: $m20004fc0,40#ec
+[5.833] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[5.833] write():  <644> Tx: $00280140c84f0020ffffffff28000020d84f0020000000000000000000000000901e00080000000031010008151e00085c0000200000000018090020df040008#16
+[8.132] read():  <644> Rx: $Z1,8000162,2#76
+[8.132] write():  <644> Tx: $OK#9a
+[8.133] read():  <644> Rx: $vCont;c#a8
+[8.148] handle_vCont_c():  handle_vCont_c, continue thread
+[8.148] write():  <644> Tx: $OK#9a
+[8.148] read():  <644> Rx: $T1#85
+[8.148] write():  <644> Tx: $OK#9a
+[8.149] read():  <644> Rx: $T1#85
+[8.149] write():  <644> Tx: $OK#9a
+[8.163] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[8.179] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000002 
+[8.180] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[8.180] read():  <644> Rx: $vStopped#55
+[8.180] write():  <644> Tx: $OK#9a
+[8.180] read():  <644> Rx: $g#67
+[8.185] write():  <644> Tx: $000000000000000000000000000000005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002093020008620100080000000100000000000000000000000000000000f04f002000000000#38
+[8.185] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[8.185] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[8.185] read():  <644> Rx: $z1,8000162,2#96
+[8.186] write():  <644> Tx: $OK#9a
+[8.186] read():  <644> Rx: $m8000162,4#2e
+[8.186] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[8.187] write():  <644> Tx: $0a4800f0#f3
+[8.211] read():  <644> Rx: $T1#85
+[8.211] write():  <644> Tx: $OK#9a
+[8.211] read():  <644> Rx: $T1#85
+[8.211] write():  <644> Tx: $OK#9a
+[8.291] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[8.291] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[8.291] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[8.291] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[8.368] read():  <644> Rx: $m20004fc0,40#ec
+[8.368] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[8.369] write():  <644> Tx: $dc4f00202800002000000000d04f0000d84f0020d84f002000020000030000000100000000000000f04f0020630100085c0000200000000018090020df040008#5b
+[8.369] read():  <644> Rx: $m80004de,4#92
+[8.369] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[8.370] write():  <644> Tx: $70470000#92
+[8.370] read():  <644> Rx: $m8000480,40#61
+[8.370] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[8.370] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[8.384] read():  <644> Rx: $m20004fc0,40#ec
+[8.384] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[8.385] write():  <644> Tx: $dc4f00202800002000000000d04f0000d84f0020d84f002000020000030000000100000000000000f04f0020630100085c0000200000000018090020df040008#5b
+[8.385] read():  <644> Rx: $m20004fc0,40#ec
+[8.385] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[8.386] write():  <644> Tx: $dc4f00202800002000000000d04f0000d84f0020d84f002000020000030000000100000000000000f04f0020630100085c0000200000000018090020df040008#5b
+[10.276] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[10.276] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[10.276] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[10.276] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[10.276] read():  <644> Rx: $vCont;s:1;c#c1
+[10.293] handle_vCont_s():  handle_vCont_s, step thread
+[10.293] write():  <644> Tx: $OK#9a
+[10.294] read():  <644> Rx: $T1#85
+[10.294] write():  <644> Tx: $OK#9a
+[10.294] read():  <644> Rx: $T1#85
+[10.294] write():  <644> Tx: $OK#9a
+[10.307] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[10.322] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[10.322] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[10.322] read():  <644> Rx: $vStopped#55
+[10.322] write():  <644> Tx: $OK#9a
+[10.323] read():  <644> Rx: $Z1,8000162,2#76
+[10.323] write():  <644> Tx: $OK#9a
+[10.323] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[10.323] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[10.323] read():  <644> Rx: $g#67
+[10.327] write():  <644> Tx: $280000200000000000000000000000005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002093020008640100080000000100000000000000000000000000000000f04f002000000000#46
+[10.327] read():  <644> Rx: $vCont;c#a8
+[10.336] handle_vCont_c():  handle_vCont_c, continue thread
+[10.336] write():  <644> Tx: $OK#9a
+[10.352] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[10.368] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[10.370] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[10.370] read():  <644> Rx: $vStopped#55
+[10.370] write():  <644> Tx: $OK#9a
+[10.370] read():  <644> Rx: $g#67
+[10.374] write():  <644> Tx: $02200000ffffffff8f200000022000005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#30
+[10.375] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[10.375] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[10.375] read():  <644> Rx: $z1,8000162,2#96
+[10.375] write():  <644> Tx: $OK#9a
+[10.375] read():  <644> Rx: $m8000162,4#2e
+[10.375] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[10.376] write():  <644> Tx: $0a4800f0#f3
+[10.463] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[10.463] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[10.463] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[10.463] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[10.478] read():  <644> Rx: $m20004fc0,40#ec
+[10.478] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[10.479] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f00200000000000000000bb0f0000022000008f200000f04f0020f04f00205c0000200220bb0f18090020df040008#72
+[10.479] read():  <644> Rx: $m80004de,4#92
+[10.479] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[10.480] write():  <644> Tx: $70470000#92
+[10.480] read():  <644> Rx: $m8000480,40#61
+[10.480] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[10.481] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[10.510] read():  <644> Rx: $m20004fc0,40#ec
+[10.510] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[10.511] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f00200000000000000000bb0f0000022000008f200000f04f0020f04f00205c0000200220bb0f18090020df040008#72
+[10.511] read():  <644> Rx: $m20004fc0,40#ec
+[10.511] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[10.512] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f00200000000000000000bb0f0000022000008f200000f04f0020f04f00205c0000200220bb0f18090020df040008#72
+[12.553] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[12.553] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[12.553] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[12.553] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[12.553] read():  <644> Rx: $vCont;s:1;c#c1
+[12.570] handle_vCont_s():  handle_vCont_s, step thread
+[12.570] write():  <644> Tx: $OK#9a
+[12.571] read():  <644> Rx: $T1#85
+[12.571] write():  <644> Tx: $OK#9a
+[12.571] read():  <644> Rx: $T1#85
+[12.571] write():  <644> Tx: $OK#9a
+[12.585] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[12.601] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[12.601] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[12.601] read():  <644> Rx: $vStopped#55
+[12.601] write():  <644> Tx: $OK#9a
+[12.601] read():  <644> Rx: $Z1,8000162,2#76
+[12.602] write():  <644> Tx: $OK#9a
+[12.602] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[12.602] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[12.602] read():  <644> Rx: $g#67
+[12.606] write():  <644> Tx: $28000020ffffffff8f200000022000005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#3a
+[12.607] read():  <644> Rx: $vCont;c#a8
+[12.617] handle_vCont_c():  handle_vCont_c, continue thread
+[12.617] write():  <644> Tx: $OK#9a
+[12.633] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[12.649] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[12.650] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[12.650] read():  <644> Rx: $vStopped#55
+[12.650] write():  <644> Tx: $OK#9a
+[12.651] read():  <644> Rx: $g#67
+[12.655] write():  <644> Tx: $0c200000ffffffff8f2000000c2000005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#92
+[12.655] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[12.655] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[12.655] read():  <644> Rx: $z1,8000162,2#96
+[12.656] write():  <644> Tx: $OK#9a
+[12.656] read():  <644> Rx: $m8000162,4#2e
+[12.656] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[12.657] write():  <644> Tx: $0a4800f0#f3
+[12.744] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[12.744] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[12.744] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[12.744] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[12.760] read():  <644> Rx: $m20004fc0,40#ec
+[12.760] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[12.761] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f00200000000000000000c00f00000c2000008f200000f04f0020f04f00205c0000200c20c00f18090020df040008#72
+[12.761] read():  <644> Rx: $m80004de,4#92
+[12.761] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[12.762] write():  <644> Tx: $70470000#92
+[12.762] read():  <644> Rx: $m8000480,40#61
+[12.762] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[12.763] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[12.791] read():  <644> Rx: $m20004fc0,40#ec
+[12.791] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[12.792] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f00200000000000000000c00f00000c2000008f200000f04f0020f04f00205c0000200c20c00f18090020df040008#72
+[12.792] read():  <644> Rx: $m20004fc0,40#ec
+[12.792] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[12.793] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f00200000000000000000c00f00000c2000008f200000f04f0020f04f00205c0000200c20c00f18090020df040008#72
+[13.169] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[13.169] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[13.169] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[13.169] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[13.169] read():  <644> Rx: $vCont;s:1;c#c1
+[13.186] handle_vCont_s():  handle_vCont_s, step thread
+[13.186] write():  <644> Tx: $OK#9a
+[13.187] read():  <644> Rx: $T1#85
+[13.187] write():  <644> Tx: $OK#9a
+[13.187] read():  <644> Rx: $T1#85
+[13.187] write():  <644> Tx: $OK#9a
+[13.201] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[13.217] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[13.217] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[13.217] read():  <644> Rx: $vStopped#55
+[13.217] write():  <644> Tx: $OK#9a
+[13.217] read():  <644> Rx: $Z1,8000162,2#76
+[13.218] write():  <644> Tx: $OK#9a
+[13.218] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[13.218] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[13.218] read():  <644> Rx: $g#67
+[13.222] write():  <644> Tx: $28000020ffffffff8f2000000c2000005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#6b
+[13.223] read():  <644> Rx: $vCont;c#a8
+[13.233] handle_vCont_c():  handle_vCont_c, continue thread
+[13.233] write():  <644> Tx: $OK#9a
+[13.249] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[13.265] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[13.266] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[13.267] read():  <644> Rx: $vStopped#55
+[13.267] write():  <644> Tx: $OK#9a
+[13.267] read():  <644> Rx: $g#67
+[13.271] write():  <644> Tx: $06200000ffffffff8f200000062000005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#38
+[13.271] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[13.271] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[13.272] read():  <644> Rx: $z1,8000162,2#96
+[13.272] write():  <644> Tx: $OK#9a
+[13.272] read():  <644> Rx: $m8000162,4#2e
+[13.272] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[13.273] write():  <644> Tx: $0a4800f0#f3
+[13.359] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[13.359] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[13.359] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[13.359] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[13.374] read():  <644> Rx: $m20004fc0,40#ec
+[13.374] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[13.375] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f00200000000000000000bd0f0000062000008f200000f04f0020f04f00205c0000200620bd0f18090020df040008#7e
+[13.375] read():  <644> Rx: $m80004de,4#92
+[13.375] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[13.376] write():  <644> Tx: $70470000#92
+[13.376] read():  <644> Rx: $m8000480,40#61
+[13.376] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[13.377] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[13.406] read():  <644> Rx: $m20004fc0,40#ec
+[13.406] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[13.407] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f00200000000000000000bd0f0000062000008f200000f04f0020f04f00205c0000200620bd0f18090020df040008#7e
+[13.407] read():  <644> Rx: $m20004fc0,40#ec
+[13.407] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[13.408] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f00200000000000000000bd0f0000062000008f200000f04f0020f04f00205c0000200620bd0f18090020df040008#7e
+[13.688] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[13.688] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[13.688] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[13.688] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[13.688] read():  <644> Rx: $vCont;s:1;c#c1
+[13.705] handle_vCont_s():  handle_vCont_s, step thread
+[13.705] write():  <644> Tx: $OK#9a
+[13.705] read():  <644> Rx: $T1#85
+[13.706] write():  <644> Tx: $OK#9a
+[13.706] read():  <644> Rx: $T1#85
+[13.706] write():  <644> Tx: $OK#9a
+[13.720] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[13.736] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[13.736] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[13.736] read():  <644> Rx: $vStopped#55
+[13.736] write():  <644> Tx: $OK#9a
+[13.736] read():  <644> Rx: $Z1,8000162,2#76
+[13.737] write():  <644> Tx: $OK#9a
+[13.737] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[13.737] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[13.737] read():  <644> Rx: $g#67
+[13.741] write():  <644> Tx: $28000020ffffffff8f200000062000005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#3e
+[13.741] read():  <644> Rx: $vCont;c#a8
+[13.751] handle_vCont_c():  handle_vCont_c, continue thread
+[13.751] write():  <644> Tx: $OK#9a
+[13.768] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[13.784] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[13.785] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[13.785] read():  <644> Rx: $vStopped#55
+[13.785] write():  <644> Tx: $OK#9a
+[13.786] read():  <644> Rx: $g#67
+[13.790] write():  <644> Tx: $411b0000ffffffff8f200000411b00005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#98
+[13.790] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[13.790] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[13.790] read():  <644> Rx: $z1,8000162,2#96
+[13.791] write():  <644> Tx: $OK#9a
+[13.791] read():  <644> Rx: $m8000162,4#2e
+[13.791] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[13.792] write():  <644> Tx: $0a4800f0#f3
+[13.880] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[13.880] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[13.880] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[13.880] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[13.895] read():  <644> Rx: $m20004fc0,40#ec
+[13.895] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[13.896] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f00200000000000000000650d0000411b00008f200000f04f0020f04f00205c000020411b650d18090020df040008#24
+[13.896] read():  <644> Rx: $m80004de,4#92
+[13.896] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[13.897] write():  <644> Tx: $70470000#92
+[13.897] read():  <644> Rx: $m8000480,40#61
+[13.897] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[13.898] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[13.927] read():  <644> Rx: $m20004fc0,40#ec
+[13.927] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[13.928] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f00200000000000000000650d0000411b00008f200000f04f0020f04f00205c000020411b650d18090020df040008#24
+[13.928] read():  <644> Rx: $m20004fc0,40#ec
+[13.928] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[13.929] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f00200000000000000000650d0000411b00008f200000f04f0020f04f00205c000020411b650d18090020df040008#24
+[14.174] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[14.174] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[14.174] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[14.174] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[14.174] read():  <644> Rx: $vCont;s:1;c#c1
+[14.189] handle_vCont_s():  handle_vCont_s, step thread
+[14.189] write():  <644> Tx: $OK#9a
+[14.190] read():  <644> Rx: $T1#85
+[14.190] write():  <644> Tx: $OK#9a
+[14.190] read():  <644> Rx: $T1#85
+[14.190] write():  <644> Tx: $OK#9a
+[14.204] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[14.220] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[14.220] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[14.220] read():  <644> Rx: $vStopped#55
+[14.220] write():  <644> Tx: $OK#9a
+[14.220] read():  <644> Rx: $Z1,8000162,2#76
+[14.221] write():  <644> Tx: $OK#9a
+[14.221] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[14.221] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[14.221] read():  <644> Rx: $g#67
+[14.225] write():  <644> Tx: $28000020ffffffff8f200000411b00005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#6e
+[14.226] read():  <644> Rx: $vCont;c#a8
+[14.236] handle_vCont_c():  handle_vCont_c, continue thread
+[14.236] write():  <644> Tx: $OK#9a
+[14.252] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[14.268] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[14.269] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[14.269] read():  <644> Rx: $vStopped#55
+[14.269] write():  <644> Tx: $OK#9a
+[14.269] read():  <644> Rx: $g#67
+[14.274] write():  <644> Tx: $bd160000ffffffff8f200000bd1600005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#02
+[14.274] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[14.274] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[14.274] read():  <644> Rx: $z1,8000162,2#96
+[14.275] write():  <644> Tx: $OK#9a
+[14.275] read():  <644> Rx: $m8000162,4#2e
+[14.275] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[14.276] write():  <644> Tx: $0a4800f0#f3
+[14.364] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[14.364] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[14.364] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[14.364] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[14.379] read():  <644> Rx: $m20004fc0,40#ec
+[14.379] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[14.380] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f002000000000000000002d0b0000bd1600008f200000f04f0020f04f00205c000020bd162d0b18090020df040008#e0
+[14.380] read():  <644> Rx: $m80004de,4#92
+[14.380] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[14.381] write():  <644> Tx: $70470000#92
+[14.381] read():  <644> Rx: $m8000480,40#61
+[14.381] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[14.382] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[14.410] read():  <644> Rx: $m20004fc0,40#ec
+[14.410] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[14.411] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f002000000000000000002d0b0000bd1600008f200000f04f0020f04f00205c000020bd162d0b18090020df040008#e0
+[14.411] read():  <644> Rx: $m20004fc0,40#ec
+[14.411] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[14.412] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f002000000000000000002d0b0000bd1600008f200000f04f0020f04f00205c000020bd162d0b18090020df040008#e0
+[14.693] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[14.693] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[14.693] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[14.693] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[14.693] read():  <644> Rx: $vCont;s:1;c#c1
+[14.709] handle_vCont_s():  handle_vCont_s, step thread
+[14.709] write():  <644> Tx: $OK#9a
+[14.710] read():  <644> Rx: $T1#85
+[14.710] write():  <644> Tx: $OK#9a
+[14.710] read():  <644> Rx: $T1#85
+[14.710] write():  <644> Tx: $OK#9a
+[14.724] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[14.739] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[14.739] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[14.739] read():  <644> Rx: $vStopped#55
+[14.739] write():  <644> Tx: $OK#9a
+[14.739] read():  <644> Rx: $Z1,8000162,2#76
+[14.740] write():  <644> Tx: $OK#9a
+[14.740] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[14.740] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[14.740] read():  <644> Rx: $g#67
+[14.744] write():  <644> Tx: $28000020ffffffff8f200000bd1600005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#a3
+[14.744] read():  <644> Rx: $vCont;c#a8
+[14.755] handle_vCont_c():  handle_vCont_c, continue thread
+[14.755] write():  <644> Tx: $OK#9a
+[14.770] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[14.785] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[14.787] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[14.787] read():  <644> Rx: $vStopped#55
+[14.787] write():  <644> Tx: $OK#9a
+[14.787] read():  <644> Rx: $g#67
+[14.792] write():  <644> Tx: $a7120000ffffffff8f200000a71200005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#9e
+[14.793] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[14.793] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[14.793] read():  <644> Rx: $z1,8000162,2#96
+[14.793] write():  <644> Tx: $OK#9a
+[14.794] read():  <644> Rx: $m8000162,4#2e
+[14.794] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[14.795] write():  <644> Tx: $0a4800f0#f3
+[14.880] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[14.880] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[14.880] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[14.880] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[14.895] read():  <644> Rx: $m20004fc0,40#ec
+[14.895] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[14.896] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f002000000000000000002b090000a71200008f200000f04f0020f04f00205c000020a7122b0918090020df040008#26
+[14.896] read():  <644> Rx: $m80004de,4#92
+[14.896] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[14.897] write():  <644> Tx: $70470000#92
+[14.897] read():  <644> Rx: $m8000480,40#61
+[14.897] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[14.898] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[14.925] read():  <644> Rx: $m20004fc0,40#ec
+[14.925] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[14.926] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f002000000000000000002b090000a71200008f200000f04f0020f04f00205c000020a7122b0918090020df040008#26
+[14.926] read():  <644> Rx: $m20004fc0,40#ec
+[14.926] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[14.927] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f002000000000000000002b090000a71200008f200000f04f0020f04f00205c000020a7122b0918090020df040008#26
+[15.223] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[15.223] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[15.223] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[15.223] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[15.223] read():  <644> Rx: $vCont;s:1;c#c1
+[15.239] handle_vCont_s():  handle_vCont_s, step thread
+[15.239] write():  <644> Tx: $OK#9a
+[15.240] read():  <644> Rx: $T1#85
+[15.240] write():  <644> Tx: $OK#9a
+[15.240] read():  <644> Rx: $T1#85
+[15.240] write():  <644> Tx: $OK#9a
+[15.254] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[15.270] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[15.270] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[15.270] read():  <644> Rx: $vStopped#55
+[15.270] write():  <644> Tx: $OK#9a
+[15.270] read():  <644> Rx: $Z1,8000162,2#76
+[15.271] write():  <644> Tx: $OK#9a
+[15.271] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[15.271] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[15.271] read():  <644> Rx: $g#67
+[15.275] write():  <644> Tx: $28000020ffffffff8f200000a71200005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#71
+[15.275] read():  <644> Rx: $vCont;c#a8
+[15.286] handle_vCont_c():  handle_vCont_c, continue thread
+[15.286] write():  <644> Tx: $OK#9a
+[15.302] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[15.318] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[15.320] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[15.320] read():  <644> Rx: $vStopped#55
+[15.320] write():  <644> Tx: $OK#9a
+[15.320] read():  <644> Rx: $g#67
+[15.324] write():  <644> Tx: $770f0000ffffffff8f200000770f00005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#b0
+[15.325] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[15.325] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[15.325] read():  <644> Rx: $z1,8000162,2#96
+[15.325] write():  <644> Tx: $OK#9a
+[15.326] read():  <644> Rx: $m8000162,4#2e
+[15.326] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[15.326] write():  <644> Tx: $0a4800f0#f3
+[15.413] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[15.413] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[15.413] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[15.413] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[15.429] read():  <644> Rx: $m20004fc0,40#ec
+[15.429] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[15.430] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f002000000000000000009a070000770f00008f200000f04f0020f04f00205c000020770f9a0718090020df040008#40
+[15.430] read():  <644> Rx: $m80004de,4#92
+[15.430] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[15.431] write():  <644> Tx: $70470000#92
+[15.431] read():  <644> Rx: $m8000480,40#61
+[15.431] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[15.432] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[15.459] read():  <644> Rx: $m20004fc0,40#ec
+[15.459] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[15.460] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f002000000000000000009a070000770f00008f200000f04f0020f04f00205c000020770f9a0718090020df040008#40
+[15.460] read():  <644> Rx: $m20004fc0,40#ec
+[15.460] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[15.461] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f002000000000000000009a070000770f00008f200000f04f0020f04f00205c000020770f9a0718090020df040008#40
+[15.742] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[15.742] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[15.742] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[15.742] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[15.742] read():  <644> Rx: $vCont;s:1;c#c1
+[15.759] handle_vCont_s():  handle_vCont_s, step thread
+[15.759] write():  <644> Tx: $OK#9a
+[15.760] read():  <644> Rx: $T1#85
+[15.760] write():  <644> Tx: $OK#9a
+[15.760] read():  <644> Rx: $T1#85
+[15.760] write():  <644> Tx: $OK#9a
+[15.774] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[15.790] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[15.790] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[15.790] read():  <644> Rx: $vStopped#55
+[15.790] write():  <644> Tx: $OK#9a
+[15.790] read():  <644> Rx: $Z1,8000162,2#76
+[15.791] write():  <644> Tx: $OK#9a
+[15.791] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[15.791] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[15.791] read():  <644> Rx: $g#67
+[15.796] write():  <644> Tx: $28000020ffffffff8f200000770f00005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#7a
+[15.796] read():  <644> Rx: $vCont;c#a8
+[15.806] handle_vCont_c():  handle_vCont_c, continue thread
+[15.806] write():  <644> Tx: $OK#9a
+[15.821] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[15.837] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[15.838] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[15.839] read():  <644> Rx: $vStopped#55
+[15.839] write():  <644> Tx: $OK#9a
+[15.839] read():  <644> Rx: $g#67
+[15.843] write():  <644> Tx: $fe0b0000ffffffff8f200000fe0b00005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#62
+[15.844] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[15.844] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[15.844] read():  <644> Rx: $z1,8000162,2#96
+[15.844] write():  <644> Tx: $OK#9a
+[15.844] read():  <644> Rx: $m8000162,4#2e
+[15.844] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[15.845] write():  <644> Tx: $0a4800f0#f3
+[15.932] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[15.932] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[15.932] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[15.932] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[15.948] read():  <644> Rx: $m20004fc0,40#ec
+[15.948] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[15.949] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f00200000000000000000e5050000fe0b00008f200000f04f0020f04f00205c000020fe0be50518090020df040008#ee
+[15.949] read():  <644> Rx: $m80004de,4#92
+[15.949] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[15.950] write():  <644> Tx: $70470000#92
+[15.950] read():  <644> Rx: $m8000480,40#61
+[15.950] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[15.951] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[15.979] read():  <644> Rx: $m20004fc0,40#ec
+[15.979] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[15.980] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f00200000000000000000e5050000fe0b00008f200000f04f0020f04f00205c000020fe0be50518090020df040008#ee
+[15.980] read():  <644> Rx: $m20004fc0,40#ec
+[15.980] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[15.981] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f00200000000000000000e5050000fe0b00008f200000f04f0020f04f00205c000020fe0be50518090020df040008#ee
+[16.373] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[16.373] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[16.373] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[16.373] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[16.373] read():  <644> Rx: $vCont;s:1;c#c1
+[16.390] handle_vCont_s():  handle_vCont_s, step thread
+[16.390] write():  <644> Tx: $OK#9a
+[16.391] read():  <644> Rx: $T1#85
+[16.391] write():  <644> Tx: $OK#9a
+[16.391] read():  <644> Rx: $T1#85
+[16.391] write():  <644> Tx: $OK#9a
+[16.405] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[16.421] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[16.421] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[16.421] read():  <644> Rx: $vStopped#55
+[16.421] write():  <644> Tx: $OK#9a
+[16.421] read():  <644> Rx: $Z1,8000162,2#76
+[16.422] write():  <644> Tx: $OK#9a
+[16.422] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[16.422] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[16.422] read():  <644> Rx: $g#67
+[16.426] write():  <644> Tx: $28000020ffffffff8f200000fe0b00005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#d3
+[16.426] read():  <644> Rx: $vCont;c#a8
+[16.436] handle_vCont_c():  handle_vCont_c, continue thread
+[16.436] write():  <644> Tx: $OK#9a
+[16.452] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[16.468] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[16.469] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[16.469] read():  <644> Rx: $vStopped#55
+[16.470] write():  <644> Tx: $OK#9a
+[16.470] read():  <644> Rx: $g#67
+[16.474] write():  <644> Tx: $350b0000ffffffff8f200000350b00005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#9c
+[16.474] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[16.474] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[16.474] read():  <644> Rx: $z1,8000162,2#96
+[16.475] write():  <644> Tx: $OK#9a
+[16.475] read():  <644> Rx: $m8000162,4#2e
+[16.475] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[16.476] write():  <644> Tx: $0a4800f0#f3
+[16.563] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[16.563] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[16.564] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[16.564] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[16.579] read():  <644> Rx: $m20004fc0,40#ec
+[16.579] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[16.580] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f0020000000000000000082050000350b00008f200000f04f0020f04f00205c000020350b820518090020df040008#c8
+[16.580] read():  <644> Rx: $m80004de,4#92
+[16.580] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[16.581] write():  <644> Tx: $70470000#92
+[16.581] read():  <644> Rx: $m8000480,40#61
+[16.581] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[16.581] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[16.611] read():  <644> Rx: $m20004fc0,40#ec
+[16.611] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[16.612] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f0020000000000000000082050000350b00008f200000f04f0020f04f00205c000020350b820518090020df040008#c8
+[16.612] read():  <644> Rx: $m20004fc0,40#ec
+[16.612] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[16.613] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f0020000000000000000082050000350b00008f200000f04f0020f04f00205c000020350b820518090020df040008#c8
+[17.270] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[17.270] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[17.270] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[17.270] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[17.270] read():  <644> Rx: $vCont;s:1;c#c1
+[17.287] handle_vCont_s():  handle_vCont_s, step thread
+[17.287] write():  <644> Tx: $OK#9a
+[17.287] read():  <644> Rx: $T1#85
+[17.287] write():  <644> Tx: $OK#9a
+[17.287] read():  <644> Rx: $T1#85
+[17.288] write():  <644> Tx: $OK#9a
+[17.302] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[17.318] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[17.318] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[17.318] read():  <644> Rx: $vStopped#55
+[17.318] write():  <644> Tx: $OK#9a
+[17.318] read():  <644> Rx: $Z1,8000162,2#76
+[17.319] write():  <644> Tx: $OK#9a
+[17.319] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[17.319] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[17.319] read():  <644> Rx: $g#67
+[17.323] write():  <644> Tx: $28000020ffffffff8f200000350b00005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#70
+[17.323] read():  <644> Rx: $vCont;c#a8
+[17.333] handle_vCont_c():  handle_vCont_c, continue thread
+[17.333] write():  <644> Tx: $OK#9a
+[17.349] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[17.365] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[17.366] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[17.367] read():  <644> Rx: $vStopped#55
+[17.367] write():  <644> Tx: $OK#9a
+[17.367] read():  <644> Rx: $g#67
+[17.371] write():  <644> Tx: $cd010000ffffffff8f200000cd0100005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#f8
+[17.372] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[17.372] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[17.372] read():  <644> Rx: $z1,8000162,2#96
+[17.372] write():  <644> Tx: $OK#9a
+[17.372] read():  <644> Rx: $m8000162,4#2e
+[17.372] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[17.373] write():  <644> Tx: $0a4800f0#f3
+[17.477] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[17.477] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[17.477] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[17.477] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[17.477] read():  <644> Rx: $m20004fc0,40#ec
+[17.477] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[17.478] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f00200000000000000000e3000000cd0100008f200000f04f0020f04f00205c000020cd01e30018090020df040008#76
+[17.478] read():  <644> Rx: $m80004de,4#92
+[17.478] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[17.479] write():  <644> Tx: $70470000#92
+[17.479] read():  <644> Rx: $m8000480,40#61
+[17.479] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[17.480] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[17.492] read():  <644> Rx: $m20004fc0,40#ec
+[17.492] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[17.493] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f00200000000000000000e3000000cd0100008f200000f04f0020f04f00205c000020cd01e30018090020df040008#76
+[17.493] read():  <644> Rx: $m20004fc0,40#ec
+[17.493] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[17.494] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f00200000000000000000e3000000cd0100008f200000f04f0020f04f00205c000020cd01e30018090020df040008#76
+[17.869] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[17.869] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[17.869] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[17.869] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[17.869] read():  <644> Rx: $vCont;s:1;c#c1
+[17.886] handle_vCont_s():  handle_vCont_s, step thread
+[17.886] write():  <644> Tx: $OK#9a
+[17.887] read():  <644> Rx: $T1#85
+[17.887] write():  <644> Tx: $OK#9a
+[17.887] read():  <644> Rx: $T1#85
+[17.887] write():  <644> Tx: $OK#9a
+[17.901] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[17.917] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[17.917] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[17.917] read():  <644> Rx: $vStopped#55
+[17.917] write():  <644> Tx: $OK#9a
+[17.917] read():  <644> Rx: $Z1,8000162,2#76
+[17.918] write():  <644> Tx: $OK#9a
+[17.918] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[17.918] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[17.918] read():  <644> Rx: $g#67
+[17.922] write():  <644> Tx: $28000020ffffffff8f200000cd0100005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#9e
+[17.922] read():  <644> Rx: $vCont;c#a8
+[17.933] handle_vCont_c():  handle_vCont_c, continue thread
+[17.933] write():  <644> Tx: $OK#9a
+[17.949] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[17.965] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[17.967] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[17.967] read():  <644> Rx: $vStopped#55
+[17.967] write():  <644> Tx: $OK#9a
+[17.967] read():  <644> Rx: $g#67
+[17.971] write():  <644> Tx: $00000000ffffffff8f200000000000005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#28
+[17.972] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[17.972] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[17.972] read():  <644> Rx: $z1,8000162,2#96
+[17.972] write():  <644> Tx: $OK#9a
+[17.972] read():  <644> Rx: $m8000162,4#2e
+[17.972] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[17.973] write():  <644> Tx: $0a4800f0#f3
+[18.060] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[18.060] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[18.060] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[18.060] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[18.076] read():  <644> Rx: $m20004fc0,40#ec
+[18.076] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[18.077] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f0020000000000000000000000000000000008f200000f04f0020f04f00205c0000200000000018090020df040008#36
+[18.077] read():  <644> Rx: $m80004de,4#92
+[18.077] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[18.078] write():  <644> Tx: $70470000#92
+[18.078] read():  <644> Rx: $m8000480,40#61
+[18.078] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[18.079] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[18.108] read():  <644> Rx: $m20004fc0,40#ec
+[18.108] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[18.109] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f0020000000000000000000000000000000008f200000f04f0020f04f00205c0000200000000018090020df040008#36
+[18.109] read():  <644> Rx: $m20004fc0,40#ec
+[18.109] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[18.109] write():  <644> Tx: $dc4f0020c84f0020ffffffff28000020d84f0020000000000000000000000000000000008f200000f04f0020f04f00205c0000200000000018090020df040008#36
+[18.451] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[18.451] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[18.451] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[18.451] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[18.451] read():  <644> Rx: $vCont;s:1;c#c1
+[18.468] handle_vCont_s():  handle_vCont_s, step thread
+[18.468] write():  <644> Tx: $OK#9a
+[18.468] read():  <644> Rx: $T1#85
+[18.468] write():  <644> Tx: $OK#9a
+[18.469] read():  <644> Rx: $T1#85
+[18.469] write():  <644> Tx: $OK#9a
+[18.481] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[18.497] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[18.497] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[18.497] read():  <644> Rx: $vStopped#55
+[18.497] write():  <644> Tx: $OK#9a
+[18.497] read():  <644> Rx: $Z1,8000162,2#76
+[18.498] write():  <644> Tx: $OK#9a
+[18.498] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[18.498] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[18.498] read():  <644> Rx: $g#67
+[18.503] write():  <644> Tx: $28000020ffffffff8f200000000000005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#36
+[18.503] read():  <644> Rx: $vCont;c#a8
+[18.513] handle_vCont_c():  handle_vCont_c, continue thread
+[18.513] write():  <644> Tx: $OK#9a
+[18.529] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[18.546] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[18.547] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[18.547] read():  <644> Rx: $vStopped#55
+[18.548] write():  <644> Tx: $OK#9a
+[18.548] read():  <644> Rx: $g#67
+[18.552] write():  <644> Tx: $00000000ffffffff8f200000000000005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#28
+[18.552] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[18.552] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[18.552] read():  <644> Rx: $z1,8000162,2#96
+[18.553] write():  <644> Tx: $OK#9a
+[18.553] read():  <644> Rx: $m8000162,4#2e
+[18.553] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[18.554] write():  <644> Tx: $0a4800f0#f3
+[18.641] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[18.641] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[18.641] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[18.641] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[18.657] read():  <644> Rx: $m20004fc0,40#ec
+[18.657] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[18.658] write():  <644> Tx: $01005e00c84f0020ffffffff28000020b6080008000000000000000000000000000000008f200000f04f0020f04f00205c0000200000000018090020df040008#9e
+[18.658] read():  <644> Rx: $m80004de,4#92
+[18.658] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[18.659] write():  <644> Tx: $70470000#92
+[18.659] read():  <644> Rx: $m8000480,40#61
+[18.659] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[18.660] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[18.688] read():  <644> Rx: $m20004fc0,40#ec
+[18.688] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[18.689] write():  <644> Tx: $01005e00c84f0020ffffffff28000020b6080008000000000000000000000000000000008f200000f04f0020f04f00205c0000200000000018090020df040008#9e
+[18.689] read():  <644> Rx: $m20004fc0,40#ec
+[18.689] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[18.690] write():  <644> Tx: $01005e00c84f0020ffffffff28000020b6080008000000000000000000000000000000008f200000f04f0020f04f00205c0000200000000018090020df040008#9e
+[19.016] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[19.016] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[19.016] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[19.016] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[19.016] read():  <644> Rx: $vCont;s:1;c#c1
+[19.033] handle_vCont_s():  handle_vCont_s, step thread
+[19.033] write():  <644> Tx: $OK#9a
+[19.034] read():  <644> Rx: $T1#85
+[19.034] write():  <644> Tx: $OK#9a
+[19.034] read():  <644> Rx: $T1#85
+[19.034] write():  <644> Tx: $OK#9a
+[19.048] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[19.064] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[19.064] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[19.064] read():  <644> Rx: $vStopped#55
+[19.064] write():  <644> Tx: $OK#9a
+[19.064] read():  <644> Rx: $Z1,8000162,2#76
+[19.065] write():  <644> Tx: $OK#9a
+[19.065] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[19.065] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[19.065] read():  <644> Rx: $g#67
+[19.070] write():  <644> Tx: $28000020ffffffff8f200000000000005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#36
+[19.070] read():  <644> Rx: $vCont;c#a8
+[19.080] handle_vCont_c():  handle_vCont_c, continue thread
+[19.080] write():  <644> Tx: $OK#9a
+[19.096] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[19.112] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[19.113] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[19.113] read():  <644> Rx: $vStopped#55
+[19.113] write():  <644> Tx: $OK#9a
+[19.114] read():  <644> Rx: $g#67
+[19.118] write():  <644> Tx: $e2060000ffffffff8f200000e20600005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#a2
+[19.118] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[19.118] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[19.118] read():  <644> Rx: $z1,8000162,2#96
+[19.119] write():  <644> Tx: $OK#9a
+[19.119] read():  <644> Rx: $m8000162,4#2e
+[19.119] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[19.120] write():  <644> Tx: $0a4800f0#f3
+[19.206] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[19.206] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[19.206] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[19.206] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[19.222] read():  <644> Rx: $m20004fc0,40#ec
+[19.222] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[19.223] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f0020000000000000000062030000e20600008f200000f04f0020f04f00205c000020e206620318090020df040008#5e
+[19.223] read():  <644> Rx: $m80004de,4#92
+[19.223] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[19.224] write():  <644> Tx: $70470000#92
+[19.224] read():  <644> Rx: $m8000480,40#61
+[19.224] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[19.225] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[19.254] read():  <644> Rx: $m20004fc0,40#ec
+[19.254] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[19.255] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f0020000000000000000062030000e20600008f200000f04f0020f04f00205c000020e206620318090020df040008#5e
+[19.255] read():  <644> Rx: $m20004fc0,40#ec
+[19.255] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[19.256] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f0020000000000000000062030000e20600008f200000f04f0020f04f00205c000020e206620318090020df040008#5e
+[19.604] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[19.604] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[19.604] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[19.604] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[19.604] read():  <644> Rx: $vCont;s:1;c#c1
+[19.622] handle_vCont_s():  handle_vCont_s, step thread
+[19.622] write():  <644> Tx: $OK#9a
+[19.622] read():  <644> Rx: $T1#85
+[19.622] write():  <644> Tx: $OK#9a
+[19.622] read():  <644> Rx: $T1#85
+[19.622] write():  <644> Tx: $OK#9a
+[19.636] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[19.652] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[19.652] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[19.652] read():  <644> Rx: $vStopped#55
+[19.652] write():  <644> Tx: $OK#9a
+[19.652] read():  <644> Rx: $Z1,8000162,2#76
+[19.653] write():  <644> Tx: $OK#9a
+[19.653] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[19.653] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[19.653] read():  <644> Rx: $g#67
+[19.657] write():  <644> Tx: $28000020ffffffff8f200000e20600005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#73
+[19.657] read():  <644> Rx: $vCont;c#a8
+[19.668] handle_vCont_c():  handle_vCont_c, continue thread
+[19.668] write():  <644> Tx: $OK#9a
+[19.684] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[19.700] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[19.702] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[19.702] read():  <644> Rx: $vStopped#55
+[19.702] write():  <644> Tx: $OK#9a
+[19.702] read():  <644> Rx: $g#67
+[19.706] write():  <644> Tx: $c90a0000ffffffff8f200000c90a00005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#02
+[19.707] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[19.707] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[19.707] read():  <644> Rx: $z1,8000162,2#96
+[19.707] write():  <644> Tx: $OK#9a
+[19.707] read():  <644> Rx: $m8000162,4#2e
+[19.707] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[19.708] write():  <644> Tx: $0a4800f0#f3
+[19.794] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[19.794] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[19.794] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[19.794] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[19.810] read():  <644> Rx: $m20004fc0,40#ec
+[19.810] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[19.811] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f002000000000000000004d050000c90a00008f200000f04f0020f04f00205c000020c90a4d0518090020df040008#22
+[19.811] read():  <644> Rx: $m80004de,4#92
+[19.811] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[19.812] write():  <644> Tx: $70470000#92
+[19.812] read():  <644> Rx: $m8000480,40#61
+[19.812] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[19.813] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[19.841] read():  <644> Rx: $m20004fc0,40#ec
+[19.841] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[19.842] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f002000000000000000004d050000c90a00008f200000f04f0020f04f00205c000020c90a4d0518090020df040008#22
+[19.842] read():  <644> Rx: $m20004fc0,40#ec
+[19.842] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[19.843] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f002000000000000000004d050000c90a00008f200000f04f0020f04f00205c000020c90a4d0518090020df040008#22
+[20.125] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[20.125] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[20.125] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[20.125] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[20.125] read():  <644> Rx: $vCont;s:1;c#c1
+[20.142] handle_vCont_s():  handle_vCont_s, step thread
+[20.143] write():  <644> Tx: $OK#9a
+[20.143] read():  <644> Rx: $T1#85
+[20.143] write():  <644> Tx: $OK#9a
+[20.143] read():  <644> Rx: $T1#85
+[20.143] write():  <644> Tx: $OK#9a
+[20.157] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[20.173] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[20.173] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[20.173] read():  <644> Rx: $vStopped#55
+[20.173] write():  <644> Tx: $OK#9a
+[20.173] read():  <644> Rx: $Z1,8000162,2#76
+[20.174] write():  <644> Tx: $OK#9a
+[20.174] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[20.174] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[20.174] read():  <644> Rx: $g#67
+[20.178] write():  <644> Tx: $28000020ffffffff8f200000c90a00005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#a3
+[20.179] read():  <644> Rx: $vCont;c#a8
+[20.188] handle_vCont_c():  handle_vCont_c, continue thread
+[20.188] write():  <644> Tx: $OK#9a
+[20.204] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[20.220] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[20.221] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[20.222] read():  <644> Rx: $vStopped#55
+[20.222] write():  <644> Tx: $OK#9a
+[20.222] read():  <644> Rx: $g#67
+[20.226] write():  <644> Tx: $1f070000ffffffff8f2000001f0700005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#a4
+[20.226] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[20.226] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[20.227] read():  <644> Rx: $z1,8000162,2#96
+[20.227] write():  <644> Tx: $OK#9a
+[20.227] read():  <644> Rx: $m8000162,4#2e
+[20.227] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[20.228] write():  <644> Tx: $0a4800f0#f3
+[20.315] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[20.315] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[20.315] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[20.316] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[20.331] read():  <644> Rx: $m20004fc0,40#ec
+[20.331] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[20.332] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000800300001f0700008f200000f04f0020f04f00205c0000201f07800318090020df040008#60
+[20.332] read():  <644> Rx: $m80004de,4#92
+[20.332] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[20.333] write():  <644> Tx: $70470000#92
+[20.333] read():  <644> Rx: $m8000480,40#61
+[20.333] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[20.334] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[20.362] read():  <644> Rx: $m20004fc0,40#ec
+[20.362] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[20.363] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000800300001f0700008f200000f04f0020f04f00205c0000201f07800318090020df040008#60
+[20.363] read():  <644> Rx: $m20004fc0,40#ec
+[20.363] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[20.364] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000800300001f0700008f200000f04f0020f04f00205c0000201f07800318090020df040008#60
+[20.721] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[20.721] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[20.721] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[20.721] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[20.721] read():  <644> Rx: $vCont;s:1;c#c1
+[20.738] handle_vCont_s():  handle_vCont_s, step thread
+[20.738] write():  <644> Tx: $OK#9a
+[20.739] read():  <644> Rx: $T1#85
+[20.739] write():  <644> Tx: $OK#9a
+[20.739] read():  <644> Rx: $T1#85
+[20.739] write():  <644> Tx: $OK#9a
+[20.753] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[20.769] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[20.769] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[20.769] read():  <644> Rx: $vStopped#55
+[20.769] write():  <644> Tx: $OK#9a
+[20.769] read():  <644> Rx: $Z1,8000162,2#76
+[20.770] write():  <644> Tx: $OK#9a
+[20.770] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[20.770] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[20.770] read():  <644> Rx: $g#67
+[20.774] write():  <644> Tx: $28000020ffffffff8f2000001f0700005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#74
+[20.774] read():  <644> Rx: $vCont;c#a8
+[20.784] handle_vCont_c():  handle_vCont_c, continue thread
+[20.784] write():  <644> Tx: $OK#9a
+[20.799] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[20.814] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[20.815] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[20.816] read():  <644> Rx: $vStopped#55
+[20.816] write():  <644> Tx: $OK#9a
+[20.816] read():  <644> Rx: $g#67
+[20.820] write():  <644> Tx: $b3020000ffffffff8f200000b30200005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#96
+[20.820] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[20.820] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[20.821] read():  <644> Rx: $z1,8000162,2#96
+[20.821] write():  <644> Tx: $OK#9a
+[20.821] read():  <644> Rx: $m8000162,4#2e
+[20.821] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[20.822] write():  <644> Tx: $0a4800f0#f3
+[20.908] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[20.908] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[20.908] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[20.908] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[20.924] read():  <644> Rx: $m20004fc0,40#ec
+[20.924] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[20.925] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f0020000000000000000054010000b30200008f200000f04f0020f04f00205c000020b302540118090020df040008#50
+[20.925] read():  <644> Rx: $m80004de,4#92
+[20.925] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[20.926] write():  <644> Tx: $70470000#92
+[20.926] read():  <644> Rx: $m8000480,40#61
+[20.926] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[20.927] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[20.955] read():  <644> Rx: $m20004fc0,40#ec
+[20.955] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[20.955] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f0020000000000000000054010000b30200008f200000f04f0020f04f00205c000020b302540118090020df040008#50
+[20.955] read():  <644> Rx: $m20004fc0,40#ec
+[20.955] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[20.956] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f0020000000000000000054010000b30200008f200000f04f0020f04f00205c000020b302540118090020df040008#50
+[21.235] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[21.235] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[21.235] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[21.235] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[21.235] read():  <644> Rx: $vCont;s:1;c#c1
+[21.251] handle_vCont_s():  handle_vCont_s, step thread
+[21.251] write():  <644> Tx: $OK#9a
+[21.252] read():  <644> Rx: $T1#85
+[21.252] write():  <644> Tx: $OK#9a
+[21.252] read():  <644> Rx: $T1#85
+[21.252] write():  <644> Tx: $OK#9a
+[21.266] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[21.282] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[21.282] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[21.282] read():  <644> Rx: $vStopped#55
+[21.282] write():  <644> Tx: $OK#9a
+[21.282] read():  <644> Rx: $Z1,8000162,2#76
+[21.283] write():  <644> Tx: $OK#9a
+[21.283] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[21.283] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[21.283] read():  <644> Rx: $g#67
+[21.287] write():  <644> Tx: $28000020ffffffff8f200000b30200005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#6d
+[21.287] read():  <644> Rx: $vCont;c#a8
+[21.297] handle_vCont_c():  handle_vCont_c, continue thread
+[21.297] write():  <644> Tx: $OK#9a
+[21.313] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[21.328] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[21.329] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[21.330] read():  <644> Rx: $vStopped#55
+[21.330] write():  <644> Tx: $OK#9a
+[21.330] read():  <644> Rx: $g#67
+[21.334] write():  <644> Tx: $4f000000ffffffff8f2000004f0000005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#9c
+[21.334] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[21.334] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[21.335] read():  <644> Rx: $z1,8000162,2#96
+[21.335] write():  <644> Tx: $OK#9a
+[21.335] read():  <644> Rx: $m8000162,4#2e
+[21.335] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[21.336] write():  <644> Tx: $0a4800f0#f3
+[21.422] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[21.422] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[21.422] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[21.422] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[21.467] read():  <644> Rx: $m20004fc0,40#ec
+[21.467] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[21.468] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000270000004f0000008f200000f04f0020f04f00205c0000204f00270018090020df040008#54
+[21.468] read():  <644> Rx: $m80004de,4#92
+[21.468] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[21.469] write():  <644> Tx: $70470000#92
+[21.469] read():  <644> Rx: $m8000480,40#61
+[21.469] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[21.470] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[21.482] read():  <644> Rx: $m20004fc0,40#ec
+[21.482] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[21.483] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000270000004f0000008f200000f04f0020f04f00205c0000204f00270018090020df040008#54
+[21.483] read():  <644> Rx: $m20004fc0,40#ec
+[21.483] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[21.484] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000270000004f0000008f200000f04f0020f04f00205c0000204f00270018090020df040008#54
+[21.924] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[21.924] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[21.924] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[21.924] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[21.924] read():  <644> Rx: $vCont;s:1;c#c1
+[21.941] handle_vCont_s():  handle_vCont_s, step thread
+[21.941] write():  <644> Tx: $OK#9a
+[21.942] read():  <644> Rx: $T1#85
+[21.942] write():  <644> Tx: $OK#9a
+[21.942] read():  <644> Rx: $T1#85
+[21.942] write():  <644> Tx: $OK#9a
+[21.955] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[21.970] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[21.970] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[21.970] read():  <644> Rx: $vStopped#55
+[21.970] write():  <644> Tx: $OK#9a
+[21.970] read():  <644> Rx: $Z1,8000162,2#76
+[21.971] write():  <644> Tx: $OK#9a
+[21.971] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[21.971] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[21.971] read():  <644> Rx: $g#67
+[21.975] write():  <644> Tx: $28000020ffffffff8f2000004f0000005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#70
+[21.975] read():  <644> Rx: $vCont;c#a8
+[21.986] handle_vCont_c():  handle_vCont_c, continue thread
+[21.986] write():  <644> Tx: $OK#9a
+[22.002] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[22.018] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[22.019] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[22.020] read():  <644> Rx: $vStopped#55
+[22.020] write():  <644> Tx: $OK#9a
+[22.020] read():  <644> Rx: $g#67
+[22.024] write():  <644> Tx: $64020000ffffffff8f200000640200005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#40
+[22.024] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[22.024] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[22.025] read():  <644> Rx: $z1,8000162,2#96
+[22.025] write():  <644> Tx: $OK#9a
+[22.025] read():  <644> Rx: $m8000162,4#2e
+[22.025] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[22.026] write():  <644> Tx: $0a4800f0#f3
+[22.114] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[22.114] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[22.114] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[22.114] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[22.130] read():  <644> Rx: $m20004fc0,40#ec
+[22.130] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[22.131] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f002000000000000000002d010000640200008f200000f04f0020f04f00205c00002064022d0118090020df040008#54
+[22.131] read():  <644> Rx: $m80004de,4#92
+[22.131] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[22.132] write():  <644> Tx: $70470000#92
+[22.132] read():  <644> Rx: $m8000480,40#61
+[22.132] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[22.132] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[22.161] read():  <644> Rx: $m20004fc0,40#ec
+[22.161] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[22.162] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f002000000000000000002d010000640200008f200000f04f0020f04f00205c00002064022d0118090020df040008#54
+[22.162] read():  <644> Rx: $m20004fc0,40#ec
+[22.162] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[22.163] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f002000000000000000002d010000640200008f200000f04f0020f04f00205c00002064022d0118090020df040008#54
+[22.489] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[22.489] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[22.489] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[22.489] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[22.489] read():  <644> Rx: $vCont;s:1;c#c1
+[22.506] handle_vCont_s():  handle_vCont_s, step thread
+[22.506] write():  <644> Tx: $OK#9a
+[22.507] read():  <644> Rx: $T1#85
+[22.507] write():  <644> Tx: $OK#9a
+[22.507] read():  <644> Rx: $T1#85
+[22.507] write():  <644> Tx: $OK#9a
+[22.521] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[22.537] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[22.537] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[22.537] read():  <644> Rx: $vStopped#55
+[22.537] write():  <644> Tx: $OK#9a
+[22.537] read():  <644> Rx: $Z1,8000162,2#76
+[22.538] write():  <644> Tx: $OK#9a
+[22.538] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[22.538] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[22.538] read():  <644> Rx: $g#67
+[22.542] write():  <644> Tx: $28000020ffffffff8f200000640200005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#42
+[22.542] read():  <644> Rx: $vCont;c#a8
+[22.553] handle_vCont_c():  handle_vCont_c, continue thread
+[22.553] write():  <644> Tx: $OK#9a
+[22.569] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[22.585] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[22.586] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[22.587] read():  <644> Rx: $vStopped#55
+[22.587] write():  <644> Tx: $OK#9a
+[22.587] read():  <644> Rx: $g#67
+[22.591] write():  <644> Tx: $dc060000ffffffff8f200000dc0600005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#02
+[22.591] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[22.591] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[22.592] read():  <644> Rx: $z1,8000162,2#96
+[22.592] write():  <644> Tx: $OK#9a
+[22.592] read():  <644> Rx: $m8000162,4#2e
+[22.592] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[22.593] write():  <644> Tx: $0a4800f0#f3
+[22.681] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[22.681] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[22.681] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[22.681] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[22.697] read():  <644> Rx: $m20004fc0,40#ec
+[22.697] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[22.698] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f002000000000000000005f030000dc0600008f200000f04f0020f04f00205c000020dc065f0318090020df040008#24
+[22.698] read():  <644> Rx: $m80004de,4#92
+[22.698] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[22.699] write():  <644> Tx: $70470000#92
+[22.699] read():  <644> Rx: $m8000480,40#61
+[22.699] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[22.700] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[22.728] read():  <644> Rx: $m20004fc0,40#ec
+[22.728] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[22.729] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f002000000000000000005f030000dc0600008f200000f04f0020f04f00205c000020dc065f0318090020df040008#24
+[22.729] read():  <644> Rx: $m20004fc0,40#ec
+[22.729] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[22.730] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f002000000000000000005f030000dc0600008f200000f04f0020f04f00205c000020dc065f0318090020df040008#24
+[22.992] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[22.992] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[22.992] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[22.992] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[22.992] read():  <644> Rx: $vCont;s:1;c#c1
+[23.009] handle_vCont_s():  handle_vCont_s, step thread
+[23.009] write():  <644> Tx: $OK#9a
+[23.010] read():  <644> Rx: $T1#85
+[23.010] write():  <644> Tx: $OK#9a
+[23.010] read():  <644> Rx: $T1#85
+[23.010] write():  <644> Tx: $OK#9a
+[23.024] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[23.040] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[23.040] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[23.040] read():  <644> Rx: $vStopped#55
+[23.040] write():  <644> Tx: $OK#9a
+[23.040] read():  <644> Rx: $Z1,8000162,2#76
+[23.041] write():  <644> Tx: $OK#9a
+[23.041] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[23.041] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[23.041] read():  <644> Rx: $g#67
+[23.045] write():  <644> Tx: $28000020ffffffff8f200000dc0600005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#a3
+[23.046] read():  <644> Rx: $vCont;c#a8
+[23.056] handle_vCont_c():  handle_vCont_c, continue thread
+[23.056] write():  <644> Tx: $OK#9a
+[23.072] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[23.088] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[23.089] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[23.090] read():  <644> Rx: $vStopped#55
+[23.090] write():  <644> Tx: $OK#9a
+[23.090] read():  <644> Rx: $g#67
+[23.094] write():  <644> Tx: $a80a0000ffffffff8f200000a80a00005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#fc
+[23.094] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[23.094] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[23.094] read():  <644> Rx: $z1,8000162,2#96
+[23.095] write():  <644> Tx: $OK#9a
+[23.095] read():  <644> Rx: $m8000162,4#2e
+[23.095] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[23.096] write():  <644> Tx: $0a4800f0#f3
+[23.183] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[23.183] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[23.183] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[23.183] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[23.199] read():  <644> Rx: $m20004fc0,40#ec
+[23.199] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[23.200] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f002000000000000000003d050000a80a00008f200000f04f0020f04f00205c000020a80a3d0518090020df040008#1a
+[23.200] read():  <644> Rx: $m80004de,4#92
+[23.200] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[23.201] write():  <644> Tx: $70470000#92
+[23.201] read():  <644> Rx: $m8000480,40#61
+[23.201] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[23.202] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[23.231] read():  <644> Rx: $m20004fc0,40#ec
+[23.231] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[23.232] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f002000000000000000003d050000a80a00008f200000f04f0020f04f00205c000020a80a3d0518090020df040008#1a
+[23.232] read():  <644> Rx: $m20004fc0,40#ec
+[23.232] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[23.233] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f002000000000000000003d050000a80a00008f200000f04f0020f04f00205c000020a80a3d0518090020df040008#1a
+[23.484] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[23.484] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[23.484] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[23.484] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[23.484] read():  <644> Rx: $vCont;s:1;c#c1
+[23.501] handle_vCont_s():  handle_vCont_s, step thread
+[23.501] write():  <644> Tx: $OK#9a
+[23.502] read():  <644> Rx: $T1#85
+[23.502] write():  <644> Tx: $OK#9a
+[23.502] read():  <644> Rx: $T1#85
+[23.502] write():  <644> Tx: $OK#9a
+[23.516] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[23.532] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[23.532] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[23.532] read():  <644> Rx: $vStopped#55
+[23.532] write():  <644> Tx: $OK#9a
+[23.532] read():  <644> Rx: $Z1,8000162,2#76
+[23.533] write():  <644> Tx: $OK#9a
+[23.533] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[23.533] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[23.533] read():  <644> Rx: $g#67
+[23.537] write():  <644> Tx: $28000020ffffffff8f200000a80a00005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#a0
+[23.538] read():  <644> Rx: $vCont;c#a8
+[23.547] handle_vCont_c():  handle_vCont_c, continue thread
+[23.547] write():  <644> Tx: $OK#9a
+[23.562] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[23.578] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[23.579] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[23.580] read():  <644> Rx: $vStopped#55
+[23.580] write():  <644> Tx: $OK#9a
+[23.580] read():  <644> Rx: $g#67
+[23.584] write():  <644> Tx: $2e0f0000ffffffff8f2000002e0f00005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#02
+[23.584] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[23.584] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[23.585] read():  <644> Rx: $z1,8000162,2#96
+[23.585] write():  <644> Tx: $OK#9a
+[23.585] read():  <644> Rx: $m8000162,4#2e
+[23.585] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[23.586] write():  <644> Tx: $0a4800f0#f3
+[23.674] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[23.674] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[23.674] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[23.675] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[23.690] read():  <644> Rx: $m20004fc0,40#ec
+[23.690] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[23.691] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000760700002e0f00008f200000f04f0020f04f00205c0000202e0f760718090020df040008#d0
+[23.691] read():  <644> Rx: $m80004de,4#92
+[23.691] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[23.692] write():  <644> Tx: $70470000#92
+[23.692] read():  <644> Rx: $m8000480,40#61
+[23.692] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[23.693] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[23.706] read():  <644> Rx: $m20004fc0,40#ec
+[23.706] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[23.707] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000760700002e0f00008f200000f04f0020f04f00205c0000202e0f760718090020df040008#d0
+[23.707] read():  <644> Rx: $m20004fc0,40#ec
+[23.707] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[23.708] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000760700002e0f00008f200000f04f0020f04f00205c0000202e0f760718090020df040008#d0
+[24.001] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[24.001] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[24.001] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[24.001] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[24.001] read():  <644> Rx: $vCont;s:1;c#c1
+[24.019] handle_vCont_s():  handle_vCont_s, step thread
+[24.019] write():  <644> Tx: $OK#9a
+[24.019] read():  <644> Rx: $T1#85
+[24.019] write():  <644> Tx: $OK#9a
+[24.019] read():  <644> Rx: $T1#85
+[24.019] write():  <644> Tx: $OK#9a
+[24.033] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[24.049] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[24.049] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[24.049] read():  <644> Rx: $vStopped#55
+[24.049] write():  <644> Tx: $OK#9a
+[24.049] read():  <644> Rx: $Z1,8000162,2#76
+[24.050] write():  <644> Tx: $OK#9a
+[24.050] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[24.050] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[24.050] read():  <644> Rx: $g#67
+[24.054] write():  <644> Tx: $28000020ffffffff8f2000002e0f00005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#a3
+[24.054] read():  <644> Rx: $vCont;c#a8
+[24.065] handle_vCont_c():  handle_vCont_c, continue thread
+[24.065] write():  <644> Tx: $OK#9a
+[24.081] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[24.097] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[24.099] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[24.099] read():  <644> Rx: $vStopped#55
+[24.099] write():  <644> Tx: $OK#9a
+[24.099] read():  <644> Rx: $g#67
+[24.103] write():  <644> Tx: $6b140000ffffffff8f2000006b1400005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#a2
+[24.104] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[24.104] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[24.104] read():  <644> Rx: $z1,8000162,2#96
+[24.104] write():  <644> Tx: $OK#9a
+[24.104] read():  <644> Rx: $m8000162,4#2e
+[24.104] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[24.105] write():  <644> Tx: $0a4800f0#f3
+[24.192] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[24.192] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[24.192] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[24.192] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[24.208] read():  <644> Rx: $m20004fc0,40#ec
+[24.208] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[24.209] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000090a00006b1400008f200000f04f0020f04f00205c0000206b14090a18090020df040008#bc
+[24.209] read():  <644> Rx: $m80004de,4#92
+[24.209] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[24.210] write():  <644> Tx: $70470000#92
+[24.210] read():  <644> Rx: $m8000480,40#61
+[24.210] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[24.211] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[24.239] read():  <644> Rx: $m20004fc0,40#ec
+[24.239] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[24.240] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000090a00006b1400008f200000f04f0020f04f00205c0000206b14090a18090020df040008#bc
+[24.240] read():  <644> Rx: $m20004fc0,40#ec
+[24.240] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[24.241] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000090a00006b1400008f200000f04f0020f04f00205c0000206b14090a18090020df040008#bc
+[24.504] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[24.504] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[24.504] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[24.504] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[24.504] read():  <644> Rx: $vCont;s:1;c#c1
+[24.521] handle_vCont_s():  handle_vCont_s, step thread
+[24.521] write():  <644> Tx: $OK#9a
+[24.522] read():  <644> Rx: $T1#85
+[24.522] write():  <644> Tx: $OK#9a
+[24.522] read():  <644> Rx: $T1#85
+[24.522] write():  <644> Tx: $OK#9a
+[24.536] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[24.551] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[24.551] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[24.551] read():  <644> Rx: $vStopped#55
+[24.551] write():  <644> Tx: $OK#9a
+[24.551] read():  <644> Rx: $Z1,8000162,2#76
+[24.552] write():  <644> Tx: $OK#9a
+[24.552] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[24.552] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[24.552] read():  <644> Rx: $g#67
+[24.556] write():  <644> Tx: $28000020ffffffff8f2000006b1400005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#73
+[24.556] read():  <644> Rx: $vCont;c#a8
+[24.567] handle_vCont_c():  handle_vCont_c, continue thread
+[24.567] write():  <644> Tx: $OK#9a
+[24.583] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[24.599] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[24.601] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[24.601] read():  <644> Rx: $vStopped#55
+[24.601] write():  <644> Tx: $OK#9a
+[24.601] read():  <644> Rx: $g#67
+[24.605] write():  <644> Tx: $05180000ffffffff8f200000051800005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#44
+[24.606] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[24.606] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[24.606] read():  <644> Rx: $z1,8000162,2#96
+[24.606] write():  <644> Tx: $OK#9a
+[24.606] read():  <644> Rx: $m8000162,4#2e
+[24.606] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[24.607] write():  <644> Tx: $0a4800f0#f3
+[24.691] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[24.691] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[24.691] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[24.691] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[24.706] read():  <644> Rx: $m20004fc0,40#ec
+[24.706] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[24.707] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000ce0b0000051800008f200000f04f0020f04f00205c0000200518ce0b18090020df040008#1e
+[24.707] read():  <644> Rx: $m80004de,4#92
+[24.707] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[24.708] write():  <644> Tx: $70470000#92
+[24.708] read():  <644> Rx: $m8000480,40#61
+[24.708] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[24.709] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[24.737] read():  <644> Rx: $m20004fc0,40#ec
+[24.737] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[24.738] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000ce0b0000051800008f200000f04f0020f04f00205c0000200518ce0b18090020df040008#1e
+[24.738] read():  <644> Rx: $m20004fc0,40#ec
+[24.738] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[24.739] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000ce0b0000051800008f200000f04f0020f04f00205c0000200518ce0b18090020df040008#1e
+[25.053] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[25.053] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[25.053] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[25.053] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[25.053] read():  <644> Rx: $vCont;s:1;c#c1
+[25.070] handle_vCont_s():  handle_vCont_s, step thread
+[25.070] write():  <644> Tx: $OK#9a
+[25.071] read():  <644> Rx: $T1#85
+[25.071] write():  <644> Tx: $OK#9a
+[25.071] read():  <644> Rx: $T1#85
+[25.071] write():  <644> Tx: $OK#9a
+[25.085] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[25.101] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[25.101] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[25.101] read():  <644> Rx: $vStopped#55
+[25.101] write():  <644> Tx: $OK#9a
+[25.101] read():  <644> Rx: $Z1,8000162,2#76
+[25.102] write():  <644> Tx: $OK#9a
+[25.102] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[25.102] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[25.102] read():  <644> Rx: $g#67
+[25.106] write():  <644> Tx: $28000020ffffffff8f200000051800005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#44
+[25.106] read():  <644> Rx: $vCont;c#a8
+[25.117] handle_vCont_c():  handle_vCont_c, continue thread
+[25.117] write():  <644> Tx: $OK#9a
+[25.133] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[25.149] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[25.151] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[25.151] read():  <644> Rx: $vStopped#55
+[25.151] write():  <644> Tx: $OK#9a
+[25.151] read():  <644> Rx: $g#67
+[25.155] write():  <644> Tx: $561b0000ffffffff8f200000561b00005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#a4
+[25.156] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[25.156] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[25.156] read():  <644> Rx: $z1,8000162,2#96
+[25.156] write():  <644> Tx: $OK#9a
+[25.156] read():  <644> Rx: $m8000162,4#2e
+[25.156] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[25.157] write():  <644> Tx: $0a4800f0#f3
+[25.242] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[25.242] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[25.242] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[25.242] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[25.258] read():  <644> Rx: $m20004fc0,40#ec
+[25.258] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[25.259] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f002000000000000000006f0d0000561b00008f200000f04f0020f04f00205c000020561b6f0d18090020df040008#2a
+[25.259] read():  <644> Rx: $m80004de,4#92
+[25.259] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[25.260] write():  <644> Tx: $70470000#92
+[25.260] read():  <644> Rx: $m8000480,40#61
+[25.260] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[25.261] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[25.290] read():  <644> Rx: $m20004fc0,40#ec
+[25.290] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[25.291] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f002000000000000000006f0d0000561b00008f200000f04f0020f04f00205c000020561b6f0d18090020df040008#2a
+[25.291] read():  <644> Rx: $m20004fc0,40#ec
+[25.291] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[25.292] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f002000000000000000006f0d0000561b00008f200000f04f0020f04f00205c000020561b6f0d18090020df040008#2a
+[25.588] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[25.588] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[25.588] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[25.588] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[25.588] read():  <644> Rx: $vCont;s:1;c#c1
+[25.606] handle_vCont_s():  handle_vCont_s, step thread
+[25.606] write():  <644> Tx: $OK#9a
+[25.606] read():  <644> Rx: $T1#85
+[25.606] write():  <644> Tx: $OK#9a
+[25.606] read():  <644> Rx: $T1#85
+[25.606] write():  <644> Tx: $OK#9a
+[25.620] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[25.636] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[25.636] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[25.636] read():  <644> Rx: $vStopped#55
+[25.636] write():  <644> Tx: $OK#9a
+[25.636] read():  <644> Rx: $Z1,8000162,2#76
+[25.637] write():  <644> Tx: $OK#9a
+[25.637] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[25.637] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[25.637] read():  <644> Rx: $g#67
+[25.641] write():  <644> Tx: $28000020ffffffff8f200000561b00005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#74
+[25.641] read():  <644> Rx: $vCont;c#a8
+[25.652] handle_vCont_c():  handle_vCont_c, continue thread
+[25.652] write():  <644> Tx: $OK#9a
+[25.668] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[25.683] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[25.685] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[25.685] read():  <644> Rx: $vStopped#55
+[25.685] write():  <644> Tx: $OK#9a
+[25.685] read():  <644> Rx: $g#67
+[25.689] write():  <644> Tx: $3f1f0000ffffffff8f2000003f1f00005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#08
+[25.689] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[25.690] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[25.690] read():  <644> Rx: $z1,8000162,2#96
+[25.690] write():  <644> Tx: $OK#9a
+[25.690] read():  <644> Rx: $m8000162,4#2e
+[25.690] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[25.691] write():  <644> Tx: $0a4800f0#f3
+[25.777] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[25.777] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[25.777] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[25.777] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[25.793] read():  <644> Rx: $m20004fc0,40#ec
+[25.793] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[25.794] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f002000000000000000005b0f00003f1f00008f200000f04f0020f04f00205c0000203f1f5b0f18090020df040008#88
+[25.794] read():  <644> Rx: $m80004de,4#92
+[25.794] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[25.795] write():  <644> Tx: $70470000#92
+[25.795] read():  <644> Rx: $m8000480,40#61
+[25.795] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[25.796] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[25.825] read():  <644> Rx: $m20004fc0,40#ec
+[25.825] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[25.826] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f002000000000000000005b0f00003f1f00008f200000f04f0020f04f00205c0000203f1f5b0f18090020df040008#88
+[25.826] read():  <644> Rx: $m20004fc0,40#ec
+[25.826] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[25.827] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f002000000000000000005b0f00003f1f00008f200000f04f0020f04f00205c0000203f1f5b0f18090020df040008#88
+[26.157] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[26.157] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[26.157] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[26.157] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[26.157] read():  <644> Rx: $vCont;s:1;c#c1
+[26.174] handle_vCont_s():  handle_vCont_s, step thread
+[26.174] write():  <644> Tx: $OK#9a
+[26.175] read():  <644> Rx: $T1#85
+[26.175] write():  <644> Tx: $OK#9a
+[26.175] read():  <644> Rx: $T1#85
+[26.175] write():  <644> Tx: $OK#9a
+[26.189] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[26.205] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[26.205] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[26.205] read():  <644> Rx: $vStopped#55
+[26.205] write():  <644> Tx: $OK#9a
+[26.206] read():  <644> Rx: $Z1,8000162,2#76
+[26.206] write():  <644> Tx: $OK#9a
+[26.206] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[26.206] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[26.206] read():  <644> Rx: $g#67
+[26.210] write():  <644> Tx: $28000020ffffffff8f2000003f1f00005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#a6
+[26.211] read():  <644> Rx: $vCont;c#a8
+[26.220] handle_vCont_c():  handle_vCont_c, continue thread
+[26.220] write():  <644> Tx: $OK#9a
+[26.236] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[26.252] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[26.254] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[26.254] read():  <644> Rx: $vStopped#55
+[26.254] write():  <644> Tx: $OK#9a
+[26.254] read():  <644> Rx: $g#67
+[26.258] write():  <644> Tx: $02200000ffffffff8f200000022000005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#30
+[26.258] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[26.259] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[26.259] read():  <644> Rx: $z1,8000162,2#96
+[26.259] write():  <644> Tx: $OK#9a
+[26.259] read():  <644> Rx: $m8000162,4#2e
+[26.259] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[26.260] write():  <644> Tx: $0a4800f0#f3
+[26.347] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[26.347] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[26.347] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[26.347] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[26.362] read():  <644> Rx: $m20004fc0,40#ec
+[26.362] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[26.363] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000bb0f0000022000008f200000f04f0020f04f00205c0000200220bb0f18090020df040008#0a
+[26.363] read():  <644> Rx: $m80004de,4#92
+[26.363] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[26.364] write():  <644> Tx: $70470000#92
+[26.364] read():  <644> Rx: $m8000480,40#61
+[26.364] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[26.365] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[26.393] read():  <644> Rx: $m20004fc0,40#ec
+[26.393] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[26.394] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000bb0f0000022000008f200000f04f0020f04f00205c0000200220bb0f18090020df040008#0a
+[26.394] read():  <644> Rx: $m20004fc0,40#ec
+[26.394] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[26.395] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000bb0f0000022000008f200000f04f0020f04f00205c0000200220bb0f18090020df040008#0a
+[26.765] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[26.765] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[26.765] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[26.765] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[26.765] read():  <644> Rx: $vCont;s:1;c#c1
+[26.782] handle_vCont_s():  handle_vCont_s, step thread
+[26.783] write():  <644> Tx: $OK#9a
+[26.783] read():  <644> Rx: $T1#85
+[26.783] write():  <644> Tx: $OK#9a
+[26.783] read():  <644> Rx: $T1#85
+[26.783] write():  <644> Tx: $OK#9a
+[26.797] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[26.813] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000001 
+[26.813] write():  <644> Tx: %Stop:T05thread:1;core:0;#25
+[26.813] read():  <644> Rx: $vStopped#55
+[26.813] write():  <644> Tx: $OK#9a
+[26.814] read():  <644> Rx: $Z1,8000162,2#76
+[26.814] write():  <644> Tx: $OK#9a
+[26.814] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[26.814] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[26.814] read():  <644> Rx: $g#67
+[26.819] write():  <644> Tx: $28000020ffffffff8f200000022000005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008640100080000000100000000000000000000000000000000f04f002000000000#3a
+[26.819] read():  <644> Rx: $vCont;c#a8
+[26.829] handle_vCont_c():  handle_vCont_c, continue thread
+[26.829] write():  <644> Tx: $OK#9a
+[26.844] handleGDBConnection():  TraceCaptureStart and SWV event set to APP_FALSE (0)
+[26.860] Device_GetHaltReason():  NVIC_DFSR_REG = 0x00000003 
+[26.861] write():  <644> Tx: %Stop:T05hwbreak:;thread:1;core:0;#7e
+[26.861] read():  <644> Rx: $vStopped#55
+[26.862] write():  <644> Tx: $OK#9a
+[26.862] read():  <644> Rx: $g#67
+[26.866] write():  <644> Tx: $02200000ffffffff8f200000022000005c0000200000000000000000f04f00200000000000000000000000000000000000000000f04f002085010008620100080000000100000000000000000000000000000000f04f002000000000#30
+[26.866] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[26.866] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[26.866] read():  <644> Rx: $z1,8000162,2#96
+[26.867] write():  <644> Tx: $OK#9a
+[26.867] read():  <644> Rx: $m8000162,4#2e
+[26.867] handlePacket():  Reading 0x4 bytes of memory from addr 0x8000162 
+[26.868] write():  <644> Tx: $0a4800f0#f3
+[26.955] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[26.955] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[26.955] read():  <644> Rx: $qXfer:threads:read::0,bfb#fb
+[26.955] write():  <644> Tx: $l<?xml version="1.0"?><threads><thread id="1" core="0" name="main"></thread></threads>#f7
+[26.970] read():  <644> Rx: $m20004fc0,40#ec
+[26.970] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[26.971] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000bb0f0000022000008f200000f04f0020f04f00205c0000200220bb0f18090020df040008#0a
+[26.971] read():  <644> Rx: $m80004de,4#92
+[26.971] handlePacket():  Reading 0x4 bytes of memory from addr 0x80004de 
+[26.972] write():  <644> Tx: $70470000#92
+[26.972] read():  <644> Rx: $m8000480,40#61
+[26.972] handlePacket():  Reading 0x40 bytes of memory from addr 0x8000480 
+[26.973] write():  <644> Tx: $bd4680bc704780b400af00bfbd4680bc704780b500af00f075f800bf80bd80b400af00bfbd4680bc70470000fff7f7ff0b480c490c4a002302e0d458c4500433#e2
+[27.002] read():  <644> Rx: $m20004fc0,40#ec
+[27.002] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[27.003] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000bb0f0000022000008f200000f04f0020f04f00205c0000200220bb0f18090020df040008#0a
+[27.003] read():  <644> Rx: $m20004fc0,40#ec
+[27.003] handlePacket():  Reading 0x40 bytes of memory from addr 0x20004fc0 
+[27.003] write():  <644> Tx: $01005e00c84f0020ffffffff28000020d84f00200000000000000000bb0f0000022000008f200000f04f0020f04f00205c0000200220bb0f18090020df040008#0a
+[28.639] read():  <644> Rx: $vKill;a410#33
+[28.639] handlePacket():  Hidden/Unsupported v-command 'vKill', see RSP for details
+[28.639] write():  <644> Tx: $#00
+[28.639] read():  <644> Rx: $k#6b
+[28.639] stop():  Stopping port 61235
+[28.701] WaitConnection():  Received stop for port 61235, not accepting new connections.
