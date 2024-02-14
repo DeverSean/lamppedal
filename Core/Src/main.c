@@ -23,6 +23,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include "../../Drivers/delay_us.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -42,6 +44,8 @@
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc2;
 
+TIM_HandleTypeDef htim1;
+
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -50,6 +54,7 @@ ADC_HandleTypeDef hadc2;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_ADC2_Init(void);
+static void MX_TIM1_Init(void);
 /* USER CODE BEGIN PFP */
 
 int adcval_to_us(int);
@@ -58,6 +63,8 @@ int adcval_to_us(int);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
+uint16_t triac_fire_delay_us;
 
 /* USER CODE END 0 */
 
@@ -68,8 +75,7 @@ int adcval_to_us(int);
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	uint16_t raw;
-	uint16_t triac_fire_delay_us;
+	uint16_t pot1_adc_retval;
 	//char msg[10];
   /* USER CODE END 1 */
 
@@ -92,7 +98,9 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_ADC2_Init();
+  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
+  HAL_TIM_Base_Start(&htim1);
 
   /* USER CODE END 2 */
 
@@ -103,16 +111,11 @@ int main(void)
 	// Get POT1 value with adc2
 	HAL_ADC_Start(&hadc2);
 	HAL_ADC_PollForConversion(&hadc2, HAL_MAX_DELAY);
-	raw = HAL_ADC_GetValue(&hadc2);
+	pot1_adc_retval = HAL_ADC_GetValue(&hadc2);
 
 	// Convert raw POT1 ADC value (max 4096) to triac fire delay in microseconds
 	// Max value for triac fire delay is 8333 microseconds, or half 60Hz sine period
-	triac_fire_delay_us = adcval_to_us(raw);
-
-
-
-
-
+	triac_fire_delay_us = adcval_to_us(pot1_adc_retval);
 
     /* USER CODE END WHILE */
 
@@ -212,6 +215,52 @@ static void MX_ADC2_Init(void)
 }
 
 /**
+  * @brief TIM1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM1_Init(void)
+{
+
+  /* USER CODE BEGIN TIM1_Init 0 */
+
+  /* USER CODE END TIM1_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM1_Init 1 */
+
+  /* USER CODE END TIM1_Init 1 */
+  htim1.Instance = TIM1;
+  htim1.Init.Prescaler = 16-1;
+  htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim1.Init.Period = 65535;
+  htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim1.Init.RepetitionCounter = 0;
+  htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim1, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim1, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM1_Init 2 */
+
+  /* USER CODE END TIM1_Init 2 */
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -229,13 +278,13 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOA, GPIO_PIN_9, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3|TRIAC_FIRE_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(TRIAC_FIRE_GPIO_Port, TRIAC_FIRE_Pin, GPIO_PIN_RESET);
 
-  /*Configure GPIO pin : PA0 */
-  GPIO_InitStruct.Pin = GPIO_PIN_0;
+  /*Configure GPIO pin : ZC_IN_Pin */
+  GPIO_InitStruct.Pin = ZC_IN_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  HAL_GPIO_Init(ZC_IN_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : STOMP_Pin */
   GPIO_InitStruct.Pin = STOMP_Pin;
@@ -250,12 +299,12 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PB3 TRIAC_FIRE_Pin */
-  GPIO_InitStruct.Pin = GPIO_PIN_3|TRIAC_FIRE_Pin;
+  /*Configure GPIO pin : TRIAC_FIRE_Pin */
+  GPIO_InitStruct.Pin = TRIAC_FIRE_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+  HAL_GPIO_Init(TRIAC_FIRE_GPIO_Port, &GPIO_InitStruct);
 
   /* EXTI interrupt init*/
   HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
@@ -264,6 +313,17 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+// EXTI Line0 External Interrupt ISR Handler CallBackFun
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+    if(GPIO_Pin == ZC_IN_Pin) // If The INT Source Is EXTI Line0 (A0 Pin)
+    {
+    	HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_RESET); // Reset triac
+    	delay_us(triac_fire_delay_us, &htim1);
+    	HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_SET); // Fire triac
+    }
+}
 
 int adcval_to_us(int rawADCValue)
 {

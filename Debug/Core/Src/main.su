@@ -1,6 +1,8 @@
-main.c:68:5:main	16	static
-main.c:121:6:SystemClock_Config	88	static
-main.c:164:13:MX_ADC2_Init	24	static
-main.c:209:13:MX_GPIO_Init	32	static
-main.c:237:5:adcval_to_us	24	static
-main.c:250:6:Error_Handler	4	static,ignoring_inline_asm
+main.c:75:5:main	16	static
+main.c:131:6:SystemClock_Config	88	static
+main.c:177:13:MX_ADC2_Init	24	static
+main.c:222:13:MX_TIM1_Init	32	static
+main.c:268:13:MX_GPIO_Init	40	static
+main.c:318:6:HAL_GPIO_EXTI_Callback	16	static
+main.c:328:5:adcval_to_us	24	static
+main.c:341:6:Error_Handler	4	static,ignoring_inline_asm
