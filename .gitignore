@@ -36,6 +36,9 @@
 .project
 .settings/
 
+# Debug 
+Debug/ 
+
 # Vagrant directory
 .vagrant/
 
