@@ -383,9 +383,9 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
     if(GPIO_Pin == ZC_IN_Pin) // If The INT Source Is EXTI Line0 (A0 Pin)
     {
     	num_zero_crossings++;
-    	HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_RESET); // Reset triac
+    	HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_SET); // Reset triac
     	delay_us(triac_fire_delay_us, &htim1);
-    	HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_SET); // Fire triac
+    	HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_RESET); // Fire triac
     }
 }
 

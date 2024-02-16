@@ -817,8 +817,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
  800056a:	b29a      	uxth	r2, r3
  800056c:	4b0a      	ldr	r3, [pc, #40]	; (8000598 <HAL_GPIO_EXTI_Callback+0x44>)
  800056e:	801a      	strh	r2, [r3, #0]
-    	HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_RESET); // Reset triac
- 8000570:	2200      	movs	r2, #0
+    	HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_SET); // Reset triac
+ 8000570:	2201      	movs	r2, #1
  8000572:	2120      	movs	r1, #32
  8000574:	4809      	ldr	r0, [pc, #36]	; (800059c <HAL_GPIO_EXTI_Callback+0x48>)
  8000576:	f001 f859 	bl	800162c <HAL_GPIO_WritePin>
@@ -828,8 +828,8 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
  800057e:	4909      	ldr	r1, [pc, #36]	; (80005a4 <HAL_GPIO_EXTI_Callback+0x50>)
  8000580:	4618      	mov	r0, r3
  8000582:	f002 f975 	bl	8002870 <delay_us>
-    	HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_SET); // Fire triac
- 8000586:	2201      	movs	r2, #1
+    	HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_RESET); // Fire triac
+ 8000586:	2200      	movs	r2, #0
  8000588:	2120      	movs	r1, #32
  800058a:	4804      	ldr	r0, [pc, #16]	; (800059c <HAL_GPIO_EXTI_Callback+0x48>)
  800058c:	f001 f84e 	bl	800162c <HAL_GPIO_WritePin>
