@@ -8,5 +8,5 @@ jobs:
     steps:
       - uses: xanderhendriks/action-build-stm32cubeide@v10.0
         with:
-          project-path: 'applications/sample_application/targets/STM32'
-          project-target: 'sample_application/Debug'    
+          project-path: .
+          project-target: .    
