@@ -45,6 +45,7 @@
 ADC_HandleTypeDef hadc2;
 
 TIM_HandleTypeDef htim1;
+TIM_HandleTypeDef htim4;
 
 /* USER CODE BEGIN PV */
 
@@ -55,6 +56,7 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_ADC2_Init(void);
 static void MX_TIM1_Init(void);
+static void MX_TIM4_Init(void);
 /* USER CODE BEGIN PFP */
 
 int adcval_to_us(int);
@@ -65,6 +67,7 @@ int adcval_to_us(int);
 /* USER CODE BEGIN 0 */
 
 uint16_t triac_fire_delay_us;
+uint16_t num_zero_crossings = 0;
 
 /* USER CODE END 0 */
 
@@ -99,8 +102,15 @@ int main(void)
   MX_GPIO_Init();
   MX_ADC2_Init();
   MX_TIM1_Init();
+  MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
+
+  // Start timers
   HAL_TIM_Base_Start(&htim1);
+  HAL_TIM_Base_Start(&htim4);
+
+  // Get timer 4 value (used for debug)
+  uint16_t timer4_val = __HAL_TIM_GET_COUNTER(&htim4);
 
   /* USER CODE END 2 */
 
@@ -116,6 +126,13 @@ int main(void)
 	// Convert raw POT1 ADC value (max 4096) to triac fire delay in microseconds
 	// Max value for triac fire delay is 8333 microseconds, or half 60Hz sine period
 	triac_fire_delay_us = adcval_to_us(pot1_adc_retval);
+
+	// Opportunity to check how many zero crossings have occurred with a breakpoint. num_zero_crossings resets every second.
+	if (__HAL_TIM_GET_COUNTER(&htim4) - timer4_val >= 10000)
+	{
+		num_zero_crossings = 0;
+		timer4_val = __HAL_TIM_GET_COUNTER(&htim4);
+	}
 
     /* USER CODE END WHILE */
 
@@ -261,6 +278,52 @@ static void MX_TIM1_Init(void)
 }
 
 /**
+  * @brief TIM4 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM4_Init(void)
+{
+
+  /* USER CODE BEGIN TIM4_Init 0 */
+
+  /* USER CODE END TIM4_Init 0 */
+
+  TIM_SlaveConfigTypeDef sSlaveConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM4_Init 1 */
+
+  /* USER CODE END TIM4_Init 1 */
+  htim4.Instance = TIM4;
+  htim4.Init.Prescaler = 1600-1;
+  htim4.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim4.Init.Period = 65535;
+  htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim4) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sSlaveConfig.SlaveMode = TIM_SLAVEMODE_DISABLE;
+  sSlaveConfig.InputTrigger = TIM_TS_ITR0;
+  if (HAL_TIM_SlaveConfigSynchro(&htim4, &sSlaveConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim4, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM4_Init 2 */
+
+  /* USER CODE END TIM4_Init 2 */
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -319,6 +382,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
     if(GPIO_Pin == ZC_IN_Pin) // If The INT Source Is EXTI Line0 (A0 Pin)
     {
+    	num_zero_crossings++;
     	HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_RESET); // Reset triac
     	delay_us(triac_fire_delay_us, &htim1);
     	HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_SET); // Fire triac
@@ -327,9 +391,21 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 
 int adcval_to_us(int rawADCValue)
 {
-	int scaleFactor = 8333 * 4096 / 4095;
-	int scaledValue = (rawADCValue * scaleFactor) >> 12;
-	return scaledValue;
+	const int max_adcval = 4096;
+	const int max_us = 8333;
+
+	// Ensure input is within valid range
+	if (max_adcval < 0)
+	{
+		rawADCValue = 0;
+	}
+	else if (rawADCValue > max_adcval)
+	{
+		rawADCValue = max_adcval;
+	}
+
+	// Perform linear scaling
+	return (rawADCValue * max_us) / max_adcval;
 }
 
 /* USER CODE END 4 */
