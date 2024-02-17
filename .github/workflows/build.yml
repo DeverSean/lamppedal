@@ -6,7 +6,10 @@ jobs:
   fw_build:    
     runs-on: ubuntu-latest
     steps:
-      - uses: xanderhendriks/action-build-stm32cubeide@v11.1
-        with:
-          project-path: 'App'
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Run xanderhendriks stm32cubeide build action
+        run: xanderhendriks/action-build-stm32cubeide@v11.1 project-path='App'
+        working-directory: /
           
