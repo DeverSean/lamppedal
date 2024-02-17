@@ -32,8 +32,6 @@
 *.png
 
 # Eclipse CDT project files
-.cproject
-.project
 .settings/
 
 # Debug 
