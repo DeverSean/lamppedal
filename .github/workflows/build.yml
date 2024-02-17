@@ -15,5 +15,5 @@ jobs:
       - name: Run xanderhendriks stm32cubeide build action
         uses: xanderhendriks/action-build-stm32cubeide@v11.1 
         with: 
-          project-path: 'App'
-          project-target: 'App'
+          project-path: 'targets/STM32'
+          project-target: '.'
