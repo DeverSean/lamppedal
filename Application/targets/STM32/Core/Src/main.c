@@ -42,7 +42,7 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
-//ADC_HandleTypeDef hadc2;
+ADC_HandleTypeDef hadc2;
 
 TIM_HandleTypeDef htim1;
 TIM_HandleTypeDef htim4;
