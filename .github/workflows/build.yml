@@ -17,4 +17,4 @@ jobs:
         id: build
         with: 
           project-path: 'Application/targets/STM32'
-          project-target: 'Lamp Pedal 02_24'
+          project-target: 'Lamp_Pedal'
