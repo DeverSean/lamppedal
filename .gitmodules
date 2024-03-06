@@ -1,0 +1,3 @@
+[submodule ".github/workflows/xanderhendriks/action-build-stm32cubeide"]
+	path = .github/workflows/xanderhendriks/action-build-stm32cubeide
+	url = git@github.com:xanderhendriks/action-build-stm32cubeide.git

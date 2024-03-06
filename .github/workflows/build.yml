@@ -1,0 +1,20 @@
+name: lamppedal build
+
+on: [push]
+
+jobs:
+  fw_build:    
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Change working directory to project root
+        run: cd /
+      
+      - name: Run xanderhendriks stm32cubeide build action
+        uses: xanderhendriks/action-build-stm32cubeide@v11.1 
+        id: build
+        with: 
+          project-path: 'Application/targets/STM32'
+          project-target: 'Lamp_Pedal'
