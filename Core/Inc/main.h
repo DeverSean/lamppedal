@@ -58,6 +58,9 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define ZC_IN_Pin GPIO_PIN_0
+#define ZC_IN_GPIO_Port GPIOA
+#define ZC_IN_EXTI_IRQn EXTI0_IRQn
 #define STOMP_Pin GPIO_PIN_2
 #define STOMP_GPIO_Port GPIOA
 #define POT1_Pin GPIO_PIN_3
@@ -70,6 +73,7 @@ void Error_Handler(void);
 #define POT4_GPIO_Port GPIOA
 #define TRIAC_FIRE_Pin GPIO_PIN_5
 #define TRIAC_FIRE_GPIO_Port GPIOB
+
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
@@ -79,5 +83,3 @@ void Error_Handler(void);
 #endif
 
 #endif /* __MAIN_H */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

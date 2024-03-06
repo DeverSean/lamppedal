@@ -24,6 +24,7 @@
 /* USER CODE BEGIN Includes */
 
 #include "../../Drivers/delay_us.h"
+#include "stdlib.h"
 
 /* USER CODE END Includes */
 
@@ -61,7 +62,8 @@ static void MX_TIM4_Init(void);
 static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 
-int adcval_to_us(int);
+uint32_t adcval_to_us(uint32_t);
+void update_arr (TIM_HandleTypeDef* htim, uint16_t arr);
 
 /* USER CODE END PFP */
 
@@ -70,6 +72,7 @@ int adcval_to_us(int);
 
 uint16_t triac_fire_delay_us;
 uint16_t num_zero_crossings = 0;
+uint16_t num_triac_fires = 0;
 
 /* USER CODE END 0 */
 
@@ -81,6 +84,9 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
 	uint16_t pot1_adc_retval;
+	uint16_t last_pot1_adc_retval = 0;
+	uint16_t pot1_adc_retval_margin = 50;
+	uint16_t triac_fire_holdoff_us = 8333;
 	//char msg[10];
   /* USER CODE END 1 */
 
@@ -112,29 +118,48 @@ int main(void)
   HAL_TIM_Base_Start(&htim1);
   HAL_TIM_Base_Start(&htim4);
 
+  //HAL_TIM_Base_Start_IT(&htim2);
+
   // Get timer 4 value (used for debug)
   uint16_t timer4_val = __HAL_TIM_GET_COUNTER(&htim4);
+
+  HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_SET); // Reset triac
+  HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_SET); // Reset triac
+  HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_RESET); // fire triac
+  HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_RESET); // fire triac
+  HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_SET); // Reset triac
+  HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_SET); // Reset triac
+  HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_RESET); // fire triac
+  HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_RESET); // fire triac
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
   while (1)
   {
 	// Get POT1 value with adc2
 	HAL_ADC_Start(&hadc2);
 	HAL_ADC_PollForConversion(&hadc2, HAL_MAX_DELAY);
+
 	pot1_adc_retval = HAL_ADC_GetValue(&hadc2);
+
 
 	// Convert raw POT1 ADC value (max 4096) to triac fire delay in microseconds
 	// Max value for triac fire delay is 8333 microseconds, or half 60Hz sine period
-	triac_fire_delay_us = adcval_to_us(pot1_adc_retval);
-
+	if (abs(last_pot1_adc_retval - pot1_adc_retval) >= pot1_adc_retval_margin)
+	{
+	triac_fire_holdoff_us = adcval_to_us(pot1_adc_retval);
+	update_arr(&htim2, triac_fire_holdoff_us);
+	last_pot1_adc_retval = pot1_adc_retval;
+	}
 	// Opportunity to check how many zero crossings have occurred with a breakpoint. num_zero_crossings resets every second.
 	if (__HAL_TIM_GET_COUNTER(&htim4) - timer4_val >= 10000)
 	{
 		num_zero_crossings = 0;
-		timer4_val = __HAL_TIM_GET_COUNTER(&htim4);
+		num_triac_fires = 0;
+		timer4_val = __HAL_TIM_GET_COUNTER(&htim4); // for debug
 	}
 
     /* USER CODE END WHILE */
@@ -168,13 +193,14 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+
   /** Initializes the CPU, AHB and APB buses clocks
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
   RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV2;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
@@ -206,6 +232,7 @@ static void MX_ADC2_Init(void)
   /* USER CODE BEGIN ADC2_Init 1 */
 
   /* USER CODE END ADC2_Init 1 */
+
   /** Common config
   */
   hadc2.Instance = ADC2;
@@ -219,6 +246,7 @@ static void MX_ADC2_Init(void)
   {
     Error_Handler();
   }
+
   /** Configure Regular Channel
   */
   sConfig.Channel = ADC_CHANNEL_3;
@@ -293,33 +321,23 @@ static void MX_TIM2_Init(void)
   /* USER CODE END TIM2_Init 0 */
 
   TIM_ClockConfigTypeDef sClockSourceConfig = {0};
-  TIM_SlaveConfigTypeDef sSlaveConfig = {0};
   TIM_MasterConfigTypeDef sMasterConfig = {0};
 
   /* USER CODE BEGIN TIM2_Init 1 */
 
   /* USER CODE END TIM2_Init 1 */
   htim2.Instance = TIM2;
-  htim2.Init.Prescaler = 16 - 1;
+  htim2.Init.Prescaler = 16-1;
   htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim2.Init.Period = 8333/2 - 1;
+  htim2.Init.Period = 8333-1;
   htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_Base_Init(&htim2) != HAL_OK)
   {
     Error_Handler();
   }
-  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_ETRMODE2;
-  sClockSourceConfig.ClockPolarity = TIM_CLOCKPOLARITY_NONINVERTED;
-  sClockSourceConfig.ClockPrescaler = TIM_CLOCKPRESCALER_DIV1;
-  sClockSourceConfig.ClockFilter = 0;
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
   if (HAL_TIM_ConfigClockSource(&htim2, &sClockSourceConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  sSlaveConfig.SlaveMode = TIM_SLAVEMODE_RESET;
-  sSlaveConfig.InputTrigger = TIM_TS_ITR0;
-  if (HAL_TIM_SlaveConfigSynchro(&htim2, &sSlaveConfig) != HAL_OK)
   {
     Error_Handler();
   }
@@ -389,6 +407,8 @@ static void MX_TIM4_Init(void)
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
+/* USER CODE BEGIN MX_GPIO_Init_1 */
+/* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOD_CLK_ENABLE();
@@ -400,6 +420,12 @@ static void MX_GPIO_Init(void)
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(TRIAC_FIRE_GPIO_Port, TRIAC_FIRE_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pin : ZC_IN_Pin */
+  GPIO_InitStruct.Pin = ZC_IN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(ZC_IN_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : STOMP_Pin */
   GPIO_InitStruct.Pin = STOMP_Pin;
@@ -421,26 +447,70 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(TRIAC_FIRE_GPIO_Port, &GPIO_InitStruct);
 
+  /* EXTI interrupt init*/
+  HAL_NVIC_SetPriority(EXTI0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(EXTI0_IRQn);
+
+/* USER CODE BEGIN MX_GPIO_Init_2 */
+/* USER CODE END MX_GPIO_Init_2 */
 }
 
 /* USER CODE BEGIN 4 */
 
 // EXTI Line0 External Interrupt ISR Handler CallBackFun
+// Starts interrupt timer when a zero crossing event occurs.
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
     if(GPIO_Pin == ZC_IN_Pin) // If The INT Source Is EXTI Line0 (A0 Pin)
     {
-    	num_zero_crossings++;
-    	HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_SET); // Reset triac
-    	delay_us(triac_fire_delay_us, &htim1);
-    	HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_RESET); // Fire triac
+    	HAL_TIM_Base_Start_IT(&htim2);
+    	num_zero_crossings++; // For debug
+    	//delay_us(triac_fire_delay_us, &htim1);
+    	//HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_RESET); // Fire triac
     }
 }
 
-int adcval_to_us(int rawADCValue)
+// Fires triac when timer 2 overflows then disables timer 2 until next zero crossing.
+// timer 2 overflow must always occur in less than 8.333ms after timer 2 starts.
+
+#define TRIAC_EN_DURATION_US 50;
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-	const int max_adcval = 4096;
-	const int max_us = 8333;
+	uint16_t timer2_val = __HAL_TIM_GET_COUNTER(&htim2); // for debug
+	// Timer overflow interrupt callback
+    if (htim->Instance == TIM2)
+    {
+    	timer2_val = __HAL_TIM_GET_COUNTER(&htim2); // for debug
+    	HAL_TIM_Base_Stop(&htim2); // Stop timer 2
+    	//HAL_TIM_Base_Stop_IT(&htim2); // Stop timer 2 IT
+    	TIM2->CNT = 0; // Reset timer 2 to zero
+    	timer2_val = __HAL_TIM_GET_COUNTER(&htim2); // for debug
+
+    	//HAL_TIM_Base_Stop_IT(&htim2);
+    	//HAL_TIM_Base_Stop(&htim2); // Stop timer 2. This function also resets the timer to zero.
+    	//timer2_val = __HAL_TIM_GET_COUNTER(&htim2); // for debug
+        //Fire triac
+    	HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_RESET); // Fire triac
+    	num_triac_fires++;
+    	delay_us(1, &htim1); // Pulse must by a certain width to fire triac reliably
+    	HAL_GPIO_WritePin(GPIOB, TRIAC_FIRE_Pin, GPIO_PIN_SET); // Reset triac control signal
+    }
+}
+
+void update_arr (TIM_HandleTypeDef* htim, uint16_t arr) {
+    __HAL_TIM_SET_AUTORELOAD(htim, arr);
+    if (__HAL_TIM_GET_COUNTER(htim) >= __HAL_TIM_GET_AUTORELOAD(htim)) {
+        htim->Instance->EGR  |= TIM_EGR_UG;
+    }
+}
+
+uint32_t adcval_to_us(uint32_t rawADCValue)
+{
+	// Change to defines
+	const uint32_t max_adcval = 4096;
+	const uint32_t max_us = 8333;
+	const uint32_t min_us = 500;
 
 	// Ensure input is within valid range
 	if (max_adcval < 0)
@@ -452,8 +522,15 @@ int adcval_to_us(int rawADCValue)
 		rawADCValue = max_adcval;
 	}
 
+	uint32_t scaled_val = (rawADCValue * max_us) / max_adcval;
+
+	if (scaled_val < min_us)
+	{
+		scaled_val = min_us;
+	}
+
 	// Perform linear scaling
-	return (rawADCValue * max_us) / max_adcval;
+	return scaled_val;
 }
 
 /* USER CODE END 4 */
@@ -489,5 +566,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
