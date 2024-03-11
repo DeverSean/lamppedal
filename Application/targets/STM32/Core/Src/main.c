@@ -508,9 +508,9 @@ void update_arr (TIM_HandleTypeDef* htim, uint16_t arr) {
 uint32_t adcval_to_us(uint32_t rawADCValue)
 {
 	// Change to defines
-	const uint32_t max_adcval = 4096;
-	const uint32_t max_us = 8333;
-	const uint32_t min_us = 500;
+	#define MAX_ADC_VAL 4096;
+	#define MAX_DLY_US 8333;
+	#define MIN_DLY_US 500;
 
 	// Ensure input is within valid range
 	if (max_adcval < 0)
