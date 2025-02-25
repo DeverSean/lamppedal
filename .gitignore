@@ -43,3 +43,4 @@ Debug/
 
 # Libraries
 /lib
+Application/targets/STM32/.settings/language.settings.xml
